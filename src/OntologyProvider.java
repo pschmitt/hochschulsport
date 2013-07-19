@@ -16,6 +16,9 @@ import java.util.regex.Pattern;
  * Time: 21:36
  */
 public class OntologyProvider {
+
+    private static volatile OntologyProvider instance;
+
     private OWLOntologyManager mOwlManager;
     private OWLDataFactory mOwlDataFactory;
     private OWLOntology mOntology;
@@ -29,9 +32,9 @@ public class OntologyProvider {
     private static final String IRI_SEPARATOR = "#";
 
     /**
-     * Constructor, sets up our object
+     * Constructor, sets up our object (private, cuz that's a singleton, bro !)
      */
-    public OntologyProvider() {
+    private OntologyProvider() {
         mClasses = new HashMap<String, IRI>();
         File owlFile = new File(ONTOLOGY_FILE);
         mOwlManager = OWLManager.createOWLOntologyManager();
@@ -53,36 +56,16 @@ public class OntologyProvider {
         }
     }
 
-    /**
-     * Strip language suffix and unnecessary quotes
-     *
-     * @param className Name of the class (dirty)
-     * @return Name of the class (clean)
-     */
-    private String cleanClassName(String className) {
-        return className.replaceAll("@en", "").replaceAll("\"", "");
-    }
-
-    private String cleanIRI(String iri) {
-        return iri.replaceAll("<", "").replaceAll(">", "");
-    }
-
-    // Source: http://stackoverflow.com/a/1806161/1872036
-    public static String extractUrl(String input) {
-        Pattern pattern = Pattern.compile(
-                "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
-                        "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" +
-                        "|mil|biz|info|mobi|name|aero|jobs|museum" +
-                        "|travel|[a-z]{2}))(:[\\d]{1,5})?" +
-                        "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" +
-                        "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" +
-                        "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" +
-                        "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b");
-
-        Matcher matcher = pattern.matcher(input);
-        return matcher.find() ? matcher.group() : null;
+    // Singleton
+    public static OntologyProvider getInstance() {
+        if (instance == null) {
+            synchronized (OntologyProvider.class) {
+                if (instance == null) {
+                    instance = new OntologyProvider();
+                }
+            }
+        }
+        return instance;
     }
 
     /**
@@ -101,22 +84,37 @@ public class OntologyProvider {
         return result;
     }
 
+    /**
+     * Check if the HashMap holding all IRIs and classnames was correctly set up
+     *
+     * @return true, if everything is okay
+     */
     private boolean checkHashMap() {
         return (mClasses != null) && (mClasses.size() > 0);
     }
 
+    /**
+     * Check the ontology for inconsistencies
+     *
+     * @return true, if there are no inconsistencies
+     */
     private boolean checkConsistency() {
         return mReasoner.isConsistent();
     }
 
+    /**
+     * Helper class that returns all subclasses of a given class
+     *
+     * @param className The name of the class whose subclasses we are looking for
+     * @return All sublasses of className
+     */
     private List<String> getAllSubclasses(String className) {
         List<String> subclasses = new ArrayList<String>();
         IRI iri = getIRI(className);
         OWLClass teamSport = mOwlDataFactory.getOWLClass(iri);
 //        Set<OWLClassExpression> allTeamSports = teamSport.getSubClasses(mOntology);
         // BAUSTELLE
-        OWLClassExpression expression = (OWLClassExpression) teamSport;
-        NodeSet subs = mReasoner.getSubClasses(expression, false);
+        NodeSet subs = mReasoner.getSubClasses(teamSport, false);
         for (Node sport : (Set<Node>) subs.getNodes()) {
             String iriString = extractUrl(sport.toString());
             if (iriString != null) {
@@ -130,10 +128,24 @@ public class OntologyProvider {
         return subclasses;
     }
 
+    /**
+     * Get all team sports
+     * <p/>
+     * TODO Do not return sports categories (ontology has be changed)
+     *
+     * @return A list containing all team sport names
+     */
     public List<String> getAllTeamSports() {
         return getAllSubclasses("Mannschaftssport");
     }
 
+    /**
+     * Get all inidividual sports
+     * <p/>
+     * TODO Do not return sports categories (ontology has be changed)
+     *
+     * @return A list containing all individual sport names
+     */
     public List<String> getAllIndividualSports() {
         return getAllSubclasses("Einzelsport");
     }
@@ -167,6 +179,40 @@ public class OntologyProvider {
     }
 
     /**
+     * Strip language suffix and unnecessary quotes
+     *
+     * @param className Name of the class (dirty)
+     * @return Name of the class (clean)
+     */
+    private String cleanClassName(String className) {
+        return className.replaceAll("@en", "").replaceAll("\"", "");
+    }
+
+    /**
+     * Extract an URL from a String
+     * Source: http://stackoverflow.com/a/1806161/1872036
+     *
+     * @param input The String to parse
+     * @return The URI, or null if input does not contain any URL
+     */
+    public static String extractUrl(String input) {
+        Pattern pattern = Pattern.compile(
+                "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
+                        "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" +
+                        "|mil|biz|info|mobi|name|aero|jobs|museum" +
+                        "|travel|[a-z]{2}))(:[\\d]{1,5})?" +
+                        "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" +
+                        "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
+                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" +
+                        "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
+                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" +
+                        "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b");
+
+        Matcher matcher = pattern.matcher(input);
+        return matcher.find() ? matcher.group() : null;
+    }
+
+    /**
      * Prints out the properties that instances of a class expression must have
      *
      * @param man      The manager
@@ -190,6 +236,15 @@ public class OntologyProvider {
         }
     }
 
+    /**
+     * Check whether a given object has a given property
+     *
+     * @param man      The manager
+     * @param reasoner The reasoner
+     * @param cls      The class expression
+     * @param prop     The property
+     * @return true, if the property exists
+     */
     private static boolean hasProperty(OWLOntologyManager man, OWLReasoner reasoner, OWLClass cls, OWLObjectPropertyExpression prop) {
         // To test whether the instances of a class must have a property we
         // create a some values from restriction and then ask for the

@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class main {
     public static void main(String[] args) {
-        OntologyProvider provider = new OntologyProvider();
+        OntologyProvider provider = OntologyProvider.getInstance();
         provider.check();
         ArrayList<String> teamSports = (ArrayList<String>) provider.getAllTeamSports();
         for (String sport : teamSports) {
