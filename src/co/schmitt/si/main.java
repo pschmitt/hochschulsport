@@ -1,3 +1,7 @@
+package co.schmitt.si;
+
+import co.schmitt.si.OntologyProvider;
+
 import java.util.ArrayList;
 
 /**

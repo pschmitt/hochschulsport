@@ -1,3 +1,5 @@
+package co.schmitt.si;
+
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
