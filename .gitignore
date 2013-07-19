@@ -23,3 +23,6 @@ out/*
 # Maven
 log/
 target/
+
+# Protege
+catalog-v*.xml
