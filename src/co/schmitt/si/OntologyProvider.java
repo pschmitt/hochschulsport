@@ -107,6 +107,9 @@ public class OntologyProvider {
     /**
      * Helper class that returns all subclasses of a given class
      *
+     * TODO Do not return sports categories (ontology has be changed)
+     * TODO Some sports seem to be missing (those how have an empty classname)
+     *
      * @param className The name of the class whose subclasses we are looking for
      * @return All sublasses of className
      */
@@ -132,8 +135,6 @@ public class OntologyProvider {
 
     /**
      * Get all team sports
-     * <p/>
-     * TODO Do not return sports categories (ontology has be changed)
      *
      * @return A list containing all team sport names
      */
@@ -143,8 +144,6 @@ public class OntologyProvider {
 
     /**
      * Get all inidividual sports
-     * <p/>
-     * TODO Do not return sports categories (ontology has be changed)
      *
      * @return A list containing all individual sport names
      */
