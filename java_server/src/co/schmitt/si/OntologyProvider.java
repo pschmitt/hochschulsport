@@ -30,9 +30,8 @@ public class OntologyProvider {
     private Reasoner mReasoner;
 
     // Constants
-    private static final String ONTOLOGY_FILE_FULL = "/home/pschmitt/dev/hochschulsport/java_server/res/htw_sport_entwurf_008.owl";
     private static final String ONTOLOGY_FILE = "htw_sport_entwurf_008.owl";
-    private static final String ONTOLOGY_FILE_ALT = "res/htw_rdfs.owl";
+    private static final String ONTOLOGY_FILE_ALT = "htw_rdfs.owl";
     private static final String IRI_SEPARATOR = "#";
 
     /**
