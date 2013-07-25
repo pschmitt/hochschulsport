@@ -1,0 +1,2919 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.schmitt.co/si/hochschulsport"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.schmitt.co/si/hochschulsport">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Aerobic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aikido"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aquafitness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Artistik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AufDemWasser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Badminton"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bahnradsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ballsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Baseball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bauch-Killer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Beachvolleyball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Body_&amp;_Mind"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Body_Fight"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Body_andHeadis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boxen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Capoeira"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cheerleading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drachenbootrennen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Draussen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drinnen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Einzelsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Einzelsportarten"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Entspannung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fechten"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fechtsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fit_and_Dance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fitness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Flamenco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Floorball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fussball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gerätturnen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Groupfitness_for_free"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Handball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Headis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hip_Hop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hot_Iron™"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ImWasser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Inline-Skating"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Inline_Hockey"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Irish_Dance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Jazz-Dance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Jonglieren"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ju-Jitsu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Judo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kampfsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kanu_und_Kajak"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Karate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kickboxen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Klassisches_Ballett"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Klettern"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kugelsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lacrosse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Laufen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Leichtathletik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lindy_Hop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mannschaftssport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MannschaftssportOderEinzelsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mannschaftssportarten"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Massage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meditation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Miscellaneous"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Orientierungslauf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ort"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pilates"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Power_Workout"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Radsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reiten"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Renaissance-Fechten"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rudern"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rugby"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rückenschule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Salsa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Schlaegersport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Schwimmen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Segelfliegen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Segeln"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Selbstverteidigung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Slacklining"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Speed-Badminton"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sportabzeichen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sportart"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenArtistik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenAufDemWasser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenBallsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenBoot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenDraussen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenDrinnen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenFechtsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenFitness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenImWasser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenKampfsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenKugelsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenLeichtathletik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenMiscellaneous"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenRadsport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenSchlaegersport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenTanzen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportartenWassersport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sportkategorie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sportschießen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Squash"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tai_Chi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tanzen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tennis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tischtennis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Trampolin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ultimate_Frisbee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unterwasserrugby"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Volleyball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wasser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wasserball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wassersport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Windsurfen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yoga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zirkuskünste"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zumba®"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hatOrt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#istMannschaftssport"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#istOberkategorieVon"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#istMannschatfssport"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Einzelsportarten"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mannschaftssportarten"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenArtistik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Artistik"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenAufDemWasser"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#AufDemWasser"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenBallsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenBoot"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenDraussen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenDrinnen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenFechtsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fechtsport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenFitness"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenImWasser"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#ImWasser"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenKampfsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenKugelsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kugelsport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenLeichtathletik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Leichtathletik"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenMiscellaneous"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenRadsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Radsport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenSchlaegersport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenTanzen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SportartenWassersport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Aerobic"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aerobic"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aerobic"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aerobic"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aikido"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aikido"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aikido"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aikido"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aquafitness"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aquafitness"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aquafitness"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#ImWasser"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aquafitness"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Artistik"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AufDemWasser"/>
+        <Class IRI="#Wasser"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badminton"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badminton"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badminton"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badminton"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bahnradsport"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bahnradsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Radsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bahnradsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bahnradsport"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ballsport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Baseball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Baseball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Baseball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Baseball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-Killer"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-Killer"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-Killer"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-Killer"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Beachvolleyball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Beachvolleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Beachvolleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Beachvolleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_&amp;_Mind"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_&amp;_Mind"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_&amp;_Mind"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_&amp;_Mind"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_Fight"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_Fight"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_Fight"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_Fight"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_andHeadis"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_andHeadis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_andHeadis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body_andHeadis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boot"/>
+        <Class IRI="#AufDemWasser"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boule"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kugelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boxen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Capoeira"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Capoeira"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Capoeira"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Capoeira"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cheerleading"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cheerleading"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cheerleading"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cheerleading"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drachenbootrennen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drachenbootrennen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drachenbootrennen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drachenbootrennen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Draussen"/>
+        <Class IRI="#Ort"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drinnen"/>
+        <Class IRI="#Ort"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Einzelsport"/>
+        <Class IRI="#MannschaftssportOderEinzelsport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Entspannung"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Entspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Entspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Entspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fechten"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fechtsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fechtsport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fit_and_Dance"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fit_and_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fit_and_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fit_and_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fitness"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flamenco"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flamenco"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flamenco"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flamenco"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floorball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floorball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floorball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floorball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fussball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fussball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fussball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fussball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gerätturnen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gerätturnen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Leichtathletik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gerätturnen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gerätturnen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Groupfitness_for_free"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Groupfitness_for_free"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Groupfitness_for_free"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Groupfitness_for_free"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Handball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Handball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Handball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Handball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Headis"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Headis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Headis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Headis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Headis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hip_Hop"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hip_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hip_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hip_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hot_Iron™"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hot_Iron™"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hot_Iron™"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hot_Iron™"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ImWasser"/>
+        <Class IRI="#Wasser"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline-Skating"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline-Skating"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline-Skating"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline-Skating"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline_Hockey"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline_Hockey"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline_Hockey"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inline_Hockey"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Irish_Dance"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Irish_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Irish_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Irish_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-Dance"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jonglieren"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jonglieren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Artistik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jonglieren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jonglieren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ju-Jitsu"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ju-Jitsu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ju-Jitsu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ju-Jitsu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Judo"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Judo"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Judo"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Judo"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kampfsport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kanu_und_Kajak"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kanu_und_Kajak"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kanu_und_Kajak"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kanu_und_Kajak"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Karate"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Karate"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Karate"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Karate"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kickboxen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kickboxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kickboxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kickboxen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klassisches_Ballett"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klassisches_Ballett"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klassisches_Ballett"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klassisches_Ballett"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klettern"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klettern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klettern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Klettern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kugelsport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lacrosse"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lacrosse"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lacrosse"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lacrosse"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Laufen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Laufen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Leichtathletik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Laufen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Laufen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Leichtathletik"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lindy_Hop"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lindy_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lindy_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lindy_Hop"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mannschaftssport"/>
+        <Class IRI="#MannschaftssportOderEinzelsport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Massage"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Massage"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Massage"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Massage"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meditation"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meditation"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meditation"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meditation"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Miscellaneous"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Orientierungslauf"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Orientierungslauf"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Leichtathletik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Orientierungslauf"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Orientierungslauf"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pilates"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pilates"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pilates"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pilates"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Power_Workout"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Power_Workout"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Power_Workout"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Power_Workout"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Radsport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reiten"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reiten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reiten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reiten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Renaissance-Fechten"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Renaissance-Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fechtsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Renaissance-Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Renaissance-Fechten"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rudern"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rudern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rudern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rudern"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rugby"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rückenschule"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rückenschule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rückenschule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rückenschule"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salsa"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salsa"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salsa"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salsa"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schlaegersport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schwimmen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schwimmen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schwimmen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#ImWasser"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schwimmen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segelfliegen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segelfliegen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segelfliegen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segelfliegen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Boot"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Selbstverteidigung"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Selbstverteidigung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Selbstverteidigung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Selbstverteidigung"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Slacklining"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Slacklining"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Slacklining"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Slacklining"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Speed-Badminton"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Speed-Badminton"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Speed-Badminton"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Speed-Badminton"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportabzeichen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportabzeichen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportabzeichen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportabzeichen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportart"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Ort"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportart"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#MannschaftssportOderEinzelsport"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportart"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Sportkategorie"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportkategorie"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#istOberkategorieVon"/>
+            <Class IRI="#Sportart"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportschießen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportschießen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Miscellaneous"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportschießen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sportschießen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Squash"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Squash"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Squash"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Squash"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Squash"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tai_Chi"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tai_Chi"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Kampfsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tai_Chi"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tai_Chi"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tanzen"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tischtennis"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tischtennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Schlaegersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tischtennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tischtennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tischtennis"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trampolin"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trampolin"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Leichtathletik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trampolin"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trampolin"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ultimate_Frisbee"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ultimate_Frisbee"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ultimate_Frisbee"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Draussen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ultimate_Frisbee"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unterwasserrugby"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unterwasserrugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unterwasserrugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#ImWasser"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unterwasserrugby"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volleyball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Ballsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volleyball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wasser"/>
+        <Class IRI="#Ort"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wasserball"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wasserball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wasserball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#ImWasser"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wasserball"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Mannschaftssport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wassersport"/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Windsurfen"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Windsurfen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Wassersport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Windsurfen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#AufDemWasser"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Windsurfen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yoga"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yoga"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Fitness"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yoga"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yoga"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zirkuskünste"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zirkuskünste"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Artistik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zirkuskünste"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zirkuskünste"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zumba®"/>
+        <Class IRI="#Sportart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zumba®"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+            <Class IRI="#Tanzen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zumba®"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatOrt"/>
+            <Class IRI="#Drinnen"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zumba®"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#istMannschaftssport"/>
+            <Class IRI="#Einzelsport"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Artistik"/>
+        <Class IRI="#Ballsport"/>
+        <Class IRI="#Fechtsport"/>
+        <Class IRI="#Fitness"/>
+        <Class IRI="#Kampfsport"/>
+        <Class IRI="#Kugelsport"/>
+        <Class IRI="#Leichtathletik"/>
+        <Class IRI="#Miscellaneous"/>
+        <Class IRI="#Radsport"/>
+        <Class IRI="#Schlaegersport"/>
+        <Class IRI="#Tanzen"/>
+        <Class IRI="#Wassersport"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AufDemWasser"/>
+        <Class IRI="#ImWasser"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Draussen"/>
+        <Class IRI="#Drinnen"/>
+        <Class IRI="#Wasser"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#MannschaftssportOderEinzelsport"/>
+        <Class IRI="#Ort"/>
+        <Class IRI="#Sportart"/>
+        <Class IRI="#Sportkategorie"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#istOberkategorieVon"/>
+        <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+        <Class IRI="#Sportart"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hatOrt"/>
+        <Class IRI="#Sportart"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#istOberkategorieVon"/>
+        <Class IRI="#Sportkategorie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#gehoertZuOberkategorie"/>
+        <Class IRI="#Sportkategorie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hatOrt"/>
+        <Class IRI="#Ort"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#istOberkategorieVon"/>
+        <Class IRI="#Sportart"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#istMannschatfssport"/>
+        <Class IRI="#Sportart"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#istMannschatfssport"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">both</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">no</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">yes</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

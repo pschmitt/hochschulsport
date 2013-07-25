@@ -5,13 +5,12 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 
 import java.io.File;
 import java.net.URISyntaxException;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * User: pschmitt
@@ -26,24 +25,31 @@ public class OntologyProvider {
     private OWLDataFactory mOwlDataFactory;
     private OWLOntology mOntology;
     private String mPrefix;
-    private HashMap<String, IRI> mClasses;
     private Reasoner mReasoner;
 
     // Constants
-    private static final String ONTOLOGY_FILE = "htw_sport_entwurf_008.owl";
+    private static final String ONTOLOGY_FILE = "htw_sport.owl";
     private static final String ONTOLOGY_FILE_ALT = "htw_rdfs.owl";
     private static final String IRI_SEPARATOR = "#";
+
+    private static final String INDIVIDUAL_SPORTS = "Einzelsportarten";
+    private static final String TEAM_SPORTS = "Mannschaftssportarten";
+    private static final String INDOOR_SPORTS = "SportartenDrinnen";
+    private static final String OUTDOOR_SPORTS = "SportartenDraussen";
+    private static final String WATER_SPORTS = "SportartenWasser";
+    private static final String BOAT_SPORTS = "SportartenBoot";
+    private static final String ON_WATER_SPORTS = "SportartenAufDemWasser";
+    private static final String IN_WATER_SPORTS = "SportartenImWasser";
 
     /**
      * Constructor, sets up our object (private, cuz that's a singleton, bro !)
      */
     private OntologyProvider() {
-        mClasses = new HashMap<String, IRI>();
-        // BAUSTELLE
-
         File owlFile = null;
         try {
             owlFile = new File(ClassLoader.getSystemClassLoader().getResource(ONTOLOGY_FILE).toURI());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -53,14 +59,6 @@ public class OntologyProvider {
             mOntology = mOwlManager.loadOntologyFromOntologyDocument(owlFile);
             mPrefix = mOntology.getOntologyID().getOntologyIRI() + IRI_SEPARATOR;
             mReasoner = new Reasoner(mOntology);
-            // Setup HashMap ([className] -> classURI)
-            Set<OWLClass> allClasses = mOntology.getClassesInSignature();
-            for (OWLClass cls : allClasses) {
-                Set<OWLAnnotation> ann = cls.getAnnotations(mOntology);
-                for (OWLAnnotation a : ann) {
-                    mClasses.put(cleanClassName(a.getValue().toString()), cls.getIRI());
-                }
-            }
         } catch (OWLOntologyCreationException e) {
             e.printStackTrace();
         }
@@ -88,19 +86,7 @@ public class OntologyProvider {
         boolean result = checkConsistency();
         if (!result)
             System.err.println("There is an error in the ontology... I may misbehave.");
-        result = checkHashMap();
-        if (!result)
-            System.err.println("There was something wrong when setting up the hashmap");
         return result;
-    }
-
-    /**
-     * Check if the HashMap holding all IRIs and classnames was correctly set up
-     *
-     * @return true, if everything is okay
-     */
-    private boolean checkHashMap() {
-        return (mClasses != null) && (mClasses.size() > 0);
     }
 
     /**
@@ -114,8 +100,7 @@ public class OntologyProvider {
 
     /**
      * Helper class that returns all subclasses of a given class
-     *
-     * TODO Do not return sports categories (ontology has be changed)
+     * <p/>
      * TODO Some sports seem to be missing (those how have an empty classname)
      *
      * @param className The name of the class whose subclasses we are looking for
@@ -123,19 +108,13 @@ public class OntologyProvider {
      */
     private List<String> getAllSubclasses(String className) {
         List<String> subclasses = new ArrayList<String>();
-        IRI iri = getIRI(className);
-        OWLClass teamSport = mOwlDataFactory.getOWLClass(iri);
-//        Set<OWLClassExpression> allTeamSports = teamSport.getSubClasses(mOntology);
-        // BAUSTELLE
-        NodeSet subs = mReasoner.getSubClasses(teamSport, false);
-        for (Node sport : (Set<Node>) subs.getNodes()) {
-            String iriString = extractUrl(sport.toString());
-            if (iriString != null) {
-                String subClassName = getClassName(IRI.create(iriString));
-                if (subClassName != null) {
-                    subclasses.add(subClassName);
-                    System.out.println("node: " + subClassName);
-                }
+        IRI iri = IRI.create(mPrefix + className);
+        OWLClassExpression teamSport = mOwlDataFactory.getOWLClass(iri);
+        NodeSet<OWLClass> allTeamSports = mReasoner.getSubClasses(teamSport, true); // true -> direct subclasses
+        for (Node sport : allTeamSports.getNodes()) {
+            Set sportEntity = sport.getEntities();
+            if (!sportEntity.isEmpty()) {
+                subclasses.add(((OWLClass) sportEntity.iterator().next()).getIRI().getFragment());
             }
         }
         return subclasses;
@@ -147,7 +126,7 @@ public class OntologyProvider {
      * @return A list containing all team sport names
      */
     public List<String> getAllTeamSports() {
-        return getAllSubclasses("Mannschaftssport");
+        return getAllSubclasses(TEAM_SPORTS);
     }
 
     /**
@@ -156,117 +135,60 @@ public class OntologyProvider {
      * @return A list containing all individual sport names
      */
     public List<String> getAllIndividualSports() {
-        return getAllSubclasses("Einzelsport");
+        return getAllSubclasses(INDIVIDUAL_SPORTS);
     }
 
     /**
-     * Retrieve a class specific IRI
+     * Get all indoor sports
      *
-     * @param className Name of the class
-     * @return The IRI
+     * @return A list containing all indoor sport names
      */
-
-    private IRI getIRI(String className) {
-        return mClasses.get(className);
+    public List<String> getAllIndoorSports() {
+        return getAllSubclasses(INDOOR_SPORTS);
     }
 
     /**
-     * Retrieve the class name from its IRI
+     * Get all outdoor sports
      *
-     * @param iri The IRI of the class
-     * @return The name of the class
+     * @return A list containing all outdoor sport names
      */
-    private String getClassName(IRI iri) {
-        if (!mClasses.containsValue(iri))
-            return null;
-        for (Map.Entry<String, IRI> entry : mClasses.entrySet()) {
-            if (entry.getValue().equals(iri)) {
-                return entry.getKey();
-            }
-        }
-        return null;
+    public List<String> getAllOutdoorSports() {
+        return getAllSubclasses(OUTDOOR_SPORTS);
     }
 
     /**
-     * Strip language suffix and unnecessary quotes
+     * Get all water sports
      *
-     * @param className Name of the class (dirty)
-     * @return Name of the class (clean)
+     * @return A list containing all water sport names
      */
-    private String cleanClassName(String className) {
-        return className.replaceAll("@en", "").replaceAll("\"", "");
+    public List<String> getAllWaterSports() {
+        return getAllSubclasses(WATER_SPORTS);
     }
 
     /**
-     * Extract an URL from a String
-     * Source: http://stackoverflow.com/a/1806161/1872036
+     * Get all water sports (ImWasser)
      *
-     * @param input The String to parse
-     * @return The URI, or null if input does not contain any URL
+     * @return A list containing all water sport names (ImWasser)
      */
-    public static String extractUrl(String input) {
-        Pattern pattern = Pattern.compile(
-                "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
-                        "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" +
-                        "|mil|biz|info|mobi|name|aero|jobs|museum" +
-                        "|travel|[a-z]{2}))(:[\\d]{1,5})?" +
-                        "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" +
-                        "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" +
-                        "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" +
-                        "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b");
-
-        Matcher matcher = pattern.matcher(input);
-        return matcher.find() ? matcher.group() : null;
+    public List<String> getAllInWaterSports() {
+        return getAllSubclasses(IN_WATER_SPORTS);
     }
 
     /**
-     * Prints out the properties that instances of a class expression must have
+     * Get all water sports (AufDemWasser)
      *
-     * @param man      The manager
-     * @param ont      The ontology
-     * @param reasoner The reasoner
-     * @param cls      The class expression
+     * @return A list containing all water sport names (AufDemWasser)
      */
-    private static void printProperties(OWLOntologyManager man, OWLOntology ont, OWLReasoner reasoner, OWLClass cls) {
-        if (!ont.containsClassInSignature(cls.getIRI())) {
-            throw new RuntimeException("Class not in signature of the ontology");
-        }
-        // Note that the following code could be optimised... if we find that
-        // instances of the specified class do not have a property, then we
-        // don't need to check the sub properties of this property
-        System.out.println("Properties of " + cls);
-        for (OWLObjectPropertyExpression prop : ont.getObjectPropertiesInSignature()) {
-            boolean sat = hasProperty(man, reasoner, cls, prop);
-            if (sat) {
-                System.out.println("Instances of " + cls + " necessarily have the property " + prop);
-            }
-        }
+    public List<String> getAllOnWaterSports() {
+        return getAllSubclasses(ON_WATER_SPORTS);
     }
 
     /**
-     * Check whether a given object has a given property
+     * Get all boat sports
      *
-     * @param man      The manager
-     * @param reasoner The reasoner
-     * @param cls      The class expression
-     * @param prop     The property
-     * @return true, if the property exists
+     * @return A list containing all boat sport names
      */
-    private static boolean hasProperty(OWLOntologyManager man, OWLReasoner reasoner, OWLClass cls, OWLObjectPropertyExpression prop) {
-        // To test whether the instances of a class must have a property we
-        // create a some values from restriction and then ask for the
-        // satisfiability of the class interesected with the complement of this
-        // some values from restriction. If the intersection is satisfiable then
-        // the instances of the class don't have to have the property,
-        // otherwise, they do.
-        OWLDataFactory dataFactory = man.getOWLDataFactory();
-        OWLClassExpression restriction = dataFactory.getOWLObjectSomeValuesFrom(prop, dataFactory.getOWLThing());
-        // Now we see if the intersection of the class and the complement of
-        // this restriction is satisfiable
-        OWLClassExpression complement = dataFactory.getOWLObjectComplementOf(restriction);
-        OWLClassExpression intersection = dataFactory.getOWLObjectIntersectionOf(cls, complement);
-        return !reasoner.isSatisfiable(intersection);
+    public List<String> getAllBoatSports() {
+        return getAllSubclasses(BOAT_SPORTS);
     }
 }
