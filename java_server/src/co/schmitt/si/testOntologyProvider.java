@@ -16,24 +16,45 @@ public class testOntologyProvider {
         mProvider = OntologyProvider.getInstance();
         mProvider.check();
 
-        testSportCategories();
-        testLocations();
-        testTeamSports();
-        testIndividualSports();
+        //        testAllSports();
+        //        testSportCategories();
+        //        testLocations();
+        //        testTeamSports();
+        //        testIndividualSports();
         testIndoorSports();
-        testOutdoorSports();
-        testWaterSports();
-        testInWaterSports();
-        testOnWaterSports();
-        testBoatSports();
+        //        testOutdoorSports();
+        //        testWaterSports();
+        //        testInWaterSports();
+        //        testOnWaterSports();
+        //        testBoatSports();
+        //        testSportsByCategory(new SportCategory("Ballsport"));
+        //        testSportsByLocation(new Location("Boot"));
+        //        testSportsByCategoryAndLocation(new SportCategory("Ballsport"), new Location("Drinnen"));
+        //        testDlQuery("gehoertZuOberkategorie exactly 1 Tanzen and hatOrt exactly 1 Drinnen");
+    }
+
+    private static void testAllSports() {
+        ArrayList<Sport> sports = (ArrayList<Sport>) mProvider.getAllSports();
+        for (Sport sport : sports) {
+            System.out.println(sport + " is a sport !");
+        }
+        System.out.println("# sports: " + sports.size());
     }
 
     private static void testLocations() {
         ArrayList<Location> locations = (ArrayList<Location>) mProvider.getAllLocations();
         for (Location sport : locations) {
-            System.out.println(sport + " is a sport category !");
+            System.out.println(sport + " is a location !");
         }
-        System.out.println("# sport categories: " + locations.size());
+        System.out.println("# locations: " + locations.size());
+    }
+
+    private static void testSportsByLocation(Location location) {
+        ArrayList<Sport> sportsByLocation = (ArrayList<Sport>) mProvider.getAllSportsByLocation(location);
+        for (Sport sport : sportsByLocation) {
+            System.out.println(sport + " is a " + location.getName() + " !");
+        }
+        System.out.println("# sports in " + location.getName() + ": " + sportsByLocation.size());
     }
 
     private static void testSportCategories() {
@@ -42,6 +63,22 @@ public class testOntologyProvider {
             System.out.println(sport + " is a sport category !");
         }
         System.out.println("# sport categories: " + categories.size());
+    }
+
+    private static void testSportsByCategory(SportCategory category) {
+        ArrayList<Sport> sportsByCategory = (ArrayList<Sport>) mProvider.getAllSportsByCategory(category);
+        for (Sport sport : sportsByCategory) {
+            System.out.println(sport + " is a " + category.getName() + " !");
+        }
+        System.out.println("# sports in " + category.getName() + ": " + sportsByCategory.size());
+    }
+
+    private static void testSportsByCategoryAndLocation(SportCategory category, Location location) {
+        ArrayList<Sport> teamSports = (ArrayList<Sport>) mProvider.getAllSportsByCategoryAndLocation(category, location);
+        for (Sport sport : teamSports) {
+            System.out.println(sport + " is a " + category.getName() + " + " + location.getName() + " !");
+        }
+        System.out.println("# sports in " + category.getName() + " + " + location.getName() + ": " + teamSports.size());
     }
 
     private static void testTeamSports() {
@@ -106,5 +143,13 @@ public class testOntologyProvider {
             System.out.println(sport + " is a boat sport !");
         }
         System.out.println("# boat sports: " + boatSports.size());
+    }
+
+    private static void testDlQuery(String query) {
+        ArrayList<Sport> queryResults = (ArrayList<Sport>) mProvider.SportsByDlQuery(query);
+        for (Sport sport : queryResults) {
+            System.out.println(sport + " is a subclass of " + query + " !");
+        }
+        System.out.println("# results: " + queryResults.size());
     }
 }

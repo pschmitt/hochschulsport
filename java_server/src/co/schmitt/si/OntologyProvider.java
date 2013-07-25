@@ -5,9 +5,12 @@ import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.SportCategory;
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.expression.ParserException;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
+import org.semanticweb.owlapi.util.ShortFormProvider;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -32,9 +35,10 @@ public class OntologyProvider {
 
     // Constants
     private static final String ONTOLOGY_FILE = "htw_sport.owl";
-    private static final String ONTOLOGY_FILE_ALT = "htw_rdfs.owl";
+    //    private static final String ONTOLOGY_FILE_ALT = "htw_rdfs.owl";
     private static final String IRI_SEPARATOR = "#";
 
+    private static final String SPORT_SPORTS = "Sportart";
     private static final String SPORT_LOCATIONS = "Ort";
     private static final String SPORT_CATEGORIES = "Sportkategorie";
     private static final String INDIVIDUAL_SPORTS = "Einzelsportarten";
@@ -46,6 +50,24 @@ public class OntologyProvider {
     private static final String ON_WATER_SPORTS = "SportartenAufDemWasser";
     private static final String IN_WATER_SPORTS = "SportartenImWasser";
 
+    // Sport categories
+   /* private static final String CATEGORY_ARTISTRY = "SportartenArtistik";
+    private static final String CATEGORY_ATHLETICS = "SportartenLeichtathletik";
+    private static final String CATEGORY_BALL_SPORTS = "SportartenBallSport";
+    private static final String CATEGORY_FENCING = "SportartenFechtsport";
+    private static final String CATEGORY_FITNESS = "SportartenFitness";
+    private static final String CATEGORY_MARTIAL_ARTS = "SportartenKampfsport";
+    private static final String CATEGORY_BOWLS = "SportartenKugelsport";
+    private static final String CATEGORY_MISC = "SportartenMiscellaneous";
+    private static final String CATEGORY_CYCLING = "SportartenRadsport";
+    private static final String CATEGORY_DANCING = "SportartenTanzen";
+    private static final String CATEGORY_WATER = "SportartenWassersport";
+    private static final String CATEGORY_RACKET = "SportartenSchlaegersport";*/
+
+    // Queries
+    private static final String QUERY_SPORTS_BY_CATEGORY = "gehoertZuOberkategorie exactly 1 ";
+    private static final String QUERY_SPORTS_BY_LOCATION = "hatOrt exactly 1 ";
+    private static final String QUERY_ALL_SPORTS = "Sportart ";
 
     /**
      * Constructor, sets up our object (private, cuz that's a singleton, bro !)
@@ -106,7 +128,8 @@ public class OntologyProvider {
      * <p/>
      * TODO Some sports seem to be missing (those how have an empty classname)
      *
-     * @param className The name of the class whose subclasses we are looking for
+     * @param className       The name of the class whose subclasses we are looking for
+     * @param directSublasses Whether only direct subclasses should be returned
      * @return All sublasses of className
      */
     private List<String> getAllSubclasses(String className, boolean directSublasses) {
@@ -117,14 +140,71 @@ public class OntologyProvider {
         for (Node sport : allTeamSports.getNodes()) {
             Set sportEntity = sport.getEntities();
             if (!sportEntity.isEmpty()) {
-                subclasses.add(((OWLClass) sportEntity.iterator().next()).getIRI().getFragment());
+                OWLClass entity = ((OWLClass) sportEntity.iterator().next());
+                if (!entity.isOWLNothing()) { // Return an empty list if no subclasses are found
+                    subclasses.add(entity.getIRI().getFragment());
+                }
             }
         }
         return subclasses;
     }
 
+    /**
+     * Execute a DL-Query and retrieve it result (subclasses)
+     *
+     * @param query The query
+     * @return All sublasses returned by the query
+     */
+    private List<String> dlQuery(String query) {
+        List<String> subclasses = new ArrayList<String>();
+        ShortFormProvider shortFormProvider = new SimpleShortFormProvider();   // Do we really need that ?
+        DLQueryParser parser = new DLQueryParser(mOntology, shortFormProvider);
+        OWLClassExpression classExpression = null;
+        try {
+            classExpression = parser.parseClassExpression(query);
+        } catch (ParserException e) {
+            e.printStackTrace();
+        }
+        NodeSet<OWLClass> subClasses = mReasoner.getSubClasses(classExpression, true);
+        for (Node sport : subClasses.getNodes()) {
+            Set sportEntity = sport.getEntities();
+            if (!sportEntity.isEmpty()) {
+                OWLClass entity = ((OWLClass) sportEntity.iterator().next());
+                if (!entity.isOWLNothing()) { // Return an empty list if no subclasses are found
+                    subclasses.add(entity.getIRI().getFragment());
+                }
+            }
+        }
+        return subclasses;
+    }
+
+    /**
+     * Retrieve a list of subclasses of a DL-Query
+     * For testing purpose.
+     *
+     * @param query The query
+     * @return A list containing all sports returned by the query
+     */
+    public List<Sport> SportsByDlQuery(String query) {
+        return castToSport(dlQuery(query));
+    }
+
+    /**
+     * Get all sports
+     *
+     * @return A list containing all sports
+     */
+    public List<Sport> getAllSports() {
+        return castToSport(getAllSubclasses(SPORT_SPORTS, false));
+    }
+
+    /**
+     * Get all locations
+     *
+     * @return A list containing all locations
+     */
     public List<Location> getAllLocations() {
-        return castToLocation(getAllSubclasses(SPORT_LOCATIONS, true));
+        return castToLocation(getAllSubclasses(SPORT_LOCATIONS, false));
     }
 
     /**
@@ -133,7 +213,7 @@ public class OntologyProvider {
      * @return A list containing all sport category
      */
     public List<SportCategory> getAllSportCategories() {
-        return castToSportCategory(getAllSubclasses(SPORT_CATEGORIES, true));
+        return castToSportCategory(getAllSubclasses(SPORT_CATEGORIES, false));
     }
 
     /**
@@ -142,8 +222,18 @@ public class OntologyProvider {
      * @param category The category
      * @return A list containing all sport within the category
      */
-    public List<Sport> getAllSports(SportCategory category) {
-        return castToSport(getAllSubclasses(category.getName(), true));
+    public List<Sport> getAllSportsByCategory(SportCategory category) {
+        return castToSport(dlQuery(QUERY_SPORTS_BY_CATEGORY + category.getName()));
+    }
+
+    /**
+     * Get all sports from a category
+     *
+     * @param location The category
+     * @return A list containing all sport within the category
+     */
+    public List<Sport> getAllSportsByLocation(Location location) {
+        return castToSport(dlQuery(QUERY_SPORTS_BY_LOCATION + location.getName()));
     }
 
     /**
@@ -153,15 +243,14 @@ public class OntologyProvider {
      * @param location The location
      * @return A list containing all sports within the category and the location
      */
-    public List<Sport> getAllSports(SportCategory category, Location location) {
-        // TODO !
-        return null;
+    public List<Sport> getAllSportsByCategoryAndLocation(SportCategory category, Location location) {
+        return castToSport(dlQuery(QUERY_SPORTS_BY_CATEGORY + category.getName() + " and " + QUERY_SPORTS_BY_LOCATION + location.getName()));
     }
 
     /**
      * Get all team sports
      *
-     * @return A list containing all team sport 
+     * @return A list containing all team sport
      */
     public List<Sport> getAllTeamSports() {
         return castToSport(getAllSubclasses(TEAM_SPORTS, true));
@@ -170,7 +259,7 @@ public class OntologyProvider {
     /**
      * Get all inidividual sports
      *
-     * @return A list containing all individual sport 
+     * @return A list containing all individual sport
      */
     public List<Sport> getAllIndividualSports() {
         return castToSport(getAllSubclasses(INDIVIDUAL_SPORTS, true));
@@ -179,7 +268,7 @@ public class OntologyProvider {
     /**
      * Get all indoor sports
      *
-     * @return A list containing all indoor sport 
+     * @return A list containing all indoor sport
      */
     public List<Sport> getAllIndoorSports() {
         return castToSport(getAllSubclasses(INDOOR_SPORTS, true));
@@ -188,7 +277,7 @@ public class OntologyProvider {
     /**
      * Get all outdoor sports
      *
-     * @return A list containing all outdoor sport 
+     * @return A list containing all outdoor sport
      */
     public List<Sport> getAllOutdoorSports() {
         return castToSport(getAllSubclasses(OUTDOOR_SPORTS, true));
@@ -197,7 +286,7 @@ public class OntologyProvider {
     /**
      * Get all water sports
      *
-     * @return A list containing all water sport 
+     * @return A list containing all water sport
      */
     public List<Sport> getAllWaterSports() {
         return castToSport(getAllSubclasses(WATER_SPORTS, true));
@@ -224,7 +313,7 @@ public class OntologyProvider {
     /**
      * Get all boat sports
      *
-     * @return A list containing all boat sport 
+     * @return A list containing all boat sport
      */
     public List<Sport> getAllBoatSports() {
         return castToSport(getAllSubclasses(BOAT_SPORTS, true));
@@ -237,7 +326,7 @@ public class OntologyProvider {
      * @return A sports list
      */
     private List<Sport> castToSport(List<String> list) {
-        ArrayList<Sport> sportsList = new ArrayList<Sport>();
+        List<Sport> sportsList = new ArrayList<Sport>();
         for (String name : list) {
             sportsList.add(new Sport(name));
         }
@@ -251,7 +340,7 @@ public class OntologyProvider {
      * @return A sport categories list
      */
     private List<SportCategory> castToSportCategory(List<String> list) {
-        ArrayList<SportCategory> sportCategoriesList = new ArrayList<SportCategory>();
+        List<SportCategory> sportCategoriesList = new ArrayList<SportCategory>();
         for (String name : list) {
             sportCategoriesList.add(new SportCategory(name));
         }
@@ -265,7 +354,7 @@ public class OntologyProvider {
      * @return A location list
      */
     private List<Location> castToLocation(List<String> list) {
-        ArrayList<Location> locationList = new ArrayList<Location>();
+        List<Location> locationList = new ArrayList<Location>();
         for (String name : list) {
             locationList.add(new Location(name));
         }
