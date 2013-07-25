@@ -64,11 +64,6 @@ public class OntologyProvider {
     private static final String CATEGORY_WATER = "SportartenWassersport";
     private static final String CATEGORY_RACKET = "SportartenSchlaegersport";*/
 
-    // Queries
-    private static final String QUERY_SPORTS_BY_CATEGORY = "gehoertZuOberkategorie exactly 1 ";
-    private static final String QUERY_SPORTS_BY_LOCATION = "hatOrt exactly 1 ";
-    private static final String QUERY_ALL_SPORTS = "Sportart ";
-
     /**
      * Constructor, sets up our object (private, cuz that's a singleton, bro !)
      */
@@ -223,7 +218,7 @@ public class OntologyProvider {
      * @return A list containing all sport within the category
      */
     public List<Sport> getAllSportsByCategory(SportCategory category) {
-        return castToSport(dlQuery(QUERY_SPORTS_BY_CATEGORY + category.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName()));
     }
 
     /**
@@ -233,7 +228,7 @@ public class OntologyProvider {
      * @return A list containing all sport within the category
      */
     public List<Sport> getAllSportsByLocation(Location location) {
-        return castToSport(dlQuery(QUERY_SPORTS_BY_LOCATION + location.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_LOCATION + location.getName()));
     }
 
     /**
@@ -244,7 +239,7 @@ public class OntologyProvider {
      * @return A list containing all sports within the category and the location
      */
     public List<Sport> getAllSportsByCategoryAndLocation(SportCategory category, Location location) {
-        return castToSport(dlQuery(QUERY_SPORTS_BY_CATEGORY + category.getName() + " and " + QUERY_SPORTS_BY_LOCATION + location.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName() + " and " + DLQueries.SPORTS_BY_LOCATION + location.getName()));
     }
 
     /**
