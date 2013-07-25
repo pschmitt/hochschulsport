@@ -43,12 +43,12 @@ public class OntologyProvider {
     private static final String SPORT_CATEGORIES = "Sportkategorie";
     private static final String INDIVIDUAL_SPORTS = "Einzelsportarten";
     private static final String TEAM_SPORTS = "Mannschaftssportarten";
-    private static final String INDOOR_SPORTS = "SportartenDrinnen";
+    /*private static final String INDOOR_SPORTS = "SportartenDrinnen";
     private static final String OUTDOOR_SPORTS = "SportartenDraussen";
     private static final String WATER_SPORTS = "SportartenWasser";
     private static final String BOAT_SPORTS = "SportartenBoot";
     private static final String ON_WATER_SPORTS = "SportartenAufDemWasser";
-    private static final String IN_WATER_SPORTS = "SportartenImWasser";
+    private static final String IN_WATER_SPORTS = "SportartenImWasser";*/
 
     // Sport categories
    /* private static final String CATEGORY_ARTISTRY = "SportartenArtistik";
@@ -150,7 +150,7 @@ public class OntologyProvider {
      * @param query The query
      * @return All sublasses returned by the query
      */
-    private List<String> dlQuery(String query) {
+    private List<String> dlQuery(String query, boolean directSublasses) {
         List<String> subclasses = new ArrayList<String>();
         ShortFormProvider shortFormProvider = new SimpleShortFormProvider();   // Do we really need that ?
         DLQueryParser parser = new DLQueryParser(mOntology, shortFormProvider);
@@ -160,7 +160,7 @@ public class OntologyProvider {
         } catch (ParserException e) {
             e.printStackTrace();
         }
-        NodeSet<OWLClass> subClasses = mReasoner.getSubClasses(classExpression, true);
+        NodeSet<OWLClass> subClasses = mReasoner.getSubClasses(classExpression, directSublasses);
         for (Node sport : subClasses.getNodes()) {
             Set sportEntity = sport.getEntities();
             if (!sportEntity.isEmpty()) {
@@ -181,7 +181,7 @@ public class OntologyProvider {
      * @return A list containing all sports returned by the query
      */
     public List<Sport> SportsByDlQuery(String query) {
-        return castToSport(dlQuery(query));
+        return castToSport(dlQuery(query,true));
     }
 
     /**
@@ -218,7 +218,7 @@ public class OntologyProvider {
      * @return A list containing all sport within the category
      */
     public List<Sport> getAllSportsByCategory(SportCategory category) {
-        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName(), true));
     }
 
     /**
@@ -228,7 +228,7 @@ public class OntologyProvider {
      * @return A list containing all sport within the category
      */
     public List<Sport> getAllSportsByLocation(Location location) {
-        return castToSport(dlQuery(DLQueries.SPORTS_BY_LOCATION + location.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_LOCATION + location.getName(), true));
     }
 
     /**
@@ -239,7 +239,7 @@ public class OntologyProvider {
      * @return A list containing all sports within the category and the location
      */
     public List<Sport> getAllSportsByCategoryAndLocation(SportCategory category, Location location) {
-        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName() + " and " + DLQueries.SPORTS_BY_LOCATION + location.getName()));
+        return castToSport(dlQuery(DLQueries.SPORTS_BY_CATEGORY + category.getName() + " and " + DLQueries.SPORTS_BY_LOCATION + location.getName(), true));
     }
 
     /**
@@ -266,7 +266,7 @@ public class OntologyProvider {
      * @return A list containing all indoor sport
      */
     public List<Sport> getAllIndoorSports() {
-        return castToSport(getAllSubclasses(INDOOR_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_INDOOR, true));
     }
 
     /**
@@ -275,7 +275,7 @@ public class OntologyProvider {
      * @return A list containing all outdoor sport
      */
     public List<Sport> getAllOutdoorSports() {
-        return castToSport(getAllSubclasses(OUTDOOR_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_OUTDOOR, true));
     }
 
     /**
@@ -284,7 +284,7 @@ public class OntologyProvider {
      * @return A list containing all water sport
      */
     public List<Sport> getAllWaterSports() {
-        return castToSport(getAllSubclasses(WATER_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_WATER, true));
     }
 
     /**
@@ -293,7 +293,7 @@ public class OntologyProvider {
      * @return A list containing all water sport  (ImWasser)
      */
     public List<Sport> getAllInWaterSports() {
-        return castToSport(getAllSubclasses(IN_WATER_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_IN_WATER, true));
     }
 
     /**
@@ -302,7 +302,7 @@ public class OntologyProvider {
      * @return A list containing all water sport  (AufDemWasser)
      */
     public List<Sport> getAllOnWaterSports() {
-        return castToSport(getAllSubclasses(ON_WATER_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_ON_WATER, true));
     }
 
     /**
@@ -311,7 +311,7 @@ public class OntologyProvider {
      * @return A list containing all boat sport
      */
     public List<Sport> getAllBoatSports() {
-        return castToSport(getAllSubclasses(BOAT_SPORTS, true));
+        return castToSport(dlQuery(DLQueries.SPORTS_BOAT, true));
     }
 
     /**

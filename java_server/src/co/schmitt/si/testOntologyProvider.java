@@ -16,12 +16,12 @@ public class testOntologyProvider {
         mProvider = OntologyProvider.getInstance();
         mProvider.check();
 
-        //        testAllSports();
+                testAllSports();
         //        testSportCategories();
         //        testLocations();
         //        testTeamSports();
         //        testIndividualSports();
-        testIndoorSports();
+//        testIndoorSports();
         //        testOutdoorSports();
         //        testWaterSports();
         //        testInWaterSports();
