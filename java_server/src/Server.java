@@ -1,4 +1,5 @@
 import co.schmitt.si.OntologyProvider;
+import co.schmitt.si.model.Sport;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
@@ -32,12 +33,12 @@ public class Server {
     private static void testOntologyProvider() {
         OntologyProvider provider = OntologyProvider.getInstance();
         provider.check();
-        ArrayList<String> teamSports = (ArrayList<String>) provider.getAllTeamSports();
-        for (String sport : teamSports) {
+        ArrayList<Sport> teamSports = (ArrayList<Sport>) provider.getAllTeamSports();
+        for (Sport sport : teamSports) {
             System.out.println(sport + " is a team sport !");
         }
-        ArrayList<String> indivSports = (ArrayList<String>) provider.getAllIndividualSports();
-        for (String sport : indivSports) {
+        ArrayList<Sport> indivSports = (ArrayList<Sport>) provider.getAllIndividualSports();
+        for (Sport sport : indivSports) {
             System.out.println(sport + " is an invidual sport !");
         }
 
