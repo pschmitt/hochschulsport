@@ -1,6 +1,4 @@
 hochschulsport
 ==============
 
-Semantische Interoperabilität - SoSe 2013 
-
-TEST
+Semantische Interoperabilität - SoSe 2013
