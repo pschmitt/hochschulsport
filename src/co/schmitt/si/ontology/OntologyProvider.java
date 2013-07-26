@@ -1,8 +1,9 @@
-package co.schmitt.si;
+package co.schmitt.si.ontology;
 
 import co.schmitt.si.model.Location;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.SportCategory;
+
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.expression.ParserException;
@@ -132,8 +133,8 @@ public class OntologyProvider {
         IRI iri = IRI.create(mPrefix + className);
         OWLClassExpression teamSport = mOwlDataFactory.getOWLClass(iri);
         NodeSet<OWLClass> allTeamSports = mReasoner.getSubClasses(teamSport, directSublasses); // true -> direct subclasses /!\ Nothing
-        for (Node sport : allTeamSports.getNodes()) {
-            Set sportEntity = sport.getEntities();
+        for (Node<?> sport : allTeamSports.getNodes()) {
+            Set<?> sportEntity = sport.getEntities();
             if (!sportEntity.isEmpty()) {
                 OWLClass entity = ((OWLClass) sportEntity.iterator().next());
                 if (!entity.isOWLNothing()) { // Return an empty list if no subclasses are found
@@ -161,8 +162,8 @@ public class OntologyProvider {
             e.printStackTrace();
         }
         NodeSet<OWLClass> subClasses = mReasoner.getSubClasses(classExpression, directSublasses);
-        for (Node sport : subClasses.getNodes()) {
-            Set sportEntity = sport.getEntities();
+        for (Node<?> sport : subClasses.getNodes()) {
+            Set<?> sportEntity = sport.getEntities();
             if (!sportEntity.isEmpty()) {
                 OWLClass entity = ((OWLClass) sportEntity.iterator().next());
                 if (!entity.isOWLNothing()) { // Return an empty list if no subclasses are found

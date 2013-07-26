@@ -1,4 +1,4 @@
-package co.schmitt.si;
+package co.schmitt.si.ontology;
 
 import co.schmitt.si.model.Location;
 import co.schmitt.si.model.Sport;
