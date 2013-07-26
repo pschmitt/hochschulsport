@@ -1,4 +1,4 @@
-package co.schmitt.si;
+package co.schmitt.si.ontology;
 
 /**
  *   Source: http://sourceforge.net/p/owlapi/code/ci/aef6981535f07a2d0d44c394b9f4d5415f36025a/tree/contract/src/test/java/org/coode/owlapi/examples/DLQueryExample.java#l210

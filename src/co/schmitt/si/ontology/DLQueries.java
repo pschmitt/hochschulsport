@@ -1,4 +1,4 @@
-package co.schmitt.si;
+package co.schmitt.si.ontology;
 
 /**
  * Created by pschmitt on 7/25/13.
