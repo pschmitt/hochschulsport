@@ -28,3 +28,8 @@ target/
 catalog-v*.xml
 
 /bin
+
+# Hyper SQL
+*.tmp/
+*.log
+*.lck
