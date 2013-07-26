@@ -1,18 +1,9 @@
 package co.schmitt.si.gui;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 @SuppressWarnings("serial")
 public class MainGUI extends JFrame implements ActionListener {
@@ -68,9 +59,9 @@ public class MainGUI extends JFrame implements ActionListener {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(50, 50, 10, 10);
 		questionLabel = new JLabel();
-		setQuestionLabel("Möchtest du lieber Mannschaftssport oder Einzelsport machen?"); // später
-																							// über
-																							// set-Methode
+        setQuestionLabel("MÃ¶chtest du lieber Mannschaftssport oder Einzelsport machen?"); // spÃ¤ter
+        // Ã¼ber
+        // set-Methode
 		contentPanel.add(questionLabel, c);
 
 		c = new GridBagConstraints();
