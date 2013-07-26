@@ -1,8 +1,8 @@
 package co.schmitt.si.ontology;
 
-import co.schmitt.si.ontology.model.Location;
-import co.schmitt.si.ontology.model.Sport;
-import co.schmitt.si.ontology.model.SportCategory;
+import co.schmitt.si.model.Location;
+import co.schmitt.si.model.Sport;
+import co.schmitt.si.model.SportCategory;
 
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
