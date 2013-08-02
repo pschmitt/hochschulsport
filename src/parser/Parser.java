@@ -34,7 +34,7 @@ public class Parser {
 
 	public String getNextQuestion(String answer) {
 		currentQuestionID = NextQuestionID.get(answer);
-
+		
 		Element currentQuestion = (Element) QuestionsList
 				.get(currentQuestionID);
 
@@ -76,7 +76,7 @@ public class Parser {
 
 			choicesArrayList.add(text);
 			if (next_question_id != null) {
-				NextQuestionID.put(text, Integer.parseInt(next_question_id));
+				NextQuestionID.put(text, Integer.parseInt(next_question_id)-1);
 			}
 
 		}
