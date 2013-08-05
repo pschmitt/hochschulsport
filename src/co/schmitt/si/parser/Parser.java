@@ -1,6 +1,7 @@
 package co.schmitt.si.parser;
 
 import co.schmitt.si.model.Question;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -27,7 +28,7 @@ public class Parser {
     static int currentQuestionID = 0;
     static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
 
-    private List QuestionsList;
+    private List<Element> QuestionsList;
 
     public Parser() {
 
@@ -113,13 +114,13 @@ public class Parser {
                 .get(currentQuestionID);
 
         // List with CHOICES
-        List choicesList = (List) currentQuestion.getChildren(TAG_CHOICES);
+		List<Element> choicesList = (List<Element>) currentQuestion.getChildren(TAG_CHOICES);
 
         // CHOICES Element
         Element choicesListElement = (Element) choicesList.get(0);
 
         // CHOICE List
-        List choices = choicesListElement.getChildren();
+        List<Element> choices = choicesListElement.getChildren();
 
         ArrayList<String> choicesArrayList = new ArrayList<String>();
 
