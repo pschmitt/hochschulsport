@@ -51,10 +51,10 @@ public class Parser {
      * Check whether we reached the end of our scenario
      *
      * @param answer The last answer the user gave
-     * @return True if there are questions left
+     * @return True if there are any questions left
      */
     public boolean hasNext(String answer) {
-        return NextQuestionID.get(answer) != null;
+        return NextQuestionID.containsKey(answer);
     }
 
     public Question getNextQuestion(String answer) {
@@ -74,7 +74,13 @@ public class Parser {
         return new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
     }
 
-    public Question.QUESTION_TYPE getType(Element question) {
+    /**
+     * Determine the type of question
+     *
+     * @param question XMLElement holding question
+     * @return QUESTION_TYPE.[ LOCATION | TEAM_SPORT | SPORT_CATEGORY ]
+     */
+    private Question.QUESTION_TYPE getType(Element question) {
         String typeString = question.getChildText(TAG_TYPE);
         Question.QUESTION_TYPE actualType = null;
         if (Question.QUESTION_TYPE.LOCATION.name().equals(typeString)) {

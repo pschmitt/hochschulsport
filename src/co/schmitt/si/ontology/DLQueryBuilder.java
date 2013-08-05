@@ -1,5 +1,7 @@
 package co.schmitt.si.ontology;
 
+import co.schmitt.si.model.Question;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,7 @@ public class DLQueryBuilder {
     private DLQueryBuilder() {
     }
 
-    public static String buildQuery(List<String> answers) {
+    public static String buildQuery(List<Question> answers) {
         // TODO
         String dlQuery = new String();
         return dlQuery;
