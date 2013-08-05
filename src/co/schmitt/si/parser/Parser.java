@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Parser {
 
-    public static final String SZENARIO_FILE = "Szenario_Struktur.xml";
+    public static final String SCENARIO_FILE = "Szenario_Struktur.xml";
     static int currentQuestionID = 0;
     static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
 
@@ -25,7 +25,7 @@ public class Parser {
         SAXBuilder builder = new SAXBuilder();
 
         try {
-            File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(SZENARIO_FILE).toURI());
+            File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(SCENARIO_FILE).toURI());
             Document document = (Document) builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             QuestionsList = rootNode.getChildren("QUESTION");
@@ -36,6 +36,16 @@ public class Parser {
         } catch (JDOMException jdomex) {
             System.out.println(jdomex.getMessage());
         }
+    }
+
+    /**
+     * Check whether we reached the end of our scenario
+     *
+     * @param answer The last answer the user gave
+     * @return True if there are questions left
+     */
+    public boolean hasNext(String answer) {
+        return NextQuestionID.get(answer) != null;
     }
 
     public String getNextQuestion(String answer) {
