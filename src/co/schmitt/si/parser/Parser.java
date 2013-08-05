@@ -57,8 +57,15 @@ public class Parser {
         return NextQuestionID.containsKey(answer);
     }
 
+    /**
+     * Retrieve the next question, depending on what the user answered
+     *
+     * @param answer The answer the user gave to the current question
+     * @return The next question
+     */
     public Question getNextQuestion(String answer) {
-        currentQuestionID = NextQuestionID.get(answer);
+        if (NextQuestionID.containsKey(answer))
+            currentQuestionID = NextQuestionID.get(answer);
 
         Element currentQuestion = (Element) QuestionsList
                 .get(currentQuestionID);
@@ -66,12 +73,13 @@ public class Parser {
         return new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
     }
 
+    /**
+     * Get the very first question. Should only be called once.
+     *
+     * @return The first question
+     */
     public Question getFirstQuestion() {
-
-        Element currentQuestion = (Element) QuestionsList
-                .get(currentQuestionID);
-
-        return new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
+        return getNextQuestion(null);
     }
 
     /**
@@ -93,6 +101,11 @@ public class Parser {
         return actualType;
     }
 
+    /**
+     * Retrieve all possible answers to the current question
+     *
+     * @return A list with all possible answers
+     */
     public List<String> getChoices() {
 
         // Current Question
@@ -115,12 +128,12 @@ public class Parser {
             Element choiceElement = (Element) choices.get(i);
 
             String text = choiceElement.getChildText(TAG_TEXT);
-            String next_question_id = choiceElement
+            String nextQuestionId = choiceElement
                     .getChildText(TAG_NEXT_QUESTION_ID);
 
             choicesArrayList.add(text);
-            if (next_question_id != null) {
-                NextQuestionID.put(text, Integer.parseInt(next_question_id) - 1);
+            if (nextQuestionId != null) {
+                NextQuestionID.put(text, Integer.parseInt(nextQuestionId) - 1);
             }
 
         }

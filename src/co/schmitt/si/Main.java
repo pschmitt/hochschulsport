@@ -43,12 +43,11 @@ public class Main implements ActionListener {
 
     public Main() {
         mParser = new Parser();
+        mScenario = new ArrayList<Question>();
         mCurrentQuestion = mParser.getFirstQuestion();
         mGui = new MainGUI();
         mGui.registerAnswerListener(this);
-        mGui.setQuestion(mCurrentQuestion.getQuestion());
-        mGui.setChoices(mParser.getChoices());
-        mScenario = new ArrayList<Question>();
+        updateGui();
     }
 
     public MainGUI getGui() {
@@ -72,8 +71,7 @@ public class Main implements ActionListener {
     private void proceedToNextQuestion() {
         if (mParser.hasNext(mCurrentQuestion.getAnswer())) {
             mCurrentQuestion = mParser.getNextQuestion(mCurrentQuestion.getAnswer());
-            mGui.setChoices(mParser.getChoices());
-            mGui.setQuestion(mCurrentQuestion.getQuestion());
+            updateGui();
         } else {
             // Reached end of scenario
             // TODO get sport details and display timetable
@@ -81,6 +79,14 @@ public class Main implements ActionListener {
             List<TimeTableModel> timeTableData = getTimeTableData(sports);
             // mGui.showTimetable(timeTableData);
         }
+    }
+
+    /**
+     * Update the user interface: display current question and possible answers
+     */
+    private void updateGui() {
+        mGui.setQuestion(mCurrentQuestion.getQuestion());
+        mGui.setChoices(mParser.getChoices());
     }
 
     /**
