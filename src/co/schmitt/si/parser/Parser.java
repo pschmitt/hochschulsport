@@ -55,7 +55,7 @@ public class Parser {
         return currentQuestion.getChildText("TEXT");
     }
 
-    public ArrayList<String> getChoices() {
+    public List<String> getChoices() {
 
         // Current Question
         Element currentQuestion = (Element) QuestionsList

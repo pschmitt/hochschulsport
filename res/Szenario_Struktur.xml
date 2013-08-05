@@ -7,7 +7,7 @@
         <TEXT>Möchten Sie lieber Mannschaft oder Einzelsport machen?</TEXT>
         <CHOICES>
             <CHOICE>
-                <TEXT>Mannschaft</TEXT>
+                <TEXT>Mannschaftssport</TEXT>
                 <NEXT_QUESTION_ID>2</NEXT_QUESTION_ID>
             </CHOICE>
             <CHOICE>

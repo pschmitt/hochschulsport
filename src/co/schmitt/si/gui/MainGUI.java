@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * Created by sophia.
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 @SuppressWarnings("serial")
 public class MainGUI extends JFrame implements ActionListener {
 
+    public static final String ACTION_ANSWER = "answer";
     private JLabel questionLabel;
     private JComboBox<String> answerComboBox;
     private JButton answerButton;
@@ -83,7 +85,7 @@ public class MainGUI extends JFrame implements ActionListener {
         c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.insets = new Insets(10, 10, 50, 50);
         answerButton = new JButton("Antworten");
-        answerButton.setActionCommand("answer");
+        answerButton.setActionCommand(ACTION_ANSWER);
         answerButton.addActionListener(this);
         contentPanel.add(answerButton, c);
 
@@ -124,7 +126,7 @@ public class MainGUI extends JFrame implements ActionListener {
         return questionLabel.getText();
     }
 
-    public void setAnswer(String[] items) {
+    public void setChoices(List<String> items) {
         answerComboBox.removeAllItems();
         for (String item : items) {
             answerComboBox.addItem(item);
@@ -133,5 +135,9 @@ public class MainGUI extends JFrame implements ActionListener {
 
     public String getAnswer() {
         return (String) answerComboBox.getSelectedItem();
+    }
+
+    public void registerAnswerListener(ActionListener listener) {
+        answerButton.addActionListener(listener);
     }
 }
