@@ -5,6 +5,7 @@
     <QUESTION>
         <ID>1</ID>
         <TEXT>Möchten Sie lieber Mannschaft oder Einzelsport machen?</TEXT>
+        <TYPE>TEAM_SPORT</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Mannschaftssport</TEXT>
@@ -20,6 +21,7 @@
     <QUESTION>
         <ID>2</ID>
         <TEXT>Möchten Sie gerne Mannschafts-Ballsport machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -35,6 +37,7 @@
     <QUESTION>
         <ID>3</ID>
         <TEXT>Wo möchten Sie gerne Mannschafts-Ballsport machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Drinnen</TEXT>
@@ -51,6 +54,7 @@
     <QUESTION>
         <ID>4</ID>
         <TEXT>Möchten Sie gerne Mannschafts-Schlägersport machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -65,6 +69,7 @@
     <QUESTION>
         <ID>5</ID>
         <TEXT>Wo möchten Sie gerne Mannschafts-Schlägersport machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Drinnen</TEXT>
@@ -78,6 +83,7 @@
     <QUESTION>
         <ID>6</ID>
         <TEXT>Möchten Sie gerne eine Einzelsportart Schlägersport machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -93,6 +99,7 @@
     <QUESTION>
         <ID>7</ID>
         <TEXT>Wo möchten Sie gerne Einzelsportart Schlägersport machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Drinnen</TEXT>
@@ -109,6 +116,7 @@
     <QUESTION>
         <ID>8</ID>
         <TEXT>Wo möchten Sie gerne die Einzelsportart machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Drinnen</TEXT>
@@ -128,6 +136,7 @@
     <QUESTION>
         <ID>9</ID>
         <TEXT>Möchten Sie gerne Tanzen, Fitnesssport oder Kampfsport machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Tanzen</TEXT>
@@ -146,6 +155,7 @@
     <QUESTION>
         <ID>10</ID>
         <TEXT>Welche Tanzart möchten Sie machen, Klassisch oder Modern?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Klassisch</TEXT>
@@ -159,6 +169,7 @@
     <QUESTION>
         <ID>11</ID>
         <TEXT>Möchten Sie gerne Rehasport machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -172,6 +183,7 @@
     <QUESTION>
         <ID>12</ID>
         <TEXT>Möchten Sie lieber Radsport oder Leichtathletik machen?</TEXT>
+        <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Radsport</TEXT>
@@ -185,6 +197,7 @@
     <QUESTION>
         <ID>13</ID>
         <TEXT>Möchten Sie lieber Im Wasser oder Auf dem Wasser Sport machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>Im</TEXT>
@@ -199,6 +212,7 @@
     <QUESTION>
         <ID>14</ID>
         <TEXT>Möchten Sie gerne eine Bootssportart machen?</TEXT>
+        <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>

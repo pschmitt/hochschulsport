@@ -2,6 +2,7 @@ package co.schmitt.si;
 
 import co.schmitt.si.gui.MainGUI;
 import co.schmitt.si.gui.TimeTableModel;
+import co.schmitt.si.model.Question;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.ontology.OntologyProvider;
 import co.schmitt.si.parser.Parser;
@@ -20,9 +21,9 @@ import java.util.List;
 public class Main implements ActionListener {
 
     private Parser mParser;
-    private String mCurrentQuestion;
-    private String mResponse;
+    private Question mCurrentQuestion;
     private List<String> mCurrentChoices;
+    private List<Question> mScenario;
     private String mQuery;
     private MainGUI mGui;
 
@@ -48,8 +49,9 @@ public class Main implements ActionListener {
         mCurrentChoices = mParser.getChoices();
         mGui = new MainGUI();
         mGui.registerAnswerListener(this);
-        mGui.setQuestion(mCurrentQuestion);
+        mGui.setQuestion(mCurrentQuestion.getQuestion());
         mQuery = "";
+        mScenario = new ArrayList<Question>();
     }
 
     public MainGUI getGui() {
@@ -61,18 +63,17 @@ public class Main implements ActionListener {
         // Ignore all but "answer" actions
         if (!actionEvent.getActionCommand().equals(MainGUI.ACTION_ANSWER))
             return;
-        mResponse = mGui.getAnswer();
-        mQuery += " " + mResponse;
-        System.out.println(mCurrentQuestion + ": " + mResponse);
+        mCurrentQuestion.setAnswer(mGui.getAnswer());
+        System.out.println(mCurrentQuestion);
         proceedToNextQuestion();
     }
 
     private void proceedToNextQuestion() {
-        if (mParser.hasNext(mResponse)) {
-            mCurrentQuestion = mParser.getNextQuestion(mResponse);
+        if (mParser.hasNext(mCurrentQuestion.getAnswer())) {
+            mCurrentQuestion = mParser.getNextQuestion(mCurrentQuestion.getAnswer());
             mCurrentChoices = mParser.getChoices();
             mGui.setChoices(mCurrentChoices);
-            mGui.setQuestion(mCurrentQuestion);
+            mGui.setQuestion(mCurrentQuestion.getQuestion());
         } else {
             // Reached end of scenario
             // TODO get sport details and display timetable
@@ -87,7 +88,7 @@ public class Main implements ActionListener {
         OntologyProvider provider = OntologyProvider.getInstance();
 
         // TODO Parse answers and build query
-
+//        String dlQuery = DLQueryBuilder.buildQuery();
         System.out.println("Query: " + mQuery);
         return sportList;
     }
