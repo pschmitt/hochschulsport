@@ -51,7 +51,7 @@ public class DLQueryParser {
      */
     public OWLClassExpression parseClassExpression(String classExpressionString) throws ParserException {
         OWLDataFactory dataFactory = rootOntology.getOWLOntologyManager().getOWLDataFactory();
-        // Set up the real parser
+        // Set up the real co.schmitt.si.parser
         ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(dataFactory, classExpressionString);
         parser.setDefaultOntology(rootOntology);
         // Specify an entity checker that wil be used to check a class

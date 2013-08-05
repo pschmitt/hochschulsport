@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<QUESTIONS>
+
+    <QUESTION>
+        <ID>1</ID>
+        <TEXT>Möchten Sie lieber Mannschaft oder Einzelsport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Mannschaft</TEXT>
+                <NEXT_QUESTION_ID>2</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Einzelsport</TEXT>
+                <NEXT_QUESTION_ID>6</NEXT_QUESTION_ID>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>2</ID>
+        <TEXT>Möchten Sie gerne Mannschafts-Ballsport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>ja</TEXT>
+                <NEXT_QUESTION_ID>3</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>nein</TEXT>
+                <NEXT_QUESTION_ID>4</NEXT_QUESTION_ID>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>3</ID>
+        <TEXT>Wo möchten Sie gerne Mannschafts-Ballsport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Drinnen</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Draußen</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Wasser</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>4</ID>
+        <TEXT>Möchten Sie gerne Mannschafts-Schlägersport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>ja</TEXT>
+                <NEXT_QUESTION_ID>5</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>nein</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>5</ID>
+        <TEXT>Wo möchten Sie gerne Mannschafts-Schlägersport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Drinnen</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Draußen</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>6</ID>
+        <TEXT>Möchten Sie gerne eine Einzelsportart Schlägersport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>ja</TEXT>
+                <NEXT_QUESTION_ID>7</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>nein</TEXT>
+                <NEXT_QUESTION_ID>8</NEXT_QUESTION_ID>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>7</ID>
+        <TEXT>Wo möchten Sie gerne Einzelsportart Schlägersport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Drinnen</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Draußen</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Wasser</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>8</ID>
+        <TEXT>Wo möchten Sie gerne die Einzelsportart machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Drinnen</TEXT>
+                <NEXT_QUESTION_ID>9</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Draußen</TEXT>
+                <NEXT_QUESTION_ID>12</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Wasser</TEXT>
+                <NEXT_QUESTION_ID>13</NEXT_QUESTION_ID>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>9</ID>
+        <TEXT>Möchten Sie gerne Tanzen, Fitnesssport oder Kampfsport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Tanzen</TEXT>
+                <NEXT_QUESTION_ID>10</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Fitnesssport</TEXT>
+                <NEXT_QUESTION_ID>11</NEXT_QUESTION_ID>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Kampfsport</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>10</ID>
+        <TEXT>Welche Tanzart möchten Sie machen, Klassisch oder Modern?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Klassisch</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Modern</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>11</ID>
+        <TEXT>Möchten Sie gerne Rehasport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>ja</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>nein</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>12</ID>
+        <TEXT>Möchten Sie lieber Radsport oder Leichtathletik machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Radsport</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Leichtathletik</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>13</ID>
+        <TEXT>Möchten Sie lieber Im Wasser oder Auf dem Wasser Sport machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>Im</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>Auf</TEXT>
+                <NEXT_QUESTION_ID>14</NEXT_QUESTION_ID>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+
+    <QUESTION>
+        <ID>14</ID>
+        <TEXT>Möchten Sie gerne eine Bootssportart machen?</TEXT>
+        <CHOICES>
+            <CHOICE>
+                <TEXT>ja</TEXT>
+            </CHOICE>
+            <CHOICE>
+                <TEXT>nein</TEXT>
+            </CHOICE>
+        </CHOICES>
+    </QUESTION>
+</QUESTIONS>
+
