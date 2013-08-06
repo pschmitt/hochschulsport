@@ -62,12 +62,10 @@ public class MainGUI extends JFrame {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(50, 50, 10, 10);
         questionLabel = new JLabel();
-        setQuestion("M\u00f6chtest du lieber Mannschaftssport oder Einzelsport machen?");
         contentPanel.add(questionLabel, c);
 
         // make answerComboBox and add it to card
-        String[] answerPossibilities = {"Mannschaftssport", "Einzelsport"};
-        answerComboBox = new JComboBox<String>(answerPossibilities);
+        answerComboBox = new JComboBox<String>();
         JPanel card1 = new JPanel(new GridBagLayout());
         c = new GridBagConstraints();
         c.gridx = 0;
@@ -128,14 +126,29 @@ public class MainGUI extends JFrame {
         add(contentPanel);
     }
 
+    /**
+     * Set the question Label
+     *
+     * @param question The new label
+     */
     public void setQuestion(String question) {
         questionLabel.setText(question);
     }
 
+    /**
+     * Retrieve the current question label
+     *
+     * @return The displayed question
+     */
     public String getQuestion() {
         return questionLabel.getText();
     }
 
+    /**
+     * Set the possible answers
+     *
+     * @param items The answers to be displayed
+     */
     public void setChoices(List<String> items) {
         answerComboBox.removeAllItems();
         for (String item : items) {
@@ -143,10 +156,20 @@ public class MainGUI extends JFrame {
         }
     }
 
+    /**
+     * Retrieve the answer the user gave
+     *
+     * @return The answer
+     */
     public String getAnswer() {
         return (String) answerComboBox.getSelectedItem();
     }
 
+    /**
+     * Set the currently displayed card item
+     *
+     * @param card The card item ID to display
+     */
     private void setCard(String card) {
         CardLayout cl = (CardLayout) cards.getLayout();
         cl.show(cards, card);
@@ -154,6 +177,12 @@ public class MainGUI extends JFrame {
         actualCard = card;
     }
 
+    /**
+     * Show the timetable
+     * Should only be called when the scenario is over
+     *
+     * @param sports A list containing all sports to be displayed in the timetable
+     */
     public void showTimeTable(List<Sport> sports) {
         // TODO: Parse and display sports !
         // TODO: Neu starten button ?
