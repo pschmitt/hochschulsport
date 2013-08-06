@@ -18,9 +18,10 @@
         </CHOICES>
     </QUESTION>
 
-    <QUESTION>
+    <QUESTION type="bool">
         <ID>2</ID>
         <TEXT>Möchten Sie gerne Mannschafts-Ballsport machen?</TEXT>
+        <TOPIC>Ballsport</TOPIC>
         <TYPE>SPORT_CATEGORY</TYPE>
         <CHOICES>
             <CHOICE>
@@ -51,10 +52,11 @@
         </CHOICES>
     </QUESTION>
 
-    <QUESTION>
+    <QUESTION type="bool">
         <ID>4</ID>
         <TEXT>Möchten Sie gerne Mannschafts-Schlägersport machen?</TEXT>
         <TYPE>SPORT_CATEGORY</TYPE>
+        <TOPIC>Schlägersport</TOPIC>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -80,10 +82,11 @@
         </CHOICES>
     </QUESTION>
 
-    <QUESTION>
+    <QUESTION type="bool">
         <ID>6</ID>
         <TEXT>Möchten Sie gerne eine Einzelsportart Schlägersport machen?</TEXT>
         <TYPE>SPORT_CATEGORY</TYPE>
+        <TOPIC>Schlägersport</TOPIC>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -166,10 +169,11 @@
         </CHOICES>
     </QUESTION>
 
-    <QUESTION>
+    <QUESTION type="bool">
         <ID>11</ID>
         <TEXT>Möchten Sie gerne Rehasport machen?</TEXT>
         <TYPE>SPORT_CATEGORY</TYPE>
+        <TOPIC>Rehasport</TOPIC>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -196,23 +200,24 @@
 
     <QUESTION>
         <ID>13</ID>
-        <TEXT>Möchten Sie lieber Im Wasser oder Auf dem Wasser Sport machen?</TEXT>
+        <TEXT>Möchten Sie lieber im oder auf dem Wasser Sport machen?</TEXT>
         <TYPE>LOCATION</TYPE>
         <CHOICES>
             <CHOICE>
-                <TEXT>Im</TEXT>
+                <TEXT>ImWasser</TEXT>
             </CHOICE>
             <CHOICE>
-                <TEXT>Auf</TEXT>
+                <TEXT>AufDemWasser</TEXT>
                 <NEXT_QUESTION_ID>14</NEXT_QUESTION_ID>
             </CHOICE>
         </CHOICES>
     </QUESTION>
 
-    <QUESTION>
+    <QUESTION type="bool">
         <ID>14</ID>
         <TEXT>Möchten Sie gerne eine Bootssportart machen?</TEXT>
         <TYPE>LOCATION</TYPE>
+        <TOPIC>Boot</TOPIC>
         <CHOICES>
             <CHOICE>
                 <TEXT>ja</TEXT>
@@ -223,4 +228,3 @@
         </CHOICES>
     </QUESTION>
 </QUESTIONS>
-

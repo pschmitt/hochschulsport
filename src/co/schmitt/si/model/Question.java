@@ -8,17 +8,13 @@ package co.schmitt.si.model;
 public class Question {
 
     public enum QUESTION_TYPE {
-        TEAM_SPORT("TEAM_SPORT"), LOCATION("LOCATION"), SPORT_CATEGORY("SPORT_CATEGORY");
-        private String value;
-
-        private QUESTION_TYPE(String value) {
-            this.value = value;
-        }
+        TEAM_SPORT, LOCATION, SPORT_CATEGORY;
     }
 
     private String mQuestion;
     private String mAnswer;
-
+    private String mTopic;
+    //    private List<String> choices;
     private QUESTION_TYPE mType;
 
     public Question(String question) {
@@ -48,6 +44,14 @@ public class Question {
 
     public String getQuestion() {
         return this.mQuestion;
+    }
+
+    public void setTopic(String topic) {
+        mTopic = topic;
+    }
+
+    public String getTopic() {
+        return mTopic;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package co.schmitt.si.parser;
 
 import co.schmitt.si.model.Question;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -24,6 +23,9 @@ public class Parser {
     public static final String TAG_TYPE = "TYPE";
     public static final String TAG_CHOICES = "CHOICES";
     public static final String TAG_NEXT_QUESTION_ID = "NEXT_QUESTION_ID";
+    public static final String TAG_TOPIC = "TOPIC";
+    public static final String ATTR_TYPE = "type";
+    public static final String ATTR_TYPE_BOOL = "bool";
 
     static int currentQuestionID = 0;
     static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
@@ -70,8 +72,15 @@ public class Parser {
 
         Element currentQuestion = (Element) QuestionsList
                 .get(currentQuestionID);
+        Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
+        if (isBooleanQuestion(currentQuestion)) {
+            q.setTopic(getTopic(currentQuestion));
+        }
+        return q;
+    }
 
-        return new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
+    private boolean isBooleanQuestion(Element question) {
+        return (question.hasAttributes() && question.getAttributeValue(ATTR_TYPE).equals(ATTR_TYPE_BOOL));
     }
 
     /**
@@ -102,6 +111,10 @@ public class Parser {
         return actualType;
     }
 
+    private String getTopic(Element question) {
+        return question.getChildText(TAG_TOPIC);
+    }
+
     /**
      * Retrieve all possible answers to the current question
      *
@@ -114,7 +127,7 @@ public class Parser {
                 .get(currentQuestionID);
 
         // List with CHOICES
-		List<Element> choicesList = (List<Element>) currentQuestion.getChildren(TAG_CHOICES);
+        List<Element> choicesList = (List<Element>) currentQuestion.getChildren(TAG_CHOICES);
 
         // CHOICES Element
         Element choicesListElement = (Element) choicesList.get(0);

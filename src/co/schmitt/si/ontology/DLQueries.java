@@ -4,8 +4,10 @@ package co.schmitt.si.ontology;
  * Created by pschmitt on 7/25/13.
  */
 public class DLQueries {
-    private DLQueries() {}
+    private DLQueries() {
+    }
 
+    public static final String TEAM_OR_INDIVIDUAL_SPORT = "istMannschaftssport exactly 1 ";
     public static final String SPORTS_BY_CATEGORY = "gehoertZuOberkategorie exactly 1 ";
     public static final String SPORTS_BY_LOCATION = "hatOrt exactly 1 ";
     public static final String ALL_SPORTS = "Sportart ";

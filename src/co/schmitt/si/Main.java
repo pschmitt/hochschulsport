@@ -76,6 +76,10 @@ public class Main implements ActionListener {
             // Reached end of scenario
             // TODO get sport details and display timetable
             List<Sport> sports = queryOntology();
+            // Print to console
+            for (Sport s : sports) {
+                System.out.println("Matched: " + s.getName());
+            }
             List<TimeTableModel> timeTableData = getTimeTableData(sports);
             // mGui.showTimetable(timeTableData);
         }
@@ -97,6 +101,7 @@ public class Main implements ActionListener {
     private List<Sport> queryOntology() {
         OntologyProvider provider = OntologyProvider.getInstance();
         String dlQuery = DLQueryBuilder.buildQuery(mScenario);
+        System.err.println(dlQuery);
         return provider.SportsByDlQuery(dlQuery);
     }
 
