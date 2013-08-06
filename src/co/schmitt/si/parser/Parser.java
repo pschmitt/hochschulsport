@@ -18,27 +18,27 @@ public class Parser {
     public static final String SCENARIO_FILE = "Szenario_Struktur.xml";
 
     // XML Tags
-    public static final String TAG_QUESTION = "QUESTION";
-    public static final String TAG_TEXT = "TEXT";
-    public static final String TAG_TYPE = "TYPE";
-    public static final String TAG_CHOICES = "CHOICES";
-    public static final String TAG_NEXT_QUESTION_ID = "NEXT_QUESTION_ID";
-    public static final String TAG_TOPIC = "TOPIC";
-    public static final String ATTR_TYPE = "type";
-    public static final String ATTR_TYPE_BOOL = "bool";
+    private static final String TAG_QUESTION = "QUESTION";
+    private static final String TAG_TEXT = "TEXT";
+    private static final String TAG_TYPE = "TYPE";
+    private static final String TAG_CHOICES = "CHOICES";
+    private static final String TAG_NEXT_QUESTION_ID = "NEXT_QUESTION_ID";
+    private static final String TAG_TOPIC = "TOPIC";
+    private static final String ATTR_TYPE = "type";
+    private static final String ATTR_TYPE_BOOL = "bool";
 
-    static int currentQuestionID = 0;
-    static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
+    private static int currentQuestionID = 0;
+    private static int lastQuestionID = 0;
+    private static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
 
     private List<Element> QuestionsList;
 
     public Parser() {
-
         SAXBuilder builder = new SAXBuilder();
 
         try {
             File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(SCENARIO_FILE).toURI());
-            Document document = (Document) builder.build(xmlFile);
+            Document document = builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             QuestionsList = rootNode.getChildren(TAG_QUESTION);
         } catch (URISyntaxException uriexp) {
@@ -67,9 +67,10 @@ public class Parser {
      * @return The next question
      */
     public Question getNextQuestion(String answer) {
-        if (NextQuestionID.containsKey(answer))
+        if (NextQuestionID.containsKey(answer)) {
+            lastQuestionID = currentQuestionID;
             currentQuestionID = NextQuestionID.get(answer);
-
+        }
         Element currentQuestion = (Element) QuestionsList
                 .get(currentQuestionID);
         Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
@@ -87,6 +88,15 @@ public class Parser {
      */
     private boolean isBooleanQuestion(Element question) {
         return (question.hasAttributes() && question.getAttributeValue(ATTR_TYPE).equals(ATTR_TYPE_BOOL));
+    }
+
+    /**
+     * Check whether the current question is the first one
+     *
+     * @return True if the current question is the last one
+     */
+    public boolean isFirstQuestion() {
+        return currentQuestionID == 0;
     }
 
     /**
@@ -135,30 +145,38 @@ public class Parser {
     }
 
     /**
+     * Retrieve all possible answers to the previous question
+     *
+     * @return A list with all possible answers
+     */
+    public List<String> getLastChoices() {
+        currentQuestionID = lastQuestionID;
+        return getChoices();
+    }
+
+    /**
      * Retrieve all possible answers to the current question
      *
      * @return A list with all possible answers
      */
     public List<String> getChoices() {
-
         // Current Question
-        Element currentQuestion = (Element) QuestionsList
+        Element currentQuestion = QuestionsList
                 .get(currentQuestionID);
 
         // List with CHOICES
-        List<Element> choicesList = (List<Element>) currentQuestion.getChildren(TAG_CHOICES);
+        List<Element> choicesList = currentQuestion.getChildren(TAG_CHOICES);
 
         // CHOICES Element
-        Element choicesListElement = (Element) choicesList.get(0);
+        Element choicesListElement = choicesList.get(0);
 
         // CHOICE List
         List<Element> choices = choicesListElement.getChildren();
-
         ArrayList<String> choicesArrayList = new ArrayList<String>();
 
         for (int i = 0; i < choices.size(); i++) {
             // CHOICE Element
-            Element choiceElement = (Element) choices.get(i);
+            Element choiceElement = choices.get(i);
 
             String text = choiceElement.getChildText(TAG_TEXT);
             String nextQuestionId = choiceElement
@@ -170,7 +188,6 @@ public class Parser {
             }
 
         }
-
         return choicesArrayList;
     }
 }

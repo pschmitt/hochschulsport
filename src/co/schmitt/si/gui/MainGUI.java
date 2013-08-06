@@ -4,7 +4,6 @@ import co.schmitt.si.model.Sport;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * @author Sophia
  */
 @SuppressWarnings("serial")
-public class MainGUI extends JFrame implements ActionListener {
+public class MainGUI extends JFrame {
 
     public static final String ACTION_ANSWER = "answer";
     public static final String ACTION_START_OVER = "startOver";
@@ -20,6 +19,8 @@ public class MainGUI extends JFrame implements ActionListener {
     private static final String TIMETABLE_CARD = "timetablecard";
     private static final String LABEL_ANSWER = "Antworten";
     private static final String LABEL_START_OVER = "Gib's mir noch ein Mal";
+    private static final String LABEL_BACK = "<< Zurück";
+    public static final String ACTION_BACK = "back";
 
     // TODO DEBUG
     private static String actualCard;
@@ -27,6 +28,7 @@ public class MainGUI extends JFrame implements ActionListener {
     private JLabel questionLabel;
     private JComboBox<String> answerComboBox;
     private JButton answerButton;
+    private JButton backButton;
 
     public MainGUI() {
         setTitle("Hochschulsport");
@@ -112,39 +114,18 @@ public class MainGUI extends JFrame implements ActionListener {
         answerButton.setActionCommand(ACTION_ANSWER);
         contentPanel.add(answerButton, c);
 
-        // TODO DEBUG
         // make and add test cards button
         c = new GridBagConstraints();
         c.gridx = 1;
         c.gridy = 2;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
-        c.insets = new Insets(10, 10, 10, 10);
-        JButton testCardButton = new JButton("Teste Cards");
-        testCardButton.setActionCommand("testCards");
-        testCardButton.addActionListener(this);
-        contentPanel.add(testCardButton, c);
+        c.insets = new Insets(-300, 10, 0, 0);
+        backButton = new JButton(LABEL_BACK);
+        backButton.setActionCommand(ACTION_BACK);
+        backButton.setVisible(false);
+        contentPanel.add(backButton, c);
 
         add(contentPanel);
-    }
-
-    /**
-     * Respond to button event.
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String actionCmd = e.getActionCommand();
-        if (actionCmd.equals("testCards")) {
-            // TODO DEBUG
-            // example on how to change cards
-            CardLayout cl = (CardLayout) (cards.getLayout());
-            if (actualCard.equals(ANSWER_CARD)) {
-                cl.show(cards, TIMETABLE_CARD);
-                actualCard = TIMETABLE_CARD;
-            } else {
-                cl.show(cards, ANSWER_CARD);
-                actualCard = ANSWER_CARD;
-            }
-        }
     }
 
     public void setQuestion(String question) {
@@ -184,12 +165,35 @@ public class MainGUI extends JFrame implements ActionListener {
     }
 
     /**
-     * Allow an external class to react on button press
+     * Shows the back button
+     */
+    public void showBackButton() {
+        backButton.setVisible(true);
+    }
+
+    /**
+     * Hides the back button
+     */
+    public void hideBackButton() {
+        backButton.setVisible(false);
+    }
+
+    /**
+     * Make an external class react on button press
      *
      * @param listener The listener class
      */
     public void registerAnswerListener(ActionListener listener) {
         answerButton.addActionListener(listener);
+    }
+
+    /**
+     * Make an external class react on back button press
+     *
+     * @param listener The listener class
+     */
+    public void registerBackButtonListener(ActionListener listener) {
+        backButton.addActionListener(listener);
     }
 
     /**

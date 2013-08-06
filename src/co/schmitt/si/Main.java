@@ -46,10 +46,11 @@ public class Main implements ActionListener {
         mCurrentQuestion = mParser.getFirstQuestion();
         mGui = new MainGUI();
         mGui.registerAnswerListener(this);
+        mGui.registerBackButtonListener(this);
         updateGui();
     }
 
-    public MainGUI getGui() {
+    private MainGUI getGui() {
         return mGui;
     }
 
@@ -67,6 +68,19 @@ public class Main implements ActionListener {
             mCurrentQuestion = mParser.getFirstQuestion();
             mGui.restart();
             updateGui();
+        } else if (actionCmd.equals(MainGUI.ACTION_BACK)) {
+            // TODO Rollback
+            mScenario.remove(mCurrentQuestion);
+            if (mScenario.isEmpty()) {
+                mCurrentQuestion = mParser.getFirstQuestion();
+            } else {
+                mCurrentQuestion = mScenario.get(mScenario.size() - 1);
+            }
+            mGui.setQuestion(mCurrentQuestion.getQuestion());
+            mGui.setChoices(mParser.getLastChoices());
+            if (mParser.isFirstQuestion()) {
+                mGui.hideBackButton();
+            }
         }
     }
 
@@ -107,6 +121,8 @@ public class Main implements ActionListener {
     private void updateGui() {
         mGui.setQuestion(mCurrentQuestion.getQuestion());
         mGui.setChoices(mParser.getChoices());
+        if (mScenario.size() > 0)
+            mGui.showBackButton();
     }
 
     /**
