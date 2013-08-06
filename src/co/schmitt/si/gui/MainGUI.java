@@ -189,7 +189,7 @@ public class MainGUI extends JFrame implements ActionListener {
         // TODO: Neu starten button ?
         setCard(TIMETABLECARD);
         answerButton.setVisible(false);
-        setQuestion("Ihr persönlicher Studenplan: ");
+        setQuestion("Ihr pers\u00f6nlicher Studenplan: ");
     }
 
     /**

@@ -24,6 +24,10 @@ public class Sport {
         return this.mName;
     }
 
+    public int getFees() {
+        return mFees;
+    }
+
     public void setFees(int fees) {
         this.mFees = fees;
     }
