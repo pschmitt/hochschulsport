@@ -1,7 +1,6 @@
 package co.schmitt.si;
 
 import co.schmitt.si.gui.MainGUI;
-import co.schmitt.si.gui.TimeTableModel;
 import co.schmitt.si.model.Question;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.ontology.DLQueryBuilder;
@@ -74,18 +73,23 @@ public class Main implements ActionListener {
             updateGui();
         } else {
             // Reached end of scenario
-            // TODO get sport details and display timetable
-            List<Sport> sports = queryOntology();
-            // Print to console
-            if (sports.isEmpty()) {
-                System.err.println("No sport matched !");
-            }
-            for (Sport s : sports) {
-                System.out.println("Matched: " + s.getName());
-            }
-            List<TimeTableModel> timeTableData = getTimeTableData(sports);
-            // mGui.showTimetable(timeTableData);
+            displayResults();
         }
+    }
+
+    private void displayResults() {
+        // TODO get sport details and display timetable
+        List<Sport> sports = queryOntology();
+        // Print to console
+        if (sports.isEmpty()) {
+            System.err.println("No sport matched !");
+        }
+        for (Sport s : sports) {
+            System.out.println("Matched: " + s.getName());
+        }
+        List<Sport> timeTableData = getTimeTableData(sports);
+        // mGui.showTimetable(timeTableData);
+        mGui.showTimeTable(timeTableData);
     }
 
     /**
@@ -114,7 +118,13 @@ public class Main implements ActionListener {
      * @param sports A list containing all sports that we want to display in the timetable
      * @return The event data
      */
-    private List<TimeTableModel> getTimeTableData(List<Sport> sports) {
-        return null;
+    private List<Sport> getTimeTableData(List<Sport> sports) {
+        List<Sport> sportsWithTimetableData = new ArrayList<Sport>();
+        for (Sport s : sports) {
+            // TODO: do something clever !
+//            DBProvider.getExtraFuckingInfo();
+            sportsWithTimetableData.add(s);
+        }
+        return sports;
     }
 }

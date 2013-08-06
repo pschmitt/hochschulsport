@@ -1,5 +1,7 @@
 package co.schmitt.si.gui;
 
+import co.schmitt.si.model.Sport;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -175,11 +177,19 @@ public class MainGUI extends JFrame implements ActionListener {
         return (String) answerComboBox.getSelectedItem();
     }
 
-    public void setCard(String card) {
+    private void setCard(String card) {
         CardLayout cl = (CardLayout) cards.getLayout();
         cl.show(cards, card);
         // TODO DEBUG
         actualCard = card;
+    }
+
+    public void showTimeTable(List<Sport> sports) {
+        // TODO: Parse and display sports !
+        // TODO: Neu starten button ?
+        setCard(TIMETABLECARD);
+        answerButton.setVisible(false);
+        setQuestion("Ihr persönlicher Studenplan: ");
     }
 
     /**
