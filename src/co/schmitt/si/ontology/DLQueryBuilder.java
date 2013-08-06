@@ -12,7 +12,8 @@ import java.util.Map;
  * Time: 3:04 PM
  */
 public class DLQueryBuilder {
-    private static final Map<String, Boolean> BOOLEAN_ANSWER_MAP = new HashMap<String, Boolean>() {{
+    @SuppressWarnings("serial")
+	private static final Map<String, Boolean> BOOLEAN_ANSWER_MAP = new HashMap<String, Boolean>() {{
         put("ja", true);
         put("nein", false);
         put("Ja", true);
