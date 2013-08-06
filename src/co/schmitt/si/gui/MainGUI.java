@@ -16,10 +16,10 @@ public class MainGUI extends JFrame implements ActionListener {
 
     public static final String ACTION_ANSWER = "answer";
     public static final String ACTION_START_OVER = "startOver";
-    public static final String ANSWERCARD = "answercard";
-    public static final String TIMETABLECARD = "timetablecard";
-    public static final String LABEL_ANSWER = "Antworten";
-    public static final String LABEL_START_OVER = "Gib's mir noch ein Mal";
+    private static final String ANSWER_CARD = "answercard";
+    private static final String TIMETABLE_CARD = "timetablecard";
+    private static final String LABEL_ANSWER = "Antworten";
+    private static final String LABEL_START_OVER = "Gib's mir noch ein Mal";
 
     // TODO DEBUG
     private static String actualCard;
@@ -85,11 +85,11 @@ public class MainGUI extends JFrame implements ActionListener {
 
         // create panel that contains cards
         cards = new JPanel(new CardLayout());
-        cards.add(card1, ANSWERCARD);
-        cards.add(timePane, TIMETABLECARD);
+        cards.add(card1, ANSWER_CARD);
+        cards.add(timePane, TIMETABLE_CARD);
         // TODO DEBUG
         // remember which card
-        actualCard = ANSWERCARD;
+        actualCard = ANSWER_CARD;
 
         // add cards to contentPanel
         c = new GridBagConstraints();
@@ -137,12 +137,12 @@ public class MainGUI extends JFrame implements ActionListener {
             // TODO DEBUG
             // example on how to change cards
             CardLayout cl = (CardLayout) (cards.getLayout());
-            if (actualCard.equals(ANSWERCARD)) {
-                cl.show(cards, TIMETABLECARD);
-                actualCard = TIMETABLECARD;
+            if (actualCard.equals(ANSWER_CARD)) {
+                cl.show(cards, TIMETABLE_CARD);
+                actualCard = TIMETABLE_CARD;
             } else {
-                cl.show(cards, ANSWERCARD);
-                actualCard = ANSWERCARD;
+                cl.show(cards, ANSWER_CARD);
+                actualCard = ANSWER_CARD;
             }
         }
     }
@@ -176,7 +176,7 @@ public class MainGUI extends JFrame implements ActionListener {
     public void showTimeTable(List<Sport> sports) {
         // TODO: Parse and display sports !
         // TODO: Neu starten button ?
-        setCard(TIMETABLECARD);
+        setCard(TIMETABLE_CARD);
 //        answerButton.setVisible(false);
         answerButton.setText(LABEL_START_OVER);
         answerButton.setActionCommand(ACTION_START_OVER);
@@ -192,8 +192,11 @@ public class MainGUI extends JFrame implements ActionListener {
         answerButton.addActionListener(listener);
     }
 
+    /**
+     * Reset the GUI
+     */
     public void restart() {
-        setCard(ANSWERCARD);
+        setCard(ANSWER_CARD);
         answerButton.setActionCommand(ACTION_ANSWER);
         answerButton.setText(LABEL_ANSWER);
     }

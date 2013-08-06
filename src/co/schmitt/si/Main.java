@@ -83,6 +83,9 @@ public class Main implements ActionListener {
         }
     }
 
+    /**
+     * Retrieve the corresponding sports from Ontology, search additionnal info in DB and display
+     */
     private void displayResults() {
         // TODO get sport details and display timetable
         List<Sport> sports = queryOntology();

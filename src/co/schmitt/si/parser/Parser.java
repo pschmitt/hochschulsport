@@ -79,6 +79,12 @@ public class Parser {
         return q;
     }
 
+    /**
+     * Check if a question is boolean (yes|no question)
+     *
+     * @param question The question
+     * @return True if parameter is a boolean question
+     */
     private boolean isBooleanQuestion(Element question) {
         return (question.hasAttributes() && question.getAttributeValue(ATTR_TYPE).equals(ATTR_TYPE_BOOL));
     }
@@ -118,6 +124,12 @@ public class Parser {
         return actualType;
     }
 
+    /**
+     * Retrieve a boolean question's topic (<TOPIC>$TOPIC</TOPIC>)
+     *
+     * @param question The question
+     * @return The topic of the question
+     */
     private String getTopic(Element question) {
         return question.getChildText(TAG_TOPIC);
     }
