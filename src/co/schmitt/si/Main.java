@@ -40,6 +40,9 @@ public class Main implements ActionListener {
         });
     }
 
+    /**
+     * Constructor - Initializes the GUI
+     */
     public Main() {
         mParser = new Parser();
         mScenario = new ArrayList<Question>();
@@ -50,10 +53,20 @@ public class Main implements ActionListener {
         updateGui();
     }
 
+    /**
+     * Retrieve the GUI frame
+     *
+     * @return The GUI frame
+     */
     private MainGUI getGui() {
         return mGui;
     }
 
+    /**
+     * React to [ answer | restart | back ] button press
+     *
+     * @param actionEvent The action event
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         // Ignore all but "answer" actions
@@ -69,18 +82,7 @@ public class Main implements ActionListener {
             mGui.restart();
             updateGui();
         } else if (actionCmd.equals(MainGUI.ACTION_BACK)) {
-            // TODO Rollback
-            mScenario.remove(mCurrentQuestion);
-            if (mScenario.isEmpty()) {
-                mCurrentQuestion = mParser.getFirstQuestion();
-            } else {
-                mCurrentQuestion = mScenario.get(mScenario.size() - 1);
-            }
-            mGui.setQuestion(mCurrentQuestion.getQuestion());
-            mGui.setChoices(mParser.getLastChoices());
-            if (mParser.isFirstQuestion()) {
-                mGui.hideBackButton();
-            }
+            rollbackGui();
         }
     }
 
@@ -123,6 +125,23 @@ public class Main implements ActionListener {
         mGui.setChoices(mParser.getChoices());
         if (mScenario.size() > 0)
             mGui.showBackButton();
+    }
+
+    /**
+     * Reset the GUI: display last question (and discard last answer)
+     */
+    private void rollbackGui() {
+        mScenario.remove(mCurrentQuestion);
+        if (mScenario.isEmpty()) {
+            mCurrentQuestion = mParser.getFirstQuestion();
+        } else {
+            mCurrentQuestion = mScenario.get(mScenario.size() - 1);
+        }
+        mGui.setQuestion(mCurrentQuestion.getQuestion());
+        mGui.setChoices(mParser.getLastChoices());
+        if (mParser.isFirstQuestion()) {
+            mGui.hideBackButton();
+        }
     }
 
     /**
