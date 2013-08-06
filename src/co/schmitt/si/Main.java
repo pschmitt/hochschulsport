@@ -77,6 +77,9 @@ public class Main implements ActionListener {
             // TODO get sport details and display timetable
             List<Sport> sports = queryOntology();
             // Print to console
+            if (sports.isEmpty()) {
+                System.err.println("No sport matched !");
+            }
             for (Sport s : sports) {
                 System.out.println("Matched: " + s.getName());
             }

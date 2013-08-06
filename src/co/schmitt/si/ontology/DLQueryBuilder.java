@@ -15,6 +15,12 @@ public class DLQueryBuilder {
     private static final Map<String, Boolean> BOOLEAN_ANSWER_MAP = new HashMap<String, Boolean>() {{
         put("ja", true);
         put("nein", false);
+        put("Ja", true);
+        put("Nein", false);
+        put("yes", true);
+        put("no", false);
+        put("Yes", true);
+        put("No", false);
     }};
 
     private DLQueryBuilder() {
@@ -31,7 +37,7 @@ public class DLQueryBuilder {
         String dlQuery = "";
         for (Question q : scenario) {
             Question.QUESTION_TYPE questionType = q.getType();
-            String answer = q.getAnswer();
+            String answer = OntologyString.convert(q.getAnswer());
             switch (questionType) {
                 case TEAM_SPORT:
                     dlQuery += DLQueries.TEAM_OR_INDIVIDUAL_SPORT + answer;
@@ -76,7 +82,6 @@ public class DLQueryBuilder {
         boolean booleanAnswer = false;
         if (isBooleanAnswer(answer)) {
             booleanAnswer = BOOLEAN_ANSWER_MAP.get(answer);
-            System.out.println("Answer is: " + booleanAnswer);
         }
         return booleanAnswer;
     }
