@@ -56,12 +56,18 @@ public class Main implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         // Ignore all but "answer" actions
-        if (!actionEvent.getActionCommand().equals(MainGUI.ACTION_ANSWER))
-            return;
-        mCurrentQuestion.setAnswer(mGui.getAnswer());
-        mScenario.add(mCurrentQuestion);
-        System.out.println(mCurrentQuestion);
-        proceedToNextQuestion();
+        String actionCmd = actionEvent.getActionCommand();
+        if (actionCmd.equals(MainGUI.ACTION_ANSWER)) {
+            mCurrentQuestion.setAnswer(mGui.getAnswer());
+            mScenario.add(mCurrentQuestion);
+            System.out.println(mCurrentQuestion);
+            proceedToNextQuestion();
+        } else if (actionCmd.equals(MainGUI.ACTION_START_OVER)) {
+            mScenario.clear();
+            mCurrentQuestion = mParser.getFirstQuestion();
+            mGui.restart();
+            updateGui();
+        }
     }
 
     /**

@@ -15,30 +15,18 @@ import java.util.List;
 public class MainGUI extends JFrame implements ActionListener {
 
     public static final String ACTION_ANSWER = "answer";
+    public static final String ACTION_START_OVER = "startOver";
     public static final String ANSWERCARD = "answercard";
     public static final String TIMETABLECARD = "timetablecard";
+    public static final String LABEL_ANSWER = "Antworten";
+    public static final String LABEL_START_OVER = "Gib's mir noch ein Mal";
+
     // TODO DEBUG
     private static String actualCard;
     private JPanel cards;
     private JLabel questionLabel;
     private JComboBox<String> answerComboBox;
     private JButton answerButton;
-
-    /**
-     * Starts the construction of the main frame.
-     *
-     * @param args
-     */
-    public static void main(String args[]) {
-        final JFrame frame = new MainGUI();
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                frame.setVisible(true);
-            }
-        });
-    }
 
     public MainGUI() {
         setTitle("Hochschulsport");
@@ -120,7 +108,7 @@ public class MainGUI extends JFrame implements ActionListener {
         c.gridy = 1;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.insets = new Insets(10, 10, 50, 50);
-        answerButton = new JButton("Antworten");
+        answerButton = new JButton(LABEL_ANSWER);
         answerButton.setActionCommand(ACTION_ANSWER);
         contentPanel.add(answerButton, c);
 
@@ -144,7 +132,8 @@ public class MainGUI extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("testCards")) {
+        String actionCmd = e.getActionCommand();
+        if (actionCmd.equals("testCards")) {
             // TODO DEBUG
             // example on how to change cards
             CardLayout cl = (CardLayout) (cards.getLayout());
@@ -188,7 +177,9 @@ public class MainGUI extends JFrame implements ActionListener {
         // TODO: Parse and display sports !
         // TODO: Neu starten button ?
         setCard(TIMETABLECARD);
-        answerButton.setVisible(false);
+//        answerButton.setVisible(false);
+        answerButton.setText(LABEL_START_OVER);
+        answerButton.setActionCommand(ACTION_START_OVER);
         setQuestion("Ihr pers\u00f6nlicher Studenplan: ");
     }
 
@@ -199,5 +190,11 @@ public class MainGUI extends JFrame implements ActionListener {
      */
     public void registerAnswerListener(ActionListener listener) {
         answerButton.addActionListener(listener);
+    }
+
+    public void restart() {
+        setCard(ANSWERCARD);
+        answerButton.setActionCommand(ACTION_ANSWER);
+        answerButton.setText(LABEL_ANSWER);
     }
 }

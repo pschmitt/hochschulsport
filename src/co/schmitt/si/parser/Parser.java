@@ -89,7 +89,14 @@ public class Parser {
      * @return The first question
      */
     public Question getFirstQuestion() {
-        return getNextQuestion(null);
+        currentQuestionID = 0;
+        Element currentQuestion = (Element) QuestionsList
+                .get(currentQuestionID);
+        Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
+        if (isBooleanQuestion(currentQuestion)) {
+            q.setTopic(getTopic(currentQuestion));
+        }
+        return q;
     }
 
     /**
