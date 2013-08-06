@@ -3,6 +3,7 @@ package co.schmitt.si.gui;
 import co.schmitt.si.model.Sport;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -19,11 +20,9 @@ public class MainGUI extends JFrame {
     private static final String TIMETABLE_CARD = "timetablecard";
     private static final String LABEL_ANSWER = "Antworten";
     private static final String LABEL_START_OVER = "Gib's mir noch ein Mal";
-    private static final String LABEL_BACK = "<< Zurück";
+    private static final String LABEL_BACK = "<< Zur\u00FCck";
     public static final String ACTION_BACK = "back";
 
-    // TODO DEBUG
-    private static String actualCard;
     private JPanel cards;
     private JLabel questionLabel;
     private JComboBox<String> answerComboBox;
@@ -87,9 +86,6 @@ public class MainGUI extends JFrame {
         cards = new JPanel(new CardLayout());
         cards.add(card1, ANSWER_CARD);
         cards.add(timePane, TIMETABLE_CARD);
-        // TODO DEBUG
-        // remember which card
-        actualCard = ANSWER_CARD;
 
         // add cards to contentPanel
         c = new GridBagConstraints();
@@ -102,26 +98,29 @@ public class MainGUI extends JFrame {
         c.insets = new Insets(10, 50, 50, 10);
         contentPanel.add(cards, c);
 
-        // make and add answerButton
+        // make answerButton
+        answerButton = new JButton(LABEL_ANSWER);
+        answerButton.setActionCommand(ACTION_ANSWER);
+        
+        // make backButton
+        backButton = new JButton(LABEL_BACK);
+        backButton.setActionCommand(ACTION_BACK);
+        backButton.setVisible(false);
+
+        // add buttons to panel
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        buttonPanel.add(answerButton);
+        buttonPanel.add(backButton);
+        
+        // add panel to contentPanel
         c = new GridBagConstraints();
         c.gridx = 1;
         c.gridy = 1;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.insets = new Insets(10, 10, 50, 50);
-        answerButton = new JButton(LABEL_ANSWER);
-        answerButton.setActionCommand(ACTION_ANSWER);
-        contentPanel.add(answerButton, c);
+        contentPanel.add(buttonPanel, c);
 
-        // make and add test cards button
-        c = new GridBagConstraints();
-        c.gridx = 1;
-        c.gridy = 2;
-        c.anchor = GridBagConstraints.FIRST_LINE_START;
-        c.insets = new Insets(-300, 10, 0, 0);
-        backButton = new JButton(LABEL_BACK);
-        backButton.setActionCommand(ACTION_BACK);
-        backButton.setVisible(false);
-        contentPanel.add(backButton, c);
 
         add(contentPanel);
     }
@@ -173,8 +172,6 @@ public class MainGUI extends JFrame {
     private void setCard(String card) {
         CardLayout cl = (CardLayout) cards.getLayout();
         cl.show(cards, card);
-        // TODO DEBUG
-        actualCard = card;
     }
 
     /**
