@@ -48,6 +48,12 @@ public class DBProvider {
         return con;
     }
 
+    /**
+     * Retrieve extra information from the database
+     *
+     * @param sport The sport
+     * @return Sport item, holding all extra data (fees, ...)
+     */
     private static Sport grabDetails(Sport sport) {
         try {
             String name = sport.getName();
@@ -71,6 +77,13 @@ public class DBProvider {
         return sport;
     }
 
+    /**
+     * Print all fields returned by query
+     * <p/>
+     * TODO Delete me !
+     *
+     * @param resultSet The ResultSet the DB returned
+     */
     private static void printAll(ResultSet resultSet) {
         try {
             System.out.println(resultSet.getString(FIELD_NAME) + "\t" + resultSet.getInt(FIELD_FEES) + "\t" + resultSet.getInt(FIELD_MIN_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_MAX_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_PARTICIPANTS));
@@ -79,6 +92,9 @@ public class DBProvider {
         }
     }
 
+    /**
+     * Close database
+     */
     private static void close() {
         if (mConnnection == null)
             return;
@@ -90,6 +106,12 @@ public class DBProvider {
         }
     }
 
+    /**
+     * Retrieve all data that is to be displayed to the user
+     *
+     * @param sports A list containing all sports corresponding the users answers
+     * @return A list containing all matching sports + the timetable data (fees, course start | end, participants...)
+     */
     public static List<Sport> getTimetableData(List<Sport> sports) {
         List<Sport> enhancedSports = new ArrayList<>();
         for (Sport sport : sports) {

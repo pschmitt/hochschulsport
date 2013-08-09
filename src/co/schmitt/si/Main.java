@@ -38,18 +38,6 @@ public class Main implements ActionListener {
                 main.getGui().setVisible(true);
             }
         });
-        // TODO remove following line
-        testAndShit();
-    }
-
-    private static void testAndShit() {
-        Sport s = new Sport("Tennis");
-        List<Sport> l = new ArrayList<>();
-        l.add(s);
-        List<Sport> r = DBProvider.getTimetableData(l);
-        for (Sport sport : r) {
-            System.err.println("Participants: " + sport.getParticipants());
-        }
     }
 
     /**
