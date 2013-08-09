@@ -1,16 +1,17 @@
 package co.schmitt.si;
 
-import co.schmitt.si.gui.MainGUI;
-import co.schmitt.si.model.Question;
-import co.schmitt.si.model.Sport;
-import co.schmitt.si.ontology.DLQueryBuilder;
-import co.schmitt.si.ontology.OntologyProvider;
-import co.schmitt.si.parser.Parser;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
+import co.schmitt.si.gui.MainGUI;
+import co.schmitt.si.model.Question;
+import co.schmitt.si.model.Sport;
+import co.schmitt.si.model.TrainingDate;
+import co.schmitt.si.ontology.DLQueryBuilder;
+import co.schmitt.si.ontology.OntologyProvider;
+import co.schmitt.si.parser.Parser;
 
 /**
  * User: pschmitt
@@ -113,7 +114,6 @@ public class Main implements ActionListener {
             System.out.println("Matched: " + s.getName());
         }
         List<Sport> timeTableData = getTimeTableData(sports);
-        // mGui.showTimetable(timeTableData);
         mGui.showTimeTable(timeTableData);
     }
 
@@ -167,8 +167,11 @@ public class Main implements ActionListener {
         for (Sport s : sports) {
             // TODO: do something clever !
 //            DBProvider.getExtraFuckingInfo();
-            sportsWithTimetableData.add(s);
+        	Sport testSport = new Sport("Volleyball");
+        	TrainingDate td = new TrainingDate(TrainingDate.DAY.MONDAY, 10, 30, 11, 30);
+        	testSport.addTrainingDates(td);
+        	sportsWithTimetableData.add(testSport);
         }
-        return sports;
+        return sportsWithTimetableData;
     }
 }

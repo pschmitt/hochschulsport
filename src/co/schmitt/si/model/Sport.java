@@ -1,6 +1,8 @@
 package co.schmitt.si.model;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by pschmitt on 7/25/13.
@@ -10,16 +12,22 @@ public class Sport {
     private int mFees;
     private int mParticipants;
     private int mMaxParticipants;
-    private Date mStartTime;
-    private Date mEndTime;
+    private List<TrainingDate> mTrainingDates;
 
     public Sport(String name) {
         this.mName = name;
         this.mFees = -1;
         this.mParticipants = -1;
         this.mMaxParticipants = -1;
+        this.mTrainingDates = new ArrayList<TrainingDate>();
     }
 
+    public String getStringRepresentation(TrainingDate date) {
+		StringBuffer sb = new StringBuffer(mName);
+		sb.append(": ").append(date);
+		return sb.toString();
+	}
+    
     public String getName() {
         return this.mName;
     }
@@ -48,23 +56,20 @@ public class Sport {
         return mMaxParticipants;
     }
 
-    public Date getEndTime() {
-        return mEndTime;
-    }
+    public List<TrainingDate> getTrainingDates() {
+		return mTrainingDates;
+	}
 
-    public void setEndTime(Date endTime) {
-        this.mEndTime = endTime;
-    }
+	public void setTrainingDates(List<TrainingDate> mTrainingDates) {
+		this.mTrainingDates = mTrainingDates;
+	}
+	
+	public void addTrainingDates(TrainingDate trainingDate) {
+		mTrainingDates.add(trainingDate);
+	}
 
-    public Date getStartTime() {
-        return mStartTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.mStartTime = startTime;
-    }
-
-    @Override
+	// TODO rename getStringRepresentation in toString?
+	@Override
     public String toString() {
         return "<Sport> " + mName;
     }
