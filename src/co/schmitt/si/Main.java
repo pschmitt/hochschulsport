@@ -122,7 +122,7 @@ public class Main implements ActionListener {
      */
     private void updateGui() {
         mGui.setQuestion(mCurrentQuestion.getQuestion());
-        mGui.setChoices(mParser.getChoices());
+        mGui.setChoices(mCurrentQuestion.getChoices());
         if (mScenario.size() > 0)
             mGui.showBackButton();
     }
@@ -137,11 +137,10 @@ public class Main implements ActionListener {
         } else {
             mCurrentQuestion = mScenario.get(mScenario.size() - 1);
         }
-        mGui.setQuestion(mCurrentQuestion.getQuestion());
-        mGui.setChoices(mParser.getLastChoices());
         if (mParser.isFirstQuestion()) {
             mGui.hideBackButton();
         }
+        updateGui();
     }
 
     /**

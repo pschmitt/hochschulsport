@@ -44,7 +44,7 @@ public class DBProvider {
             e.printStackTrace();
         }
         Connection con = DriverManager.getConnection(DB_FILE, DB_USER, DB_PASSWORD);
-        con.setAutoCommit(true);
+        con.setAutoCommit(true); // hm... how 'bout no ?
         return con;
     }
 
@@ -79,7 +79,6 @@ public class DBProvider {
 
     /**
      * Print all fields returned by query
-     * <p/>
      * TODO Delete me !
      *
      * @param resultSet The ResultSet the DB returned
