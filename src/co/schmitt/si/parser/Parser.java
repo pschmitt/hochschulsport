@@ -28,8 +28,7 @@ public class Parser {
     private static final String ATTR_TYPE_BOOL = "bool";
 
     private static int currentQuestionID = 0;
-    private static int lastQuestionID = 0;
-    private static HashMap<String, Integer> nextQuestionID = new HashMap<String, Integer>();
+    private static HashMap<String, Integer> nextQuestionID = new HashMap<>();
 
     private List<Element> QuestionsList;
 
@@ -41,12 +40,10 @@ public class Parser {
             Document document = builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             QuestionsList = rootNode.getChildren(TAG_QUESTION);
-        } catch (URISyntaxException uriexp) {
+        } catch (URISyntaxException | NullPointerException uriexp) {
             uriexp.printStackTrace();
-        } catch (IOException io) {
+        } catch (IOException | JDOMException io) {
             System.out.println(io.getMessage());
-        } catch (JDOMException jdomex) {
-            System.out.println(jdomex.getMessage());
         }
     }
 
@@ -68,7 +65,6 @@ public class Parser {
      */
     public Question getNextQuestion(String answer) {
         if (nextQuestionID.containsKey(answer)) {
-            lastQuestionID = currentQuestionID;
             currentQuestionID = nextQuestionID.get(answer);
         }
         Element currentQuestion = QuestionsList
@@ -166,12 +162,9 @@ public class Parser {
 
         // CHOICE List
         List<Element> choices = choicesListElement.getChildren();
-        ArrayList<String> choicesArrayList = new ArrayList<String>();
+        ArrayList<String> choicesArrayList = new ArrayList<>();
 
-        for (int i = 0; i < choices.size(); i++) {
-            // CHOICE Element
-            Element choiceElement = choices.get(i);
-
+        for (Element choiceElement : choices) {
             String text = choiceElement.getChildText(TAG_TEXT);
             String nextQuestionId = choiceElement
                     .getChildText(TAG_NEXT_QUESTION_ID);
