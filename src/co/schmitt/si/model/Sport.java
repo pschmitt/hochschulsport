@@ -1,6 +1,6 @@
 package co.schmitt.si.model;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by pschmitt on 7/25/13.
@@ -10,8 +10,7 @@ public class Sport {
     private int mFees;
     private int mParticipants;
     private int mMaxParticipants;
-    private Date mStartTime;
-    private Date mEndTime;
+    private List<SportSchedule> mSchedule;
 
     public Sport(String name) {
         this.mName = name;
@@ -48,20 +47,12 @@ public class Sport {
         return mMaxParticipants;
     }
 
-    public Date getEndTime() {
-        return mEndTime;
+    public List<SportSchedule> getSchedule() {
+        return mSchedule;
     }
 
-    public void setEndTime(Date endTime) {
-        this.mEndTime = endTime;
-    }
-
-    public Date getStartTime() {
-        return mStartTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.mStartTime = startTime;
+    public void setSchedule(List<SportSchedule> schedule) {
+        mSchedule = schedule;
     }
 
     @Override
