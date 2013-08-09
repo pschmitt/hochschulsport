@@ -3,7 +3,6 @@ package co.schmitt.si.ontology;
 import co.schmitt.si.model.Location;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.SportCategory;
-
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.expression.ParserException;
@@ -36,7 +35,6 @@ public class OntologyProvider {
 
     // Constants
     private static final String ONTOLOGY_FILE = "htw_sport.owl";
-    //    private static final String ONTOLOGY_FILE_ALT = "htw_rdfs.owl";
     private static final String IRI_SEPARATOR = "#";
 
     private static final String SPORT_SPORTS = "Sportart";
@@ -182,7 +180,7 @@ public class OntologyProvider {
      * @return A list containing all sports returned by the query
      */
     public List<Sport> SportsByDlQuery(String query) {
-        return castToSport(dlQuery(query,true));
+        return castToSport(dlQuery(query, true));
     }
 
     /**

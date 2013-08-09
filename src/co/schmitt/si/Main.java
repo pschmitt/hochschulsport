@@ -1,5 +1,6 @@
 package co.schmitt.si;
 
+import co.schmitt.si.db.DBProvider;
 import co.schmitt.si.gui.MainGUI;
 import co.schmitt.si.model.Question;
 import co.schmitt.si.model.Sport;
@@ -32,12 +33,23 @@ public class Main implements ActionListener {
     public static void main(String args[]) {
         final Main main = new Main();
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 main.getGui().setVisible(true);
             }
         });
+        // TODO remove following line
+        testAndShit();
+    }
+
+    private static void testAndShit() {
+        Sport s = new Sport("Tennis");
+        List<Sport> l = new ArrayList<>();
+        l.add(s);
+        List<Sport> r = DBProvider.getTimetableData(l);
+        for (Sport sport : r) {
+            System.err.println("Participants: " + sport.getParticipants());
+        }
     }
 
     /**
@@ -163,12 +175,6 @@ public class Main implements ActionListener {
      * @return The event data
      */
     private List<Sport> getTimeTableData(List<Sport> sports) {
-        List<Sport> sportsWithTimetableData = new ArrayList<Sport>();
-        for (Sport s : sports) {
-            // TODO: do something clever !
-//            DBProvider.getExtraFuckingInfo();
-            sportsWithTimetableData.add(s);
-        }
-        return sports;
+        return DBProvider.getTimetableData(sports);
     }
 }
