@@ -1,17 +1,17 @@
 package co.schmitt.si;
 
+import co.schmitt.si.db.DBProvider;
+import co.schmitt.si.gui.MainGUI;
+import co.schmitt.si.model.Question;
+import co.schmitt.si.model.Sport;
+import co.schmitt.si.ontology.DLQueryBuilder;
+import co.schmitt.si.ontology.OntologyProvider;
+import co.schmitt.si.parser.Parser;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
-import co.schmitt.si.gui.MainGUI;
-import co.schmitt.si.model.Question;
-import co.schmitt.si.model.Sport;
-import co.schmitt.si.model.TrainingDate;
-import co.schmitt.si.ontology.DLQueryBuilder;
-import co.schmitt.si.ontology.OntologyProvider;
-import co.schmitt.si.parser.Parser;
 
 /**
  * User: pschmitt
@@ -33,7 +33,6 @@ public class Main implements ActionListener {
     public static void main(String args[]) {
         final Main main = new Main();
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 main.getGui().setVisible(true);
@@ -122,7 +121,7 @@ public class Main implements ActionListener {
      */
     private void updateGui() {
         mGui.setQuestion(mCurrentQuestion.getQuestion());
-        mGui.setChoices(mParser.getChoices());
+        mGui.setChoices(mCurrentQuestion.getChoices());
         if (mScenario.size() > 0)
             mGui.showBackButton();
     }
@@ -137,11 +136,10 @@ public class Main implements ActionListener {
         } else {
             mCurrentQuestion = mScenario.get(mScenario.size() - 1);
         }
-        mGui.setQuestion(mCurrentQuestion.getQuestion());
-        mGui.setChoices(mParser.getLastChoices());
         if (mParser.isFirstQuestion()) {
             mGui.hideBackButton();
         }
+        updateGui();
     }
 
     /**
@@ -165,13 +163,12 @@ public class Main implements ActionListener {
     private List<Sport> getTimeTableData(List<Sport> sports) {
         List<Sport> sportsWithTimetableData = new ArrayList<Sport>();
         for (Sport s : sports) {
-            // TODO: do something clever !
-//            DBProvider.getExtraFuckingInfo();
-        	Sport testSport = new Sport("Volleyball");
-        	TrainingDate td = new TrainingDate(TrainingDate.DAY.MONDAY, 10, 30, 11, 30);
-        	testSport.addTrainingDates(td);
-        	sportsWithTimetableData.add(testSport);
+        	// TODO: DEBUG
+//        	Sport testSport = new Sport("Volleyball");
+//        	TrainingDate td = new TrainingDate(TrainingDate.DAY.MONDAY, 10, 30, 11, 30);
+//        	testSport.addTrainingDates(td);
+//        	sportsWithTimetableData.add(testSport);
         }
-        return sportsWithTimetableData;
+        return DBProvider.getTimetableData(sports);
     }
 }

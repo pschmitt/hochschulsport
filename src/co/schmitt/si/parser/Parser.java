@@ -28,8 +28,7 @@ public class Parser {
     private static final String ATTR_TYPE_BOOL = "bool";
 
     private static int currentQuestionID = 0;
-    private static int lastQuestionID = 0;
-    private static HashMap<String, Integer> NextQuestionID = new HashMap<String, Integer>();
+    private static HashMap<String, Integer> nextQuestionID = new HashMap<>();
 
     private List<Element> QuestionsList;
 
@@ -41,12 +40,10 @@ public class Parser {
             Document document = builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             QuestionsList = rootNode.getChildren(TAG_QUESTION);
-        } catch (URISyntaxException uriexp) {
+        } catch (URISyntaxException | NullPointerException uriexp) {
             uriexp.printStackTrace();
-        } catch (IOException io) {
+        } catch (IOException | JDOMException io) {
             System.out.println(io.getMessage());
-        } catch (JDOMException jdomex) {
-            System.out.println(jdomex.getMessage());
         }
     }
 
@@ -57,7 +54,7 @@ public class Parser {
      * @return True if there are any questions left
      */
     public boolean hasNext(String answer) {
-        return NextQuestionID.containsKey(answer);
+        return nextQuestionID.containsKey(answer);
     }
 
     /**
@@ -67,16 +64,17 @@ public class Parser {
      * @return The next question
      */
     public Question getNextQuestion(String answer) {
-        if (NextQuestionID.containsKey(answer)) {
-            lastQuestionID = currentQuestionID;
-            currentQuestionID = NextQuestionID.get(answer);
+        if (nextQuestionID.containsKey(answer)) {
+            currentQuestionID = nextQuestionID.get(answer);
         }
-        Element currentQuestion = (Element) QuestionsList
+        Element currentQuestion = QuestionsList
                 .get(currentQuestionID);
         Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
         if (isBooleanQuestion(currentQuestion)) {
             q.setTopic(getTopic(currentQuestion));
         }
+        q.setChoices(getChoices());
+//        q.setPreviousQuestionId(lastQuestionID);
         return q;
     }
 
@@ -106,12 +104,14 @@ public class Parser {
      */
     public Question getFirstQuestion() {
         currentQuestionID = 0;
-        Element currentQuestion = (Element) QuestionsList
+        Element currentQuestion = QuestionsList
                 .get(currentQuestionID);
         Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
         if (isBooleanQuestion(currentQuestion)) {
             q.setTopic(getTopic(currentQuestion));
         }
+//        q.setPreviousQuestionId(-1);
+        q.setChoices(getChoices());
         return q;
     }
 
@@ -145,21 +145,11 @@ public class Parser {
     }
 
     /**
-     * Retrieve all possible answers to the previous question
-     *
-     * @return A list with all possible answers
-     */
-    public List<String> getLastChoices() {
-        currentQuestionID = lastQuestionID;
-        return getChoices();
-    }
-
-    /**
      * Retrieve all possible answers to the current question
      *
      * @return A list with all possible answers
      */
-    public List<String> getChoices() {
+    private List<String> getChoices() {
         // Current Question
         Element currentQuestion = QuestionsList
                 .get(currentQuestionID);
@@ -172,19 +162,16 @@ public class Parser {
 
         // CHOICE List
         List<Element> choices = choicesListElement.getChildren();
-        ArrayList<String> choicesArrayList = new ArrayList<String>();
+        ArrayList<String> choicesArrayList = new ArrayList<>();
 
-        for (int i = 0; i < choices.size(); i++) {
-            // CHOICE Element
-            Element choiceElement = choices.get(i);
-
+        for (Element choiceElement : choices) {
             String text = choiceElement.getChildText(TAG_TEXT);
             String nextQuestionId = choiceElement
                     .getChildText(TAG_NEXT_QUESTION_ID);
 
             choicesArrayList.add(text);
             if (nextQuestionId != null) {
-                NextQuestionID.put(text, Integer.parseInt(nextQuestionId) - 1);
+                nextQuestionID.put(text, Integer.parseInt(nextQuestionId) - 1);
             }
 
         }

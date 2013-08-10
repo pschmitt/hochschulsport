@@ -3,7 +3,6 @@ package co.schmitt.si.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Created by pschmitt on 7/25/13.
  */
@@ -14,7 +13,7 @@ public class Sport {
     private int mMaxParticipants;
     private List<TrainingDate> mTrainingDates;
 
-    public Sport(String name) {
+	public Sport(String name) {
         this.mName = name;
         this.mFees = -1;
         this.mParticipants = -1;
