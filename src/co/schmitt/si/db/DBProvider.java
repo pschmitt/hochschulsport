@@ -1,6 +1,7 @@
 package co.schmitt.si.db;
 
 import co.schmitt.si.model.Sport;
+import co.schmitt.si.model.TrainingDate;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,6 +23,10 @@ public class DBProvider {
     private static final String FIELD_MAX_PARTICIPANTS = "max_teilnehmer";
     private static final String FIELD_PARTICIPANTS = "teilnehmeranzahl";
     private static final String SQL_HALT = "SHUTDOWN";
+    private static final String SQL_DATES = "SELECT KURS.name, KURS.GEBUEHREN, KURS.MIN_TEILNEHMER, KURS.MAX_TEILNEHMER, KURS.TEILNEHMERANZAHL, TERMIN.wochentag, termin.uhrzeit_von, termin.uhrzeit_bis FROM kurs INNER JOIN kurs_termin ON kurs_termin.kurs_id = kurs.id INNER JOIN termin ON termin.id = kurs_termin.termin_id WHERE kurs.name=?";
+    public static final String FIELD_WEEK_DAY = "WOCHENTAG";
+    public static final String FIELD_START_TIME = "UHRZEIT_VON";
+    public static final String FIELD_END_TIME = "UHRZEIT_BIS";
 
     private static Connection mConnnection;
 
@@ -36,11 +41,7 @@ public class DBProvider {
     private static Connection getConnection() throws SQLException {
         try {
             Class.forName(HSQL_JDBC).newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         Connection con = DriverManager.getConnection(DB_FILE, DB_USER, DB_PASSWORD);
@@ -56,21 +57,33 @@ public class DBProvider {
      */
     private static Sport grabDetails(Sport sport) {
         try {
-            String name = sport.getName();
             if (mConnnection == null)
                 mConnnection = getConnection();
-            // TODO Get more info (kurs_[anfang|ende])
-            PreparedStatement ps = mConnnection.prepareStatement("select * from kurs where name = ?");
+            PreparedStatement ps = mConnnection.prepareStatement(SQL_DATES);
             ps.setString(1, sport.getName());
             ResultSet result = ps.executeQuery();
             // TODO Error handling
+            int maxParticipants = -1, fees = -1, participants = -1, weekDay;
+            Time startTime, endTime;
+            List<TrainingDate> trainingDates = new ArrayList<>();
+
             while (result.next()) {
-                sport.setParticipants(result.getInt(FIELD_PARTICIPANTS));
-                sport.setMaxParticipants(result.getInt(FIELD_MAX_PARTICIPANTS));
-                sport.setFees(result.getInt(FIELD_FEES));
+                // TODO No need to loop over participants and fees !
+                maxParticipants = result.getInt(FIELD_MAX_PARTICIPANTS);
+//                    minParticipants = result.getInt(FIELD_MIN_PARTICIPANTS);
+                participants = result.getInt(FIELD_PARTICIPANTS);
+                fees = result.getInt(FIELD_FEES);
+                weekDay = result.getInt(FIELD_WEEK_DAY);
+                startTime = result.getTime(FIELD_START_TIME);
+                endTime = result.getTime(FIELD_END_TIME);
+                trainingDates.add(new TrainingDate(weekDay, startTime, endTime));
                 // TODO remove following line
                 printAll(result);
             }
+            sport.setParticipants(participants);
+            sport.setMaxParticipants(maxParticipants);
+            sport.setFees(fees);
+            sport.setTrainingDates(trainingDates);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,7 +98,7 @@ public class DBProvider {
      */
     private static void printAll(ResultSet resultSet) {
         try {
-            System.out.println(resultSet.getString(FIELD_NAME) + "\t" + resultSet.getInt(FIELD_FEES) + "\t" + resultSet.getInt(FIELD_MIN_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_MAX_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_PARTICIPANTS));
+            System.out.println(resultSet.getString(FIELD_NAME) + "\t" + resultSet.getInt(FIELD_FEES) + "\t" + resultSet.getInt(FIELD_MIN_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_MAX_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_PARTICIPANTS) + "\t" + resultSet.getInt(FIELD_WEEK_DAY) + "\t" + resultSet.getString(FIELD_START_TIME) + "\t" + resultSet.getString(FIELD_END_TIME));
         } catch (SQLException e) {
             e.printStackTrace();
         }

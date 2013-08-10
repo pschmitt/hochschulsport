@@ -10,8 +10,8 @@ import co.schmitt.si.parser.Parser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * User: pschmitt
@@ -22,7 +22,7 @@ public class Main implements ActionListener {
 
     private Parser mParser;
     private Question mCurrentQuestion;
-    private List<Question> mScenario;
+    private Stack<Question> mScenario;
     private MainGUI mGui;
 
     /**
@@ -45,7 +45,7 @@ public class Main implements ActionListener {
      */
     public Main() {
         mParser = new Parser();
-        mScenario = new ArrayList<Question>();
+        mScenario = new Stack<>();
         mCurrentQuestion = mParser.getFirstQuestion();
         mGui = new MainGUI();
         mGui.registerAnswerListener(this);
@@ -100,7 +100,7 @@ public class Main implements ActionListener {
     }
 
     /**
-     * Retrieve the corresponding sports from Ontology, search additionnal info in DB and display
+     * Retrieve the corresponding sports from Ontology, search additional info in DB and display
      */
     private void displayResults() {
         // TODO get sport details and display timetable
@@ -130,11 +130,10 @@ public class Main implements ActionListener {
      * Reset the GUI: display last question (and discard last answer)
      */
     private void rollbackGui() {
-        mScenario.remove(mCurrentQuestion);
         if (mScenario.isEmpty()) {
             mCurrentQuestion = mParser.getFirstQuestion();
         } else {
-            mCurrentQuestion = mScenario.get(mScenario.size() - 1);
+            mCurrentQuestion = mScenario.pop();
         }
         if (mParser.isFirstQuestion()) {
             mGui.hideBackButton();
@@ -161,14 +160,6 @@ public class Main implements ActionListener {
      * @return The event data
      */
     private List<Sport> getTimeTableData(List<Sport> sports) {
-        List<Sport> sportsWithTimetableData = new ArrayList<Sport>();
-        for (Sport s : sports) {
-        	// TODO: DEBUG
-//        	Sport testSport = new Sport("Volleyball");
-//        	TrainingDate td = new TrainingDate(TrainingDate.DAY.MONDAY, 10, 30, 11, 30);
-//        	testSport.addTrainingDates(td);
-//        	sportsWithTimetableData.add(testSport);
-        }
         return DBProvider.getTimetableData(sports);
     }
 }

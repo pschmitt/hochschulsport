@@ -1,24 +1,52 @@
 package co.schmitt.si.model;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  * @author Sophia
  */
 public class TrainingDate {
 
     public enum DAY {
-        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
     }
 
     private DAY day;
     private Time startTime;
     private Time endTime;
 
-    public TrainingDate(DAY day, int startTimeHours, int startTimeMinutes,
-                        int endTimeHours, int endTimeMinutes) {
+    public TrainingDate(int day, Date startTime, Date endTime) {
+        switch (day) {
+            case 1:
+                this.day = DAY.MONDAY;
+                break;
+            case 2:
+                this.day = DAY.TUESDAY;
+                break;
+            case 3:
+                this.day = DAY.WEDNESDAY;
+                break;
+            case 4:
+                this.day = DAY.THURSDAY;
+                break;
+            case 5:
+                this.day = DAY.FRIDAY;
+                break;
+            case 6:
+                this.day = DAY.SATURDAY;
+                break;
+            case 7:
+                this.day = DAY.SUNDAY;
+                break;
+        }
 
-        this.day = day;
-        this.startTime = new Time(startTimeHours, startTimeMinutes);
-        this.endTime = new Time(endTimeHours, endTimeMinutes);
+        Calendar calendar = GregorianCalendar.getInstance();
+        calendar.setTime(startTime);
+        this.startTime = new Time(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE));
+        calendar.setTime(endTime);
+        this.endTime = new Time(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE));
     }
 
     @Override
