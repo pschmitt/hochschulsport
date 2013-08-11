@@ -35,7 +35,6 @@ public class OntologyProvider {
     private static final String INDIVIDUAL_SPORTS = "Einzelsportarten";
     private static final String TEAM_SPORTS = "Mannschaftssportarten";
     private static volatile OntologyProvider instance;
-    private OWLOntologyManager mOwlManager;
     private OWLDataFactory mOwlDataFactory;
     private OWLOntology mOntology;
     private String mPrefix;
@@ -66,8 +65,9 @@ public class OntologyProvider {
      */
     private OntologyProvider() {
         try {
+            @SuppressWarnings("ConstantConditions")
             File owlFile = new File(ClassLoader.getSystemClassLoader().getResource(ONTOLOGY_FILE).toURI());
-            mOwlManager = OWLManager.createOWLOntologyManager();
+            OWLOntologyManager mOwlManager = OWLManager.createOWLOntologyManager();
             mOwlDataFactory = mOwlManager.getOWLDataFactory();
             mOntology = mOwlManager.loadOntologyFromOntologyDocument(owlFile);
             mPrefix = mOntology.getOntologyID().getOntologyIRI() + IRI_SEPARATOR;

@@ -24,7 +24,7 @@ public class Sport {
     }
 
     public String getStringRepresentation(TrainingDate date) {
-        StringBuffer sb = new StringBuffer(mName);
+        StringBuilder sb = new StringBuilder(mName);
         sb.append(": ").append(date);
         return sb.toString();
     }
@@ -71,10 +71,6 @@ public class Sport {
 
     public void setTrainingDates(List<TrainingDate> mTrainingDates) {
         this.mTrainingDates = mTrainingDates;
-    }
-
-    public void addTrainingDates(TrainingDate trainingDate) {
-        mTrainingDates.add(trainingDate);
     }
 
     public String dump() {

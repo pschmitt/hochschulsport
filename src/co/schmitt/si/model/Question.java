@@ -10,7 +10,7 @@ import java.util.List;
 public class Question {
 
     public enum QUESTION_TYPE {
-        TEAM_SPORT, LOCATION, SPORT_CATEGORY;
+        TEAM_SPORT, LOCATION, SPORT_CATEGORY
     }
 
     private String mQuestion;
@@ -18,16 +18,11 @@ public class Question {
     private String mTopic;
     private List<String> choices;
     private QUESTION_TYPE mType;
-//    private int mPreviousQuestionId;
-
-    public Question(String question) {
-        mQuestion = question;
-    }
 
     public Question(String question, QUESTION_TYPE type) {
         mQuestion = question;
         mType = type;
-//        mPreviousQuestionId = -1;
+        //        mPreviousQuestionId = -1;
     }
 
     public void setAnswer(String answer) {
@@ -36,10 +31,6 @@ public class Question {
 
     public String getAnswer() {
         return this.mAnswer;
-    }
-
-    public void setType(QUESTION_TYPE type) {
-        this.mType = type;
     }
 
     public QUESTION_TYPE getType() {
@@ -58,13 +49,13 @@ public class Question {
         return mTopic;
     }
 
-//    public int getPreviousQuestionId() {
-//        return mPreviousQuestionId;
-//    }
-//
-//    public void setPreviousQuestionId(int previousQuestionId) {
-//        mPreviousQuestionId = previousQuestionId;
-//    }
+    //    public int getPreviousQuestionId() {
+    //        return mPreviousQuestionId;
+    //    }
+    //
+    //    public void setPreviousQuestionId(int previousQuestionId) {
+    //        mPreviousQuestionId = previousQuestionId;
+    //    }
 
     public List<String> getChoices() {
         return choices;

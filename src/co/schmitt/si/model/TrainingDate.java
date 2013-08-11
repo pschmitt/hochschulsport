@@ -60,7 +60,7 @@ public class TrainingDate {
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(this.day.toString()).append(" - ");
+        StringBuilder sb = new StringBuilder(this.day.toString()).append(" - ");
         sb.append(startTime.toString());
         sb.append(" - ").append(endTime.toString()).append(" Uhr");
         return sb.toString();

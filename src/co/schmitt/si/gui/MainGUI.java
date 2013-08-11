@@ -64,7 +64,7 @@ public class MainGUI extends JFrame {
         contentPanel.add(questionLabel, c);
 
         // make answerComboBox and add it to card
-        answerComboBox = new JComboBox<String>();
+        answerComboBox = new JComboBox<>();
         JPanel card1 = new JPanel(new GridBagLayout());
         c = new GridBagConstraints();
         c.gridx = 0;

@@ -25,6 +25,7 @@ public class DLQueryBuilder {
         put("Yes", true);
         put("No", false);
     }};
+    private static final String CONNECTOR_AND = " and ";
 
     private DLQueryBuilder() {}
 
@@ -35,7 +36,6 @@ public class DLQueryBuilder {
      * @return The DL-Query
      */
     public static DLQuery buildQuery(List<Question> scenario) {
-        // TODO
         String dlQuery = "";
         List<String> notDlQueries = new ArrayList<>();
         for (Question q : scenario) {
@@ -43,25 +43,26 @@ public class DLQueryBuilder {
             String answer = OntologyString.convert(q.getAnswer());
             switch (questionType) {
                 case TEAM_SPORT:
-                    dlQuery += DLQueries.TEAM_OR_INDIVIDUAL_SPORT + answer + " and ";
+                    dlQuery += DLQueries.TEAM_OR_INDIVIDUAL_SPORT + answer + CONNECTOR_AND;
                     break;
                 case SPORT_CATEGORY:
                     if (isBooleanAnswer(answer) && q.getTopic() != null) {
                         if (answerToBoolean(answer)) {
-                            dlQuery += DLQueries.SPORTS_BY_CATEGORY + q.getTopic() + " and ";
+                            dlQuery += DLQueries.SPORTS_BY_CATEGORY + q.getTopic() + CONNECTOR_AND;
                         } else {
                             notDlQueries.add(DLQueries.SPORTS_BY_CATEGORY + q.getTopic());
                         }
                     } else {
-                        dlQuery += DLQueries.SPORTS_BY_CATEGORY + answer + " and ";
+                        dlQuery += DLQueries.SPORTS_BY_CATEGORY + answer + CONNECTOR_AND;
                     }
                     break;
                 case LOCATION:
-                    dlQuery += DLQueries.SPORTS_BY_LOCATION + answer + " and ";
+                    dlQuery += DLQueries.SPORTS_BY_LOCATION + answer + CONNECTOR_AND;
                     break;
             }
         }
-        dlQuery = dlQuery.substring(0, dlQuery.length() - 5);
+        // Remove trailing " and "
+        dlQuery = dlQuery.substring(0, dlQuery.length() - CONNECTOR_AND.length());
         return new DLQuery(dlQuery, notDlQueries);
     }
 
