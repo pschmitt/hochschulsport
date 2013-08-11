@@ -122,8 +122,9 @@ public class Main implements ActionListener {
     private void updateGui() {
         mGui.setQuestion(mCurrentQuestion.getQuestion());
         mGui.setChoices(mCurrentQuestion.getChoices());
-        if (mScenario.size() > 0)
+        if (mScenario.size() > 0) {
             mGui.showBackButton();
+        }
     }
 
     /**
@@ -160,6 +161,7 @@ public class Main implements ActionListener {
      * @return The event data
      */
     private List<Sport> getTimeTableData(List<Sport> sports) {
+        //        DBProvider.LEGACY = true;
         return DBProvider.getTimetableData(sports);
     }
 }

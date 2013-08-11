@@ -44,14 +44,24 @@ public class TrainingDate {
 
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(startTime);
-        this.startTime = new Time(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE));
+        this.startTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
         calendar.setTime(endTime);
-        this.endTime = new Time(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE));
+        this.endTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof TrainingDate) {
+            TrainingDate comparandum = (TrainingDate) obj;
+            return (this.day == comparandum.getDay() && this.startTime.equals(comparandum.getStartTime()) && this.endTime.equals(comparandum.getEndTime()));
+        }
+        return super.equals(obj);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(startTime.toString());
+        StringBuffer sb = new StringBuffer(this.day.toString()).append(" - ");
+        sb.append(startTime.toString());
         sb.append(" - ").append(endTime.toString()).append(" Uhr");
         return sb.toString();
     }
@@ -77,9 +87,34 @@ public class TrainingDate {
             this.minutes = minutes;
         }
 
+        public int getHours() {
+            return hours;
+        }
+
+        public int getMinutes() {
+            return minutes;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Time) {
+                Time compTime = (Time) obj;
+                return (this.minutes == compTime.getMinutes() && this.hours == compTime.getHours());
+            }
+            return super.equals(obj);
+        }
+
         @Override
         public String toString() {
-            return hours + ":" + minutes;
+            StringBuilder sb = new StringBuilder();
+            if (hours < 10) {
+                sb.append("0");
+            }
+            sb.append(hours).append(":");
+            if (minutes < 10) {
+                sb.append("0");
+            }
+            return sb.append(minutes).toString();
         }
     }
 }

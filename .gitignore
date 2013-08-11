@@ -33,4 +33,7 @@ catalog-v*.xml
 *.tmp/
 *.log
 *.lck
+
+# Misc
 validQueries
+*.bak
