@@ -1,5 +1,6 @@
 package co.schmitt.si.parser;
 
+import co.schmitt.si.model.Choice;
 import co.schmitt.si.model.Question;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -10,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Parser {
@@ -18,6 +18,7 @@ public class Parser {
     public static final String SCENARIO_FILE = "Szenario_Struktur.xml";
 
     // XML Tags
+    private static final String TAG_QUESTION_ID = "ID";
     private static final String TAG_QUESTION = "QUESTION";
     private static final String TAG_TEXT = "TEXT";
     private static final String TAG_TYPE = "TYPE";
@@ -27,10 +28,7 @@ public class Parser {
     private static final String ATTR_TYPE = "type";
     private static final String ATTR_TYPE_BOOL = "bool";
 
-    private static int currentQuestionID = 0;
-    private static HashMap<String, Integer> nextQuestionID = new HashMap<>();
-
-    private List<Element> QuestionsList;
+    private List<Element> questionsList;
 
     public Parser() {
         SAXBuilder builder = new SAXBuilder();
@@ -39,7 +37,7 @@ public class Parser {
             File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(SCENARIO_FILE).toURI());
             Document document = builder.build(xmlFile);
             Element rootNode = document.getRootElement();
-            QuestionsList = rootNode.getChildren(TAG_QUESTION);
+            questionsList = rootNode.getChildren(TAG_QUESTION);
         } catch (URISyntaxException | NullPointerException uriexp) {
             uriexp.printStackTrace();
         } catch (IOException | JDOMException io) {
@@ -48,34 +46,41 @@ public class Parser {
     }
 
     /**
-     * Check whether we reached the end of our scenario
+     * Get the very first question. Should only be called once.
      *
-     * @param answer The last answer the user gave
-     * @return True if there are any questions left
+     * @return The first question
      */
-    public boolean hasNext(String answer) {
-        return nextQuestionID.containsKey(answer);
+    public Question getFirstQuestion() {
+        Element currentQuestion = questionsList
+                .get(0);
+        return getQuestion(currentQuestion);
     }
 
     /**
      * Retrieve the next question, depending on what the user answered
      *
-     * @param answer The answer the user gave to the current question
+     * @param question The question object holding the answer the user gave
      * @return The next question
      */
-    public Question getNextQuestion(String answer) {
-        if (nextQuestionID.containsKey(answer)) {
-            currentQuestionID = nextQuestionID.get(answer);
+    public Question getNextQuestion(Question question) {
+        int nid = question.getNextQuestionId();
+        Element currentQuestion = questionsList
+                .get(question.getNextQuestionId() - 1);
+        return getQuestion(currentQuestion);
+    }
+
+    /**
+     * Parse a <QUESTION> element
+     *
+     * @param question The element to parse
+     * @return A question object
+     */
+    private Question getQuestion(Element question) {
+        Question q = new Question(question.getChildText(TAG_TEXT), getType(question), getQuestionId(question));
+        if (isBooleanQuestion(question)) {
+            q.setTopic(getTopic(question));
         }
-        nextQuestionID.clear();
-        Element currentQuestion = QuestionsList
-                .get(currentQuestionID);
-        Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
-        if (isBooleanQuestion(currentQuestion)) {
-            q.setTopic(getTopic(currentQuestion));
-        }
-        q.setChoices(getChoices());
-        //        q.setPreviousQuestionId(lastQuestionID);
+        q.setChoices(getChoices(question));
         return q;
     }
 
@@ -87,33 +92,6 @@ public class Parser {
      */
     private boolean isBooleanQuestion(Element question) {
         return (question.hasAttributes() && question.getAttributeValue(ATTR_TYPE).equals(ATTR_TYPE_BOOL));
-    }
-
-    /**
-     * Check whether the current question is the first one
-     *
-     * @return True if the current question is the last one
-     */
-    public boolean isFirstQuestion() {
-        return currentQuestionID == 0;
-    }
-
-    /**
-     * Get the very first question. Should only be called once.
-     *
-     * @return The first question
-     */
-    public Question getFirstQuestion() {
-        currentQuestionID = 0;
-        Element currentQuestion = QuestionsList
-                .get(currentQuestionID);
-        Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
-        if (isBooleanQuestion(currentQuestion)) {
-            q.setTopic(getTopic(currentQuestion));
-        }
-        //        q.setPreviousQuestionId(-1);
-        q.setChoices(getChoices());
-        return q;
     }
 
     /**
@@ -136,6 +114,40 @@ public class Parser {
     }
 
     /**
+     * Retrieve a question's ID (<ID>$ID</ID>)
+     *
+     * @param question The question
+     * @return The ID of the question
+     */
+    private int getQuestionId(Element question) {
+        return intToString(question.getChildText(TAG_QUESTION_ID));
+    }
+
+    /**
+     * Retrieve a choice's next question ID (<NEXT_QUESTION_ID>$ID</NEXT_QUESTION_ID>)
+     *
+     * @param choice The choice element
+     * @return The ID of the next question
+     */
+    private int getNextQuestionId(Element choice) {
+        return intToString(choice.getChildText(TAG_NEXT_QUESTION_ID));
+    }
+
+    /**
+     * Convert a string to an integer
+     *
+     * @param str The string to convert
+     * @return An integer (-1 if str is null)
+     */
+    private int intToString(String str) {
+        int i = -1;
+        if (str != null) {
+            i = Integer.parseInt(str);
+        }
+        return i;
+    }
+
+    /**
      * Retrieve a boolean question's topic (<TOPIC>$TOPIC</TOPIC>)
      *
      * @param question The question
@@ -150,11 +162,7 @@ public class Parser {
      *
      * @return A list with all possible answers
      */
-    private List<String> getChoices() {
-        // Current Question
-        Element currentQuestion = QuestionsList
-                .get(currentQuestionID);
-
+    private List<Choice> getChoices(Element currentQuestion) {
         // List with CHOICES
         List<Element> choicesList = currentQuestion.getChildren(TAG_CHOICES);
 
@@ -163,18 +171,11 @@ public class Parser {
 
         // CHOICE List
         List<Element> choices = choicesListElement.getChildren();
-        ArrayList<String> choicesArrayList = new ArrayList<>();
+        List<Choice> choicesArrayList = new ArrayList<>();
 
         for (Element choiceElement : choices) {
-            String text = choiceElement.getChildText(TAG_TEXT);
-            String nextQuestionId = choiceElement
-                    .getChildText(TAG_NEXT_QUESTION_ID);
-
-            choicesArrayList.add(text);
-            if (nextQuestionId != null) {
-                nextQuestionID.put(text, Integer.parseInt(nextQuestionId) - 1);
-            }
-
+            final String text = choiceElement.getChildText(TAG_TEXT);
+            choicesArrayList.add(new Choice(text, getNextQuestionId(choiceElement)));
         }
         return choicesArrayList;
     }

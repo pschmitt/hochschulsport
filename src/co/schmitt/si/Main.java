@@ -86,6 +86,11 @@ public class Main implements ActionListener {
                 updateGui();
                 break;
             case MainGUI.ACTION_BACK:
+                // TODO DEbug
+                mCurrentQuestion = mScenario.pop();
+                if (mScenario.isEmpty()) {
+                    mCurrentQuestion = mParser.getFirstQuestion();
+                }
                 rollbackGui();
                 break;
         }
@@ -95,8 +100,8 @@ public class Main implements ActionListener {
      * Check whether we reached the end of the scenario and update the GUI accordingly
      */
     private void proceedToNextQuestion() {
-        if (mParser.hasNext(mCurrentQuestion.getAnswer())) {
-            mCurrentQuestion = mParser.getNextQuestion(mCurrentQuestion.getAnswer());
+        if (mCurrentQuestion.hasNext()) {
+            mCurrentQuestion = mParser.getNextQuestion(mCurrentQuestion);
             updateGui();
         } else {
             // Reached end of scenario
@@ -139,15 +144,13 @@ public class Main implements ActionListener {
      * Reset the GUI: display last question (and discard last answer)
      */
     private void rollbackGui() {
-        if (mScenario.isEmpty()) {
-            mCurrentQuestion = mParser.getFirstQuestion();
-        } else {
-            mCurrentQuestion = mScenario.pop();
-        }
-        if (mParser.isFirstQuestion()) {
+        if (mCurrentQuestion.isFirstQuestion()) {
             mGui.hideBackButton();
         }
         updateGui();
+        if (mCurrentQuestion.getAnswer() != null) {
+            mGui.setAnswer(mCurrentQuestion.getAnswer());
+        }
     }
 
     /**

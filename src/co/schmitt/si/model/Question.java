@@ -13,56 +13,82 @@ public class Question {
         TEAM_SPORT, LOCATION, SPORT_CATEGORY
     }
 
+    private int mQuestionId;
     private String mQuestion;
     private String mAnswer;
     private String mTopic;
-    private List<String> choices;
+    private List<Choice> mChoices;
     private QUESTION_TYPE mType;
 
-    public Question(String question, QUESTION_TYPE type) {
+    public Question(String question, QUESTION_TYPE type, int questionId) {
         mQuestion = question;
         mType = type;
-        //        mPreviousQuestionId = -1;
-    }
-
-    public void setAnswer(String answer) {
-        this.mAnswer = answer;
+        mQuestionId = questionId;
     }
 
     public String getAnswer() {
         return this.mAnswer;
     }
 
+    public void setAnswer(String answer) {
+        mAnswer = answer;
+    }
+
     public QUESTION_TYPE getType() {
-        return this.mType;
+        return mType;
     }
 
     public String getQuestion() {
-        return this.mQuestion;
-    }
-
-    public void setTopic(String topic) {
-        mTopic = topic;
+        return mQuestion;
     }
 
     public String getTopic() {
         return mTopic;
     }
 
-    //    public int getPreviousQuestionId() {
-    //        return mPreviousQuestionId;
-    //    }
-    //
-    //    public void setPreviousQuestionId(int previousQuestionId) {
-    //        mPreviousQuestionId = previousQuestionId;
-    //    }
-
-    public List<String> getChoices() {
-        return choices;
+    public void setTopic(String topic) {
+        mTopic = topic;
     }
 
-    public void setChoices(List<String> choices) {
-        this.choices = choices;
+    public List<Choice> getChoices() {
+        return mChoices;
+    }
+
+    public void setChoices(List<Choice> choices) {
+        mChoices = choices;
+    }
+
+    public int getQuestionId() {
+        return mQuestionId;
+    }
+
+    public int getNextQuestionId() {
+        int nextQuestionId = -1;
+        Choice choice = getChoice();
+        if (choice != null) {
+            nextQuestionId = choice.getNextQuestionId();
+        }
+        return nextQuestionId;
+    }
+
+    public boolean isFirstQuestion() {
+        return mQuestionId == 1;
+    }
+
+    public boolean hasNext() {
+        return (getChoice().hasNext());
+    }
+
+    private Choice getChoice() {
+        Choice correspondingChoice = null;
+        if (mAnswer != null) {
+            for (Choice c : mChoices) {
+                if (c.getText().equals(mAnswer)) {
+                    return c;
+                }
+            }
+        }
+        return correspondingChoice;
     }
 
     @Override

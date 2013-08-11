@@ -14,13 +14,15 @@ import java.util.List;
 public class MainGUI extends JFrame {
 
     public static final String ACTION_ANSWER = "answer";
+    public static final String ACTION_BACK = "back";
     public static final String ACTION_START_OVER = "startOver";
-    private static final String ANSWER_CARD = "answercard";
-    private static final String TIMETABLE_CARD = "timetablecard";
+    private static final String CARD_ANSWER = "answercard";
+    private static final String CARD_TIMETABLE = "timetablecard";
     private static final String LABEL_ANSWER = "Antworten";
     private static final String LABEL_START_OVER = "Noch mal";
     private static final String LABEL_BACK = "<< Zur\u00FCck";
-    public static final String ACTION_BACK = "back";
+    private static final String LABEL_TIMETABLE = "Ihr pers\u00f6nlicher Studenplan: ";
+    private static final String LABEL_TITLE = "Hochschulsport";
 
     private JPanel cards;
     private JLabel questionLabel;
@@ -30,7 +32,7 @@ public class MainGUI extends JFrame {
     private JTable timeTable;
 
     public MainGUI() {
-        setTitle("Hochschulsport");
+        setTitle(LABEL_TITLE);
         setMinimumSize(new Dimension(800, 350));
         setLocationByPlatform(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,8 +85,8 @@ public class MainGUI extends JFrame {
 
         // create panel that contains cards
         cards = new JPanel(new CardLayout());
-        cards.add(card1, ANSWER_CARD);
-        cards.add(timePane, TIMETABLE_CARD);
+        cards.add(card1, CARD_ANSWER);
+        cards.add(timePane, CARD_TIMETABLE);
 
         // add cards to contentPanel
         c = new GridBagConstraints();
@@ -133,23 +135,14 @@ public class MainGUI extends JFrame {
     }
 
     /**
-     * Retrieve the current question label
-     *
-     * @return The displayed question
-     */
-    public String getQuestion() {
-        return questionLabel.getText();
-    }
-
-    /**
      * Set the possible answers
      *
      * @param items The answers to be displayed
      */
-    public void setChoices(List<String> items) {
+    public void setChoices(List<co.schmitt.si.model.Choice> items) {
         answerComboBox.removeAllItems();
-        for (String item : items) {
-            answerComboBox.addItem(item);
+        for (co.schmitt.si.model.Choice item : items) {
+            answerComboBox.addItem(item.getText());
         }
     }
 
@@ -160,6 +153,15 @@ public class MainGUI extends JFrame {
      */
     public String getAnswer() {
         return (String) answerComboBox.getSelectedItem();
+    }
+
+    /**
+     * Set the answer selected in the combo box
+     *
+     * @param answer The answer
+     */
+    public void setAnswer(String answer) {
+        answerComboBox.setSelectedItem(answer);
     }
 
     /**
@@ -182,11 +184,11 @@ public class MainGUI extends JFrame {
         TimeTableModel model = (TimeTableModel) timeTable.getModel();
         model.add(sports);
         model.fireTableDataChanged();
-        setCard(TIMETABLE_CARD);
+        setCard(CARD_TIMETABLE);
         // answerButton.setVisible(false);
         answerButton.setText(LABEL_START_OVER);
         answerButton.setActionCommand(ACTION_START_OVER);
-        setQuestion("Ihr pers\u00f6nlicher Studenplan: ");
+        setQuestion(LABEL_TIMETABLE);
     }
 
     /**
@@ -225,7 +227,7 @@ public class MainGUI extends JFrame {
      * Reset the GUI
      */
     public void restart() {
-        setCard(ANSWER_CARD);
+        setCard(CARD_ANSWER);
         answerButton.setActionCommand(ACTION_ANSWER);
         answerButton.setText(LABEL_ANSWER);
     }
