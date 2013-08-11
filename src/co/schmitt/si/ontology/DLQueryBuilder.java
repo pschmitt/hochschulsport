@@ -1,7 +1,9 @@
 package co.schmitt.si.ontology;
 
+import co.schmitt.si.model.DLQuery;
 import co.schmitt.si.model.Question;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +15,7 @@ import java.util.Map;
  */
 public class DLQueryBuilder {
     @SuppressWarnings("serial")
-	private static final Map<String, Boolean> BOOLEAN_ANSWER_MAP = new HashMap<String, Boolean>() {{
+    private static final Map<String, Boolean> BOOLEAN_ANSWER_MAP = new HashMap<String, Boolean>() {{
         put("ja", true);
         put("nein", false);
         put("Ja", true);
@@ -24,8 +26,7 @@ public class DLQueryBuilder {
         put("No", false);
     }};
 
-    private DLQueryBuilder() {
-    }
+    private DLQueryBuilder() {}
 
     /**
      * Build a DL-Query based on the answers the user gave
@@ -33,34 +34,35 @@ public class DLQueryBuilder {
      * @param scenario The scenario (list of questions)
      * @return The DL-Query
      */
-    public static String buildQuery(List<Question> scenario) {
+    public static DLQuery buildQuery(List<Question> scenario) {
         // TODO
         String dlQuery = "";
+        List<String> notDlQueries = new ArrayList<>();
         for (Question q : scenario) {
             Question.QUESTION_TYPE questionType = q.getType();
             String answer = OntologyString.convert(q.getAnswer());
             switch (questionType) {
                 case TEAM_SPORT:
-                    dlQuery += DLQueries.TEAM_OR_INDIVIDUAL_SPORT + answer;
+                    dlQuery += DLQueries.TEAM_OR_INDIVIDUAL_SPORT + answer + " and ";
                     break;
                 case SPORT_CATEGORY:
                     if (isBooleanAnswer(answer) && q.getTopic() != null) {
                         if (answerToBoolean(answer)) {
-                            dlQuery += DLQueries.SPORTS_BY_CATEGORY + q.getTopic();
+                            dlQuery += DLQueries.SPORTS_BY_CATEGORY + q.getTopic() + " and ";
                         } else {
-                            dlQuery += negate(DLQueries.SPORTS_BY_CATEGORY + q.getTopic());
+                            notDlQueries.add(DLQueries.SPORTS_BY_CATEGORY + q.getTopic());
                         }
                     } else {
-                        dlQuery += DLQueries.SPORTS_BY_CATEGORY + answer;
+                        dlQuery += DLQueries.SPORTS_BY_CATEGORY + answer + " and ";
                     }
                     break;
                 case LOCATION:
-                    dlQuery += DLQueries.SPORTS_BY_LOCATION + answer;
+                    dlQuery += DLQueries.SPORTS_BY_LOCATION + answer + " and ";
                     break;
             }
-            dlQuery += " and ";
         }
-        return dlQuery.substring(0, dlQuery.length() - 5);
+        dlQuery = dlQuery.substring(0, dlQuery.length() - 5);
+        return new DLQuery(dlQuery, notDlQueries);
     }
 
     /**
@@ -85,15 +87,5 @@ public class DLQueryBuilder {
             booleanAnswer = BOOLEAN_ANSWER_MAP.get(answer);
         }
         return booleanAnswer;
-    }
-
-    /**
-     * Negates a DL-Query
-     *
-     * @param query The query to negate
-     * @return "not ($QUERY)"
-     */
-    private static String negate(String query) {
-        return "not (" + query + ")";
     }
 }

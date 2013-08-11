@@ -184,6 +184,9 @@
         <Class IRI="#Kickboxen"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Klassisch"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Klassisches_Ballett"/>
     </Declaration>
     <Declaration>
@@ -221,6 +224,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Miscellaneous"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modern"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Orientierungslauf"/>
@@ -813,7 +819,7 @@
         <Class IRI="#Cheerleading"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -983,7 +989,7 @@
         <Class IRI="#Flamenco"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1165,7 +1171,7 @@
         <Class IRI="#Hip_Hop"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1269,7 +1275,7 @@
         <Class IRI="#Irish_Dance"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1294,7 +1300,7 @@
         <Class IRI="#Jazz-Dance"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1319,7 +1325,7 @@
         <Class IRI="#Jazz-_und_Modern_Dance"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1491,6 +1497,10 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Klassisch"/>
+        <Class IRI="#Tanzen"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Klassisches_Ballett"/>
         <Class IRI="#Sportart"/>
     </SubClassOf>
@@ -1498,7 +1508,7 @@
         <Class IRI="#Klassisches_Ballett"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1635,7 +1645,7 @@
         <Class IRI="#Massage"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Fitness"/>
+            <Class IRI="#Rehasport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1680,6 +1690,10 @@
     <SubClassOf>
         <Class IRI="#Miscellaneous"/>
         <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modern"/>
+        <Class IRI="#Tanzen"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Orientierungslauf"/>
@@ -1789,7 +1803,7 @@
         <Class IRI="#Progressive_Muskelentspannung"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Fitness"/>
+            <Class IRI="#Rehasport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1812,7 +1826,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rehasport"/>
-        <Class IRI="#Sportkategorie"/>
+        <Class IRI="#Fitness"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Reiten"/>
@@ -1872,7 +1886,7 @@
         <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1897,7 +1911,7 @@
         <Class IRI="#Rock_‘n‘_Roll"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1972,7 +1986,7 @@
         <Class IRI="#Rückenschule"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Fitness"/>
+            <Class IRI="#Rehasport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -1997,7 +2011,7 @@
         <Class IRI="#Salsa"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -2311,7 +2325,7 @@
         <Class IRI="#Standard-_und_Lateintanz"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Klassisch"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -2587,7 +2601,7 @@
         <Class IRI="#Wirbelsäulengymnastik"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Fitness"/>
+            <Class IRI="#Rehasport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -2662,7 +2676,7 @@
         <Class IRI="#Zumba®"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Tanzen"/>
+            <Class IRI="#Modern"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -2680,21 +2694,6 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <DisjointClasses>
-        <Class IRI="#Artistik"/>
-        <Class IRI="#Ballsport"/>
-        <Class IRI="#Fechtsport"/>
-        <Class IRI="#Fitness"/>
-        <Class IRI="#Kampfsport"/>
-        <Class IRI="#Kugelsport"/>
-        <Class IRI="#Leichtathletik"/>
-        <Class IRI="#Miscellaneous"/>
-        <Class IRI="#Radsport"/>
-        <Class IRI="#Rehasport"/>
-        <Class IRI="#Schlägersport"/>
-        <Class IRI="#Tanzen"/>
-        <Class IRI="#Wassersport"/>
-    </DisjointClasses>
-    <DisjointClasses>
         <Class IRI="#AufDemWasser"/>
         <Class IRI="#ImWasser"/>
     </DisjointClasses>
@@ -2702,6 +2701,10 @@
         <Class IRI="#Draußen"/>
         <Class IRI="#Drinnen"/>
         <Class IRI="#Wasser"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Klassisch"/>
+        <Class IRI="#Modern"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#MannschaftssportOderEinzelsport"/>

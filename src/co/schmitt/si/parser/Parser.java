@@ -67,6 +67,7 @@ public class Parser {
         if (nextQuestionID.containsKey(answer)) {
             currentQuestionID = nextQuestionID.get(answer);
         }
+        nextQuestionID.clear();
         Element currentQuestion = QuestionsList
                 .get(currentQuestionID);
         Question q = new Question(currentQuestion.getChildText(TAG_TEXT), getType(currentQuestion));
@@ -74,7 +75,7 @@ public class Parser {
             q.setTopic(getTopic(currentQuestion));
         }
         q.setChoices(getChoices());
-//        q.setPreviousQuestionId(lastQuestionID);
+        //        q.setPreviousQuestionId(lastQuestionID);
         return q;
     }
 
@@ -110,7 +111,7 @@ public class Parser {
         if (isBooleanQuestion(currentQuestion)) {
             q.setTopic(getTopic(currentQuestion));
         }
-//        q.setPreviousQuestionId(-1);
+        //        q.setPreviousQuestionId(-1);
         q.setChoices(getChoices());
         return q;
     }

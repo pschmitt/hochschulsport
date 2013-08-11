@@ -77,6 +77,23 @@ public class Sport {
         mTrainingDates.add(trainingDate);
     }
 
+    public String dump() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(mName).append(" - Fees: ").append(mFees).append("EUR").append(" Parts: ").append(mParticipants).append("(").append(mMinParticipants).append("|").append(mMaxParticipants).append(")\nDates: ");
+        for (TrainingDate td : mTrainingDates) {
+            sb.append(td.toString()).append("; ");
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Sport) {
+            return this.mName.equals(((Sport) obj).getName());
+        }
+        return super.equals(obj);
+    }
+
     // TODO rename getStringRepresentation in toString?
     @Override
     public String toString() {

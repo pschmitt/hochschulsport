@@ -16,12 +16,12 @@ public class TestOntologyProvider {
         mProvider = OntologyProvider.getInstance();
         mProvider.check();
 
-                testAllSports();
+        testAllSports();
         //        testSportCategories();
         //        testLocations();
         //        testTeamSports();
         //        testIndividualSports();
-//        testIndoorSports();
+        //        testIndoorSports();
         //        testOutdoorSports();
         //        testWaterSports();
         //        testInWaterSports();
@@ -146,7 +146,7 @@ public class TestOntologyProvider {
     }
 
     private static void testDlQuery(String query) {
-        ArrayList<Sport> queryResults = (ArrayList<Sport>) mProvider.SportsByDlQuery(query);
+        ArrayList<Sport> queryResults = (ArrayList<Sport>) mProvider.sportsByDlQuery(query);
         for (Sport sport : queryResults) {
             System.out.println(sport + " is a subclass of " + query + " !");
         }

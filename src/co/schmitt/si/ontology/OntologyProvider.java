@@ -1,5 +1,6 @@
 package co.schmitt.si.ontology;
 
+import co.schmitt.si.model.DLQuery;
 import co.schmitt.si.model.Location;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.SportCategory;
@@ -25,23 +26,20 @@ import java.util.Set;
  */
 public class OntologyProvider {
 
-    private static volatile OntologyProvider instance;
-
-    private OWLOntologyManager mOwlManager;
-    private OWLDataFactory mOwlDataFactory;
-    private OWLOntology mOntology;
-    private String mPrefix;
-    private Reasoner mReasoner;
-
     // Constants
     private static final String ONTOLOGY_FILE = "htw_sport.owl";
     private static final String IRI_SEPARATOR = "#";
-
     private static final String SPORT_SPORTS = "Sportart";
     private static final String SPORT_LOCATIONS = "Ort";
     private static final String SPORT_CATEGORIES = "Sportkategorie";
     private static final String INDIVIDUAL_SPORTS = "Einzelsportarten";
     private static final String TEAM_SPORTS = "Mannschaftssportarten";
+    private static volatile OntologyProvider instance;
+    private OWLOntologyManager mOwlManager;
+    private OWLDataFactory mOwlDataFactory;
+    private OWLOntology mOntology;
+    private String mPrefix;
+    private Reasoner mReasoner;
     /*private static final String INDOOR_SPORTS = "SportartenDrinnen";
     private static final String OUTDOOR_SPORTS = "SportartenDraussen";
     private static final String WATER_SPORTS = "SportartenWasser";
@@ -74,11 +72,7 @@ public class OntologyProvider {
             mOntology = mOwlManager.loadOntologyFromOntologyDocument(owlFile);
             mPrefix = mOntology.getOntologyID().getOntologyIRI() + IRI_SEPARATOR;
             mReasoner = new Reasoner(mOntology);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (OWLOntologyCreationException e) {
+        } catch (NullPointerException | URISyntaxException | OWLOntologyCreationException e) {
             e.printStackTrace();
         }
     }
@@ -103,8 +97,9 @@ public class OntologyProvider {
      */
     public boolean check() {
         boolean result = checkConsistency();
-        if (!result)
+        if (!result) {
             System.err.println("There is an error in the ontology... I may misbehave.");
+        }
         return result;
     }
 
@@ -127,7 +122,7 @@ public class OntologyProvider {
      * @return All sublasses of className
      */
     private List<String> getAllSubclasses(String className, boolean directSublasses) {
-        List<String> subclasses = new ArrayList<String>();
+        List<String> subclasses = new ArrayList<>();
         IRI iri = IRI.create(mPrefix + className);
         OWLClassExpression teamSport = mOwlDataFactory.getOWLClass(iri);
         NodeSet<OWLClass> allTeamSports = mReasoner.getSubClasses(teamSport, directSublasses); // true -> direct subclasses /!\ Nothing
@@ -150,7 +145,7 @@ public class OntologyProvider {
      * @return All sublasses returned by the query
      */
     private List<String> dlQuery(String query, boolean directSublasses) {
-        List<String> subclasses = new ArrayList<String>();
+        List<String> subclasses = new ArrayList<>();
         ShortFormProvider shortFormProvider = new SimpleShortFormProvider();   // Do we really need that ?
         DLQueryParser parser = new DLQueryParser(mOntology, shortFormProvider);
         OWLClassExpression classExpression = null;
@@ -179,8 +174,24 @@ public class OntologyProvider {
      * @param query The query
      * @return A list containing all sports returned by the query
      */
-    public List<Sport> SportsByDlQuery(String query) {
+    public List<Sport> sportsByDlQuery(String query) {
         return castToSport(dlQuery(query, true));
+    }
+
+    public List<Sport> sportsByDlQueryUnion(DLQuery query) {
+        List<Sport> positive = castToSport(dlQuery(query.getQuery(), true));
+        List<List<Sport>> negative = new ArrayList<>();
+        for (String notQuery : query.getNotQuery()) {
+            negative.add(castToSport(dlQuery(notQuery, true)));
+        }
+        for (List<Sport> ls : negative) {
+            for (Sport s : ls) {
+                if (positive.contains(s)) {
+                    positive.remove(s);
+                }
+            }
+        }
+        return positive;
     }
 
     /**
@@ -320,7 +331,7 @@ public class OntologyProvider {
      * @return A sports list
      */
     private List<Sport> castToSport(List<String> list) {
-        List<Sport> sportsList = new ArrayList<Sport>();
+        List<Sport> sportsList = new ArrayList<>();
         for (String name : list) {
             sportsList.add(new Sport(name));
         }
@@ -334,7 +345,7 @@ public class OntologyProvider {
      * @return A sport categories list
      */
     private List<SportCategory> castToSportCategory(List<String> list) {
-        List<SportCategory> sportCategoriesList = new ArrayList<SportCategory>();
+        List<SportCategory> sportCategoriesList = new ArrayList<>();
         for (String name : list) {
             sportCategoriesList.add(new SportCategory(name));
         }
@@ -348,7 +359,7 @@ public class OntologyProvider {
      * @return A location list
      */
     private List<Location> castToLocation(List<String> list) {
-        List<Location> locationList = new ArrayList<Location>();
+        List<Location> locationList = new ArrayList<>();
         for (String name : list) {
             locationList.add(new Location(name));
         }

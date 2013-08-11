@@ -2,6 +2,7 @@ package co.schmitt.si;
 
 import co.schmitt.si.db.DBProvider;
 import co.schmitt.si.gui.MainGUI;
+import co.schmitt.si.model.DLQuery;
 import co.schmitt.si.model.Question;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.ontology.DLQueryBuilder;
@@ -26,6 +27,19 @@ public class Main implements ActionListener {
     private MainGUI mGui;
 
     /**
+     * Constructor - Initializes the GUI
+     */
+    public Main() {
+        mParser = new Parser();
+        mScenario = new Stack<>();
+        mCurrentQuestion = mParser.getFirstQuestion();
+        mGui = new MainGUI();
+        mGui.registerAnswerListener(this);
+        mGui.registerBackButtonListener(this);
+        updateGui();
+    }
+
+    /**
      * Starts the construction of the main frame.
      *
      * @param args
@@ -38,19 +52,6 @@ public class Main implements ActionListener {
                 main.getGui().setVisible(true);
             }
         });
-    }
-
-    /**
-     * Constructor - Initializes the GUI
-     */
-    public Main() {
-        mParser = new Parser();
-        mScenario = new Stack<>();
-        mCurrentQuestion = mParser.getFirstQuestion();
-        mGui = new MainGUI();
-        mGui.registerAnswerListener(this);
-        mGui.registerBackButtonListener(this);
-        updateGui();
     }
 
     /**
@@ -71,18 +72,22 @@ public class Main implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         // Ignore all but "answer" actions
         String actionCmd = actionEvent.getActionCommand();
-        if (actionCmd.equals(MainGUI.ACTION_ANSWER)) {
-            mCurrentQuestion.setAnswer(mGui.getAnswer());
-            mScenario.add(mCurrentQuestion);
-            System.out.println(mCurrentQuestion);
-            proceedToNextQuestion();
-        } else if (actionCmd.equals(MainGUI.ACTION_START_OVER)) {
-            mScenario.clear();
-            mCurrentQuestion = mParser.getFirstQuestion();
-            mGui.restart();
-            updateGui();
-        } else if (actionCmd.equals(MainGUI.ACTION_BACK)) {
-            rollbackGui();
+        switch (actionCmd) {
+            case MainGUI.ACTION_ANSWER:
+                mCurrentQuestion.setAnswer(mGui.getAnswer());
+                mScenario.add(mCurrentQuestion);
+                System.out.println(mCurrentQuestion);
+                proceedToNextQuestion();
+                break;
+            case MainGUI.ACTION_START_OVER:
+                mScenario.clear();
+                mCurrentQuestion = mParser.getFirstQuestion();
+                mGui.restart();
+                updateGui();
+                break;
+            case MainGUI.ACTION_BACK:
+                rollbackGui();
+                break;
         }
     }
 
@@ -113,6 +118,9 @@ public class Main implements ActionListener {
             System.out.println("Matched: " + s.getName());
         }
         List<Sport> timeTableData = getTimeTableData(sports);
+        for (Sport s : timeTableData) {
+            System.out.println(s.dump());
+        }
         mGui.showTimeTable(timeTableData);
     }
 
@@ -149,9 +157,10 @@ public class Main implements ActionListener {
      */
     private List<Sport> queryOntology() {
         OntologyProvider provider = OntologyProvider.getInstance();
-        String dlQuery = DLQueryBuilder.buildQuery(mScenario);
-        System.err.println(dlQuery);
-        return provider.SportsByDlQuery(dlQuery);
+        DLQuery dlQuery = DLQueryBuilder.buildQuery(mScenario);
+        System.err.println("DL: " + dlQuery.getQuery());
+        System.err.println("NOT-DL: " + dlQuery.getNotQuery());
+        return provider.sportsByDlQueryUnion(dlQuery);
     }
 
     /**
