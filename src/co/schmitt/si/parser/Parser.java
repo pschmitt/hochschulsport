@@ -63,7 +63,6 @@ public class Parser {
      * @return The next question
      */
     public Question getNextQuestion(Question question) {
-        int nid = question.getNextQuestionId();
         Element currentQuestion = questionsList
                 .get(question.getNextQuestionId() - 1);
         return getQuestion(currentQuestion);

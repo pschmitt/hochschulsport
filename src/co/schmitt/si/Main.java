@@ -105,6 +105,7 @@ public class Main implements ActionListener {
             updateGui();
         } else {
             // Reached end of scenario
+            mGui.hideBackButton();
             displayResults();
         }
     }
@@ -133,6 +134,9 @@ public class Main implements ActionListener {
      * Update the user interface: display current question and possible answers
      */
     private void updateGui() {
+        if (mCurrentQuestion.isFirstQuestion()) {
+            mGui.hideBackButton();
+        }
         mGui.setQuestion(mCurrentQuestion.getQuestion());
         mGui.setChoices(mCurrentQuestion.getChoices());
         if (mScenario.size() > 0) {

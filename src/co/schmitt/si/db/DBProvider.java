@@ -45,6 +45,7 @@ public class DBProvider {
      *
      * @param sport The sport
      * @return Sport item, holding all extra data (fees, ...)
+     * @deprecated Use gradDetails(sport) instead
      */
     @Deprecated
     private static Sport grabDetailsLegacy(Sport sport) {
