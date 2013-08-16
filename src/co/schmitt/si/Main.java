@@ -123,11 +123,16 @@ public class Main implements ActionListener {
         for (Sport s : sports) {
             System.out.println("Matched: " + s.getName());
         }
-        List<Sport> timeTableData = getTimeTableData(sports);
-        for (Sport s : timeTableData) {
-            System.out.println(s.dump());
+        if (sports == null || sports.size() < 1) {
+            mGui.showNoSportMatchedPopup();
+            mGui.showBackButton();
+        } else {
+            List<Sport> timeTableData = getTimeTableData(sports);
+            for (Sport s : timeTableData) {
+                System.out.println(s.dump());
+            }
+            mGui.showTimeTable(timeTableData);
         }
-        mGui.showTimeTable(timeTableData);
     }
 
     /**

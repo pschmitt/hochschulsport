@@ -23,6 +23,8 @@ public class MainGUI extends JFrame {
     private static final String LABEL_BACK = "<< Zur\u00FCck";
     private static final String LABEL_TIMETABLE = "Ihr pers\u00f6nlicher Studenplan: ";
     private static final String LABEL_TITLE = "Hochschulsport";
+    private static final String ERROR_NO_RESULT = "No sport matched!";
+    private static final String ERROR_NO_SPORT_TITLE = "Woops";
 
     private JPanel cards;
     private JLabel questionLabel;
@@ -203,6 +205,13 @@ public class MainGUI extends JFrame {
      */
     public void hideBackButton() {
         backButton.setVisible(false);
+    }
+
+    /**
+     * Display a simple error dialog stating that no sport was matched (ontology)
+     */
+    public void showNoSportMatchedPopup() {
+        JOptionPane.showMessageDialog(this, ERROR_NO_RESULT, ERROR_NO_SPORT_TITLE, JOptionPane.ERROR_MESSAGE);
     }
 
     /**
