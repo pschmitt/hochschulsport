@@ -124,6 +124,7 @@ public class Main implements ActionListener {
             System.out.println("Matched: " + s.getName());
         }
         if (sports == null || sports.size() < 1) {
+            // No matching sports returned
             mGui.showNoSportMatchedPopup();
             mGui.showBackButton();
         } else {

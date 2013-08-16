@@ -59,7 +59,7 @@ public class TrainingDate {
             TrainingDate comparandum = (TrainingDate) obj;
             return (this.day == comparandum.getDay() && this.startTime.equals(comparandum.getStartTime()) && this.endTime.equals(comparandum.getEndTime()));
         }
-        return super.equals(obj);    //To change body of overridden methods use File | Settings | File Templates.
+        return super.equals(obj);
     }
 
     @Override

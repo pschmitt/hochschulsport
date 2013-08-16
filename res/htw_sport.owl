@@ -2493,7 +2493,7 @@
         <Class IRI="#Unterwasserrugby"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Wassersport"/>
+            <Class IRI="#Ballsport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -2693,6 +2693,94 @@
             <Class IRI="#Einzelsport"/>
         </ObjectExactCardinality>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Aerobic"/>
+        <Class IRI="#Aikido"/>
+        <Class IRI="#Aquafitness"/>
+        <Class IRI="#Badminton"/>
+        <Class IRI="#Bahnradsport"/>
+        <Class IRI="#Baseball"/>
+        <Class IRI="#Bauch-Killer"/>
+        <Class IRI="#Bauch-_und_Rücken-Fit_mit_Flexi-Bar"/>
+        <Class IRI="#Bauch_-_Beine_-_Po"/>
+        <Class IRI="#Beachvolleyball"/>
+        <Class IRI="#Body_&amp;_Mind"/>
+        <Class IRI="#Body_Fight"/>
+        <Class IRI="#Body_andHeadis"/>
+        <Class IRI="#Boule"/>
+        <Class IRI="#Boxen"/>
+        <Class IRI="#Capoeira"/>
+        <Class IRI="#Cheerleading"/>
+        <Class IRI="#Drachenbootrennen"/>
+        <Class IRI="#Entspannung"/>
+        <Class IRI="#Fechten"/>
+        <Class IRI="#Feldenkrais_–_Bewusstheit_durch_Bewegung"/>
+        <Class IRI="#Fit_and_Dance"/>
+        <Class IRI="#Flamenco"/>
+        <Class IRI="#Floorball"/>
+        <Class IRI="#Fußball"/>
+        <Class IRI="#Gerätturnen"/>
+        <Class IRI="#Groupfitness_for_free"/>
+        <Class IRI="#Handball"/>
+        <Class IRI="#Headis"/>
+        <Class IRI="#Hip_Hop"/>
+        <Class IRI="#Hot_Iron™"/>
+        <Class IRI="#Inline-Skating"/>
+        <Class IRI="#Inline_Hockey"/>
+        <Class IRI="#Irish_Dance"/>
+        <Class IRI="#Jazz-Dance"/>
+        <Class IRI="#Jazz-_und_Modern_Dance"/>
+        <Class IRI="#Jonglieren"/>
+        <Class IRI="#Ju-Jitsu"/>
+        <Class IRI="#Judo"/>
+        <Class IRI="#Kanu_und_Kajak"/>
+        <Class IRI="#Karate"/>
+        <Class IRI="#Kickboxen"/>
+        <Class IRI="#Klassisches_Ballett"/>
+        <Class IRI="#Klettern"/>
+        <Class IRI="#Lacrosse"/>
+        <Class IRI="#Laufen"/>
+        <Class IRI="#Lindy_Hop"/>
+        <Class IRI="#Massage"/>
+        <Class IRI="#Meditation"/>
+        <Class IRI="#Orientierungslauf"/>
+        <Class IRI="#Pilates"/>
+        <Class IRI="#Power_Workout"/>
+        <Class IRI="#Prellball_und_Sportspiele"/>
+        <Class IRI="#Progressive_Muskelentspannung"/>
+        <Class IRI="#Reiten"/>
+        <Class IRI="#Renaissance-Fechten"/>
+        <Class IRI="#Rock_‘n‘_Mind_–_Be_Balanced"/>
+        <Class IRI="#Rock_‘n‘_Roll"/>
+        <Class IRI="#Rudern"/>
+        <Class IRI="#Rugby"/>
+        <Class IRI="#Rückenschule"/>
+        <Class IRI="#Salsa"/>
+        <Class IRI="#Schwimmen"/>
+        <Class IRI="#Segelfliegen"/>
+        <Class IRI="#Segeln"/>
+        <Class IRI="#Segeln_und_Motorbootfahren"/>
+        <Class IRI="#Selbstverteidigung"/>
+        <Class IRI="#Slacklining"/>
+        <Class IRI="#Speed-Badminton"/>
+        <Class IRI="#Sportabzeichen"/>
+        <Class IRI="#Sportschießen"/>
+        <Class IRI="#Squash"/>
+        <Class IRI="#Standard-_und_Lateintanz"/>
+        <Class IRI="#Tai_Chi"/>
+        <Class IRI="#Tennis"/>
+        <Class IRI="#Tischtennis"/>
+        <Class IRI="#Trampolin"/>
+        <Class IRI="#Ultimate_Frisbee"/>
+        <Class IRI="#Unterwasserrugby"/>
+        <Class IRI="#Volleyball"/>
+        <Class IRI="#Wasserball"/>
+        <Class IRI="#Windsurfen"/>
+        <Class IRI="#Wirbelsäulengymnastik"/>
+        <Class IRI="#Yoga"/>
+        <Class IRI="#Zirkuskünste"/>
+        <Class IRI="#Zumba®"/>
+    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#AufDemWasser"/>
         <Class IRI="#ImWasser"/>
