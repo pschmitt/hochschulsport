@@ -5,6 +5,7 @@ import co.schmitt.si.model.Sport;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -184,7 +185,15 @@ public class MainGUI extends JFrame {
     public void showTimeTable(List<Sport> sports) {
         // TODO: Parse and display sports !
         TimeTableModel model = (TimeTableModel) timeTable.getModel();
-        model.add(sports);
+        List<Sport> validSports = new ArrayList<>();
+        for (Sport s : sports) {
+            if (s.hasValidTrainingDates()) {
+                s.setTrainingDates(s.getValidTrainingDates());
+                validSports.add(s);
+            }
+        }
+        //        model.add(removeEmptyDates(sports));
+        model.add(validSports);
         model.fireTableDataChanged();
         setCard(CARD_TIMETABLE);
         // answerButton.setVisible(false);
@@ -192,6 +201,26 @@ public class MainGUI extends JFrame {
         answerButton.setActionCommand(ACTION_START_OVER);
         setQuestion(LABEL_TIMETABLE);
     }
+
+    /*private List<Sport> removeEmptyDates(List<Sport> sportList) {
+        List<Sport> sportsWithValidTrainingDates = new ArrayList<>();
+        for (Sport s : sportList) {
+            List<TrainingDate> trainingDates = s.getTrainingDates();
+            if (trainingDates != null && !trainingDates.isEmpty()) {
+                List<TrainingDate> nonEmptyTrainingDates = new ArrayList<>();
+                for (TrainingDate td : trainingDates) {
+                    if (td.getDay() != null) {
+                        nonEmptyTrainingDates.add(td);
+                    }
+                }
+                s.setTrainingDates(nonEmptyTrainingDates);
+                if (!nonEmptyTrainingDates.isEmpty()) {
+                    sportsWithValidTrainingDates.add(s);
+                }
+            }
+        }
+        return sportsWithValidTrainingDates;
+    }*/
 
     /**
      * Shows the back button

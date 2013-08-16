@@ -49,6 +49,10 @@ public class TrainingDate {
         }
     }
 
+    public boolean isValidTraningDate() {
+        return (this.day != null);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj != null && obj instanceof TrainingDate && this.endTime != null && this.startTime != null) {
@@ -60,7 +64,10 @@ public class TrainingDate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(this.day.toString()).append(" - ");
+        StringBuilder sb = new StringBuilder();
+        if (this.day != null) {
+            sb.append(this.day.toString()).append(" - ");
+        }
         if (startTime != null) {
             sb.append(startTime.toString());
         }

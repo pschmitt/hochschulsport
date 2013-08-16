@@ -73,6 +73,20 @@ public class Sport {
         this.mTrainingDates = mTrainingDates;
     }
 
+    public boolean hasValidTrainingDates() {
+        return !getValidTrainingDates().isEmpty();
+    }
+
+    public List<TrainingDate> getValidTrainingDates() {
+        List<TrainingDate> validTrainingDates = new ArrayList<>();
+        for (TrainingDate td : mTrainingDates) {
+            if (td.isValidTraningDate()) {
+                validTrainingDates.add(td);
+            }
+        }
+        return validTrainingDates;
+    }
+
     public String dump() {
         StringBuilder sb = new StringBuilder();
         sb.append(mName).append(" - Fees: ").append(mFees).append("EUR").append(" Parts: ").append(mParticipants).append("(").append(mMinParticipants).append("|").append(mMaxParticipants).append(")\nDates: ");
