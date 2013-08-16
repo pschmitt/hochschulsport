@@ -124,7 +124,7 @@
         <Class IRI="#Floorball"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Fussball"/>
+        <Class IRI="#Fußball"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Gerätturnen"/>
@@ -1032,25 +1032,25 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fussball"/>
+        <Class IRI="#Fußball"/>
         <Class IRI="#Sportart"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fussball"/>
+        <Class IRI="#Fußball"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
             <Class IRI="#Ballsport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fussball"/>
+        <Class IRI="#Fußball"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#hatOrt"/>
             <Class IRI="#Draußen"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fussball"/>
+        <Class IRI="#Fußball"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#istMannschaftssport"/>
             <Class IRI="#Mannschaftssport"/>

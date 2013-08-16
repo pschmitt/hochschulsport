@@ -2,6 +2,7 @@ package co.schmitt.si.db;
 
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.TrainingDate;
+import co.schmitt.si.ontology.OntologyString;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class DBProvider {
                 mConnnection = getConnection();
             }
             PreparedStatement ps = mConnnection.prepareStatement(DBQueries.SQL_DETAIL_LEGACY);
-            ps.setString(1, sport.getName());
+            ps.setString(1, OntologyString.convert(sport.getName()));
             ResultSet result = ps.executeQuery();
             // TODO Error handling
             int maxParticipants = -1, fees = -1, participants = -1, weekDay;
@@ -99,7 +100,7 @@ public class DBProvider {
                 mConnnection = getConnection();
             }
             PreparedStatement ps = mConnnection.prepareStatement(DBQueries.SQL_DETAILS);
-            ps.setString(1, sport.getName());
+            ps.setString(1, OntologyString.convert(sport.getName()));
             ResultSet result = ps.executeQuery();
             // TODO Error handling
             int maxParticipants = -1, minParticipants = -1, fees = -1, participants = -1, weekDay;
@@ -125,8 +126,16 @@ public class DBProvider {
                 //                participants = result.getInt(FIELD_PARTICIPANTS);
                 fees = result.getInt(DBFields.FIELD_FEES);
                 weekDay = result.getInt(DBFields.FIELD_WEEK_DAY);
-                startTime = result.getTime(DBFields.FIELD_START_TIME);
-                endTime = result.getTime(DBFields.FIELD_END_TIME);
+                if (result.getTime(DBFields.FIELD_START_TIME) != null) {
+                    startTime = result.getTime(DBFields.FIELD_START_TIME);
+                } else {
+                    startTime = null;
+                }
+                if (result.getTime(DBFields.FIELD_END_TIME) != null) {
+                    endTime = result.getTime(DBFields.FIELD_END_TIME);
+                } else {
+                    endTime = null;
+                }
                 // Build TrainingDate object and add it to the list if not already present
                 trainingDate = new TrainingDate(weekDay, startTime, endTime);
                 if (!trainingDates.contains(trainingDate)) {

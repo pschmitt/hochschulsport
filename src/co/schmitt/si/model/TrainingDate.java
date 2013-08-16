@@ -9,10 +9,6 @@ import java.util.GregorianCalendar;
  */
 public class TrainingDate {
 
-    public enum DAY {
-        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
-    }
-
     private DAY day;
     private Time startTime;
     private Time endTime;
@@ -43,15 +39,19 @@ public class TrainingDate {
         }
 
         Calendar calendar = GregorianCalendar.getInstance();
-        calendar.setTime(startTime);
-        this.startTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
-        calendar.setTime(endTime);
-        this.endTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+        if (startTime != null) {
+            calendar.setTime(startTime);
+            this.startTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+        }
+        if (endTime != null) {
+            calendar.setTime(endTime);
+            this.endTime = new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof TrainingDate) {
+        if (obj != null && obj instanceof TrainingDate && this.endTime != null && this.startTime != null) {
             TrainingDate comparandum = (TrainingDate) obj;
             return (this.day == comparandum.getDay() && this.startTime.equals(comparandum.getStartTime()) && this.endTime.equals(comparandum.getEndTime()));
         }
@@ -61,8 +61,12 @@ public class TrainingDate {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(this.day.toString()).append(" - ");
-        sb.append(startTime.toString());
-        sb.append(" - ").append(endTime.toString()).append(" Uhr");
+        if (startTime != null) {
+            sb.append(startTime.toString());
+        }
+        if (endTime != null) {
+            sb.append(" - ").append(endTime.toString()).append(" Uhr");
+        }
         return sb.toString();
     }
 
@@ -76,6 +80,10 @@ public class TrainingDate {
 
     public Time getEndTime() {
         return endTime;
+    }
+
+    public enum DAY {
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
     }
 
     public class Time {
@@ -106,6 +114,9 @@ public class TrainingDate {
 
         @Override
         public String toString() {
+            if (hours < 0 && minutes < 0) {
+                return "?";
+            }
             StringBuilder sb = new StringBuilder();
             if (hours < 10) {
                 sb.append("0");
