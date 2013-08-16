@@ -223,6 +223,9 @@
         <Class IRI="#Meditation"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Misc."/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Miscellaneous"/>
     </Declaration>
     <Declaration>
@@ -1688,6 +1691,10 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Misc."/>
+        <Class IRI="#Sportkategorie"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Miscellaneous"/>
         <Class IRI="#Sportkategorie"/>
     </SubClassOf>
@@ -2468,7 +2475,7 @@
         <Class IRI="#Ultimate_Frisbee"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Ballsport"/>
+            <Class IRI="#Misc."/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
