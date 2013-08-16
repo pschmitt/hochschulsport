@@ -145,7 +145,7 @@ public class DBProvider {
             sport.setMaxParticipants(maxParticipants);
             sport.setParticipants(participants);
             sport.setMaxParticipants(maxParticipants);
-            sport.setMinnParticipants(minParticipants);
+            sport.setMinParticipants(minParticipants);
             sport.setFees(fees);
             sport.setTrainingDates(trainingDates);
 

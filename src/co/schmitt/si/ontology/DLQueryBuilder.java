@@ -57,7 +57,15 @@ public class DLQueryBuilder {
                     }
                     break;
                 case LOCATION:
-                    dlQuery += DLQueries.SPORTS_BY_LOCATION + answer + CONNECTOR_AND;
+                    if (isBooleanAnswer(answer) && q.getTopic() != null) {
+                        if (answerToBoolean(answer)) {
+                            dlQuery += DLQueries.SPORTS_BY_LOCATION + q.getTopic() + CONNECTOR_AND;
+                        } else {
+                            notDlQueries.add(DLQueries.SPORTS_BY_LOCATION + q.getTopic());
+                        }
+                    } else {
+                        dlQuery += DLQueries.SPORTS_BY_LOCATION + answer + CONNECTOR_AND;
+                    }
                     break;
             }
         }

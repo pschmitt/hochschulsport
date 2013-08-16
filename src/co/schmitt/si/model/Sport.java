@@ -1,5 +1,7 @@
 package co.schmitt.si.model;
 
+import co.schmitt.si.ontology.OntologyString;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,13 +26,17 @@ public class Sport {
     }
 
     public String getStringRepresentation(TrainingDate date) {
-        StringBuilder sb = new StringBuilder(mName);
+        StringBuilder sb = new StringBuilder(getClearName());
         sb.append(": ").append(date);
         return sb.toString();
     }
 
     public String getName() {
         return this.mName;
+    }
+
+    public String getClearName() {
+        return OntologyString.convert(this.mName);
     }
 
     public int getFees() {
@@ -49,7 +55,7 @@ public class Sport {
         this.mMaxParticipants = maxParticipants;
     }
 
-    public void setMinnParticipants(int minParticipants) {
+    public void setMinParticipants(int minParticipants) {
         this.mMinParticipants = minParticipants;
     }
 
