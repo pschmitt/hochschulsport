@@ -2547,7 +2547,7 @@
         <Class IRI="#Wasserball"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#gehoertZuOberkategorie"/>
-            <Class IRI="#Wassersport"/>
+            <Class IRI="#Ballsport"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>

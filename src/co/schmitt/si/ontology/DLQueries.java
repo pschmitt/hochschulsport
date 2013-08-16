@@ -8,7 +8,7 @@ public final class DLQueries {
 
     protected static final String TEAM_OR_INDIVIDUAL_SPORT = "istMannschaftssport exactly 1 ";
     protected static final String SPORTS_BY_CATEGORY = "gehoertZuOberkategorie exactly 1 ";
-    protected static final String SPORTS_BY_LOCATION = "hatOrt exactly 1 ";
+    protected static final String SPORTS_BY_LOCATION = "hatOrt some ";
     protected static final String ALL_SPORTS = "Sportart ";
     protected static final String SPORTS_INDOOR = "hatOrt exactly 1 Drinnen";
     protected static final String SPORTS_OUTDOOR = "hatOrt exactly 1 Draussen";
