@@ -86,7 +86,7 @@ public class Main implements ActionListener {
                 updateGui();
                 break;
             case MainGUI.ACTION_BACK:
-                // TODO DEbug
+                // TODO Debug
                 mCurrentQuestion = mScenario.pop();
                 if (mScenario.isEmpty()) {
                     mCurrentQuestion = mParser.getFirstQuestion();

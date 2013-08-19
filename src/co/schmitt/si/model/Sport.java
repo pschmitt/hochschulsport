@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by pschmitt on 7/25/13.
  */
-public class Sport {
+public class Sport extends Object {
     private String mName;
     private int mFees;
     private int mParticipants;
@@ -86,7 +86,7 @@ public class Sport {
     public List<TrainingDate> getValidTrainingDates() {
         List<TrainingDate> validTrainingDates = new ArrayList<>();
         for (TrainingDate td : mTrainingDates) {
-            if (td.isValidTraningDate()) {
+            if (td.isValidTrainingDate() && !validTrainingDates.contains(td)) { // is this last check really necessary ?
                 validTrainingDates.add(td);
             }
         }

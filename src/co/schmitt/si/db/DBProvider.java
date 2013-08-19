@@ -3,6 +3,7 @@ package co.schmitt.si.db;
 import co.schmitt.si.model.Sport;
 import co.schmitt.si.model.TrainingDate;
 import co.schmitt.si.ontology.OntologyString;
+import co.schmitt.si.tools.ListDuplicateRemover;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -147,6 +148,7 @@ public class DBProvider {
             sport.setMaxParticipants(maxParticipants);
             sport.setMinParticipants(minParticipants);
             sport.setFees(fees);
+            trainingDates = ListDuplicateRemover.removeDuplicates(trainingDates);
             sport.setTrainingDates(trainingDates);
 
         } catch (SQLException e) {

@@ -49,17 +49,33 @@ public class TrainingDate {
         }
     }
 
-    public boolean isValidTraningDate() {
+    public boolean isValidTrainingDate() {
         return (this.day != null);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj != null && obj instanceof TrainingDate && this.endTime != null && this.startTime != null) {
-            TrainingDate comparandum = (TrainingDate) obj;
-            return (this.day == comparandum.getDay() && this.startTime.equals(comparandum.getStartTime()) && this.endTime.equals(comparandum.getEndTime()));
+        if (obj != null && obj instanceof TrainingDate) {
+            return (this.hashCode() == obj.hashCode());
         }
         return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        if (this.day != null) {
+            hash = hash * 11 + this.day.ordinal();
+        }
+        if (this.startTime != null) {
+            hash = hash * 17 + this.startTime.hours;
+            hash = hash * 19 + this.startTime.minutes;
+        }
+        if (this.endTime != null) {
+            hash = hash * 23 + this.endTime.hours;
+            hash = hash * 29 + this.endTime.minutes;
+        }
+        return hash;
     }
 
     @Override
@@ -117,6 +133,14 @@ public class TrainingDate {
                 return (this.minutes == compTime.getMinutes() && this.hours == compTime.getHours());
             }
             return super.equals(obj);
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 1;
+            hash = hash * 17 + hours;
+            hash = hash * 31 + minutes;
+            return hash;
         }
 
         @Override
