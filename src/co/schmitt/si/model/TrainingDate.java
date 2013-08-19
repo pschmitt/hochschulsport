@@ -78,18 +78,24 @@ public class TrainingDate {
         return hash;
     }
 
-    @Override
-    public String toString() {
+    public String getStringRepresentation() {
         StringBuilder sb = new StringBuilder();
-        if (this.day != null) {
-            sb.append(this.day.toString()).append(" - ");
-        }
         if (startTime != null) {
             sb.append(startTime.toString());
         }
         if (endTime != null) {
             sb.append(" - ").append(endTime.toString()).append(" Uhr");
         }
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (this.day != null) {
+            sb.append(this.day.toString()).append(" - ");
+        }
+        sb.append(getStringRepresentation());
         return sb.toString();
     }
 

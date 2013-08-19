@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by pschmitt on 7/25/13.
  */
-public class Sport extends Object {
+public class Sport {
     private String mName;
     private int mFees;
     private int mParticipants;
@@ -27,7 +27,7 @@ public class Sport extends Object {
 
     public String getStringRepresentation(TrainingDate date) {
         StringBuilder sb = new StringBuilder(getClearName());
-        sb.append(": ").append(date);
+        sb.append(": ").append(date.getStringRepresentation());
         return sb.toString();
     }
 

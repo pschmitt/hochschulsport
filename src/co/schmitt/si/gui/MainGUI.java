@@ -185,6 +185,7 @@ public class MainGUI extends JFrame {
     public void showTimeTable(List<Sport> sports) {
         // TODO: Parse and display sports !
         TimeTableModel model = (TimeTableModel) timeTable.getModel();
+        // Only display sport that have valid training dates
         List<Sport> validSports = new ArrayList<>();
         for (Sport s : sports) {
             if (s.hasValidTrainingDates()) {
@@ -192,7 +193,6 @@ public class MainGUI extends JFrame {
                 validSports.add(s);
             }
         }
-        //        model.add(removeEmptyDates(sports));
         model.add(validSports);
         model.fireTableDataChanged();
         setCard(CARD_TIMETABLE);
@@ -201,26 +201,6 @@ public class MainGUI extends JFrame {
         answerButton.setActionCommand(ACTION_START_OVER);
         setQuestion(LABEL_TIMETABLE);
     }
-
-    /*private List<Sport> removeEmptyDates(List<Sport> sportList) {
-        List<Sport> sportsWithValidTrainingDates = new ArrayList<>();
-        for (Sport s : sportList) {
-            List<TrainingDate> trainingDates = s.getTrainingDates();
-            if (trainingDates != null && !trainingDates.isEmpty()) {
-                List<TrainingDate> nonEmptyTrainingDates = new ArrayList<>();
-                for (TrainingDate td : trainingDates) {
-                    if (td.getDay() != null) {
-                        nonEmptyTrainingDates.add(td);
-                    }
-                }
-                s.setTrainingDates(nonEmptyTrainingDates);
-                if (!nonEmptyTrainingDates.isEmpty()) {
-                    sportsWithValidTrainingDates.add(s);
-                }
-            }
-        }
-        return sportsWithValidTrainingDates;
-    }*/
 
     /**
      * Shows the back button
