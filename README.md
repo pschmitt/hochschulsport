@@ -16,3 +16,8 @@ Installation
 ===
 
 $ git clone https://github.com/pschmitt/hochschulsport.git
+
+Links
+===
+- [Eclipse project archive](http://schmitt.co/si/hochschulsport-eclipse-latest.zip)
+- [Intellij IDEA project archive](http://schmitt.co/si/hochschulsport-idea-latest.zip)
