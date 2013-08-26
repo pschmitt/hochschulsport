@@ -16,12 +16,12 @@ import java.util.List;
  */
 public class DBProvider {
     private static final String HSQL_JDBC = "org.hsqldb.jdbcDriver";
-    private static final String DB_FILE_LEGACY = "jdbc:hsqldb:file:res/database/";
+    private static final String DB_FILE_LEGACY = "jdbc:hsqldb:res/database/";
     private static final String DB_FILE = "jdbc:hsqldb:res:database/hochschulsport";
     private static final String DB_USER = "SA";
     private static final String DB_PASSWORD = "";
     public static boolean LEGACY = false;
-    private static Connection mConnnection;
+    private static Connection mConnection;
 
     private DBProvider() {}
 
@@ -52,10 +52,10 @@ public class DBProvider {
     @Deprecated
     private static Sport grabDetailsLegacy(Sport sport) {
         try {
-            if (mConnnection == null) {
-                mConnnection = getConnection();
+            if (mConnection == null) {
+                mConnection = getConnection();
             }
-            PreparedStatement ps = mConnnection.prepareStatement(DBQueries.SQL_DETAIL_LEGACY);
+            PreparedStatement ps = mConnection.prepareStatement(DBQueries.SQL_DETAIL_LEGACY);
             ps.setString(1, OntologyString.convert(sport.getName()));
             ResultSet result = ps.executeQuery();
             // TODO Error handling
@@ -97,10 +97,10 @@ public class DBProvider {
      */
     private static Sport grabDetails(Sport sport) {
         try {
-            if (mConnnection == null) {
-                mConnnection = getConnection();
+            if (mConnection == null) {
+                mConnection = getConnection();
             }
-            PreparedStatement ps = mConnnection.prepareStatement(DBQueries.SQL_DETAILS);
+            PreparedStatement ps = mConnection.prepareStatement(DBQueries.SQL_DETAILS);
             ps.setString(1, OntologyString.convert(sport.getName()));
             ResultSet result = ps.executeQuery();
             // TODO Error handling
@@ -161,13 +161,13 @@ public class DBProvider {
      * Close database
      */
     private static void close() {
-        if (mConnnection == null) {
+        if (mConnection == null) {
             return;
         }
         try {
-            mConnnection.prepareStatement(DBQueries.SQL_HALT).execute();
-            mConnnection.close(); // Is this necessary ?
-            mConnnection = null;
+            mConnection.prepareStatement(DBQueries.SQL_HALT).execute();
+            mConnection.close(); // Is this necessary ?
+            mConnection = null;
         } catch (SQLException e) {
             e.printStackTrace();
         }

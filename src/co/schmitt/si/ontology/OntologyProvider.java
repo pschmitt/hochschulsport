@@ -14,9 +14,7 @@ import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-import java.io.File;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -41,26 +39,6 @@ public class OntologyProvider {
     private OWLOntology mOntology;
     private String mPrefix;
     private Reasoner mReasoner;
-    /*private static final String INDOOR_SPORTS = "SportartenDrinnen";
-    private static final String OUTDOOR_SPORTS = "SportartenDraussen";
-    private static final String WATER_SPORTS = "SportartenWasser";
-    private static final String BOAT_SPORTS = "SportartenBoot";
-    private static final String ON_WATER_SPORTS = "SportartenAufDemWasser";
-    private static final String IN_WATER_SPORTS = "SportartenImWasser";*/
-
-    // Sport categories
-   /* private static final String CATEGORY_ARTISTRY = "SportartenArtistik";
-    private static final String CATEGORY_ATHLETICS = "SportartenLeichtathletik";
-    private static final String CATEGORY_BALL_SPORTS = "SportartenBallSport";
-    private static final String CATEGORY_FENCING = "SportartenFechtsport";
-    private static final String CATEGORY_FITNESS = "SportartenFitness";
-    private static final String CATEGORY_MARTIAL_ARTS = "SportartenKampfsport";
-    private static final String CATEGORY_BOWLS = "SportartenKugelsport";
-    private static final String CATEGORY_MISC = "SportartenMiscellaneous";
-    private static final String CATEGORY_CYCLING = "SportartenRadsport";
-    private static final String CATEGORY_DANCING = "SportartenTanzen";
-    private static final String CATEGORY_WATER = "SportartenWassersport";
-    private static final String CATEGORY_RACKET = "SportartenSchlaegersport";*/
 
     /**
      * Constructor, sets up our object (private, cuz that's a singleton, bro !)

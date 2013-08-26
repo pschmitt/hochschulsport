@@ -1,6 +1,5 @@
 package co.schmitt.si.tools;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -26,25 +25,5 @@ public class ListDuplicateRemover {
         list.clear();
         list.addAll(hs);
         return list;
-    }
-
-    /**
-     * Remove duplicate elements from a list (deprecated)
-     * Source: http://stackoverflow.com/a/18089051/1872036
-     *
-     * @param list The list
-     * @param <T>  Any type, whatever
-     * @return A duplicate free list
-     */
-    @Deprecated
-    public static <T> List<T> removeDuplicatesLegacy(List<T> list) {
-        ArrayList<T> uniqueList = new ArrayList<>();
-        for (T obj : list) {
-            if (!uniqueList.contains(obj)) {
-                uniqueList.add(obj);
-            }
-        }
-
-        return uniqueList;
     }
 }
