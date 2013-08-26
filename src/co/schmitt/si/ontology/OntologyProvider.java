@@ -27,7 +27,7 @@ import java.util.Set;
 public class OntologyProvider {
 
     // Constants
-    private static final String ONTOLOGY_FILE = "htw_sport.owl";
+    private static final String ONTOLOGY_FILE = "htw-hochschulsport.owl";
     private static final String IRI_SEPARATOR = "#";
     private static final String SPORT_SPORTS = "Sportart";
     private static final String SPORT_LOCATIONS = "Ort";
