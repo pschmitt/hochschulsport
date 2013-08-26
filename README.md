@@ -20,6 +20,8 @@ $ git clone https://github.com/pschmitt/hochschulsport.git
 Links
 ===
 
+- [Documentation (DE)](https://docs.google.com/document/d/1r4xjyifdNr2_YpcYI2Y2S12O4C5UIxGKIe4qScan1a4/edit?usp=sharing)
 - [Eclipse project archive](http://schmitt.co/si/hochschulsport-eclipse-latest.zip)
 - [Intellij IDEA project archive](http://schmitt.co/si/hochschulsport-idea-latest.zip)
-
+- [JAR](http://schmitt.co/si/hochschulsport.jar)
+- [Executable (Windows only)](https://docs.google.com/file/d/0B9sTtxg8nXCkdUlPMldzeFo5b1E/edit?usp=sharing)
