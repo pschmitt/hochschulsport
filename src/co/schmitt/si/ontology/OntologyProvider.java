@@ -1,5 +1,6 @@
 package co.schmitt.si.ontology;
 
+import co.schmitt.si.Main;
 import co.schmitt.si.model.DLQuery;
 import co.schmitt.si.model.Location;
 import co.schmitt.si.model.Sport;
@@ -14,6 +15,7 @@ import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,13 +68,13 @@ public class OntologyProvider {
     private OntologyProvider() {
         try {
             @SuppressWarnings("ConstantConditions")
-            File owlFile = new File(ClassLoader.getSystemClassLoader().getResource(ONTOLOGY_FILE).toURI());
+            InputStream owlStream = Main.class.getClassLoader().getResourceAsStream(ONTOLOGY_FILE);
             OWLOntologyManager mOwlManager = OWLManager.createOWLOntologyManager();
             mOwlDataFactory = mOwlManager.getOWLDataFactory();
-            mOntology = mOwlManager.loadOntologyFromOntologyDocument(owlFile);
+            mOntology = mOwlManager.loadOntologyFromOntologyDocument(owlStream);
             mPrefix = mOntology.getOntologyID().getOntologyIRI() + IRI_SEPARATOR;
             mReasoner = new Reasoner(mOntology);
-        } catch (NullPointerException | URISyntaxException | OWLOntologyCreationException e) {
+        } catch (NullPointerException | OWLOntologyCreationException e) {
             e.printStackTrace();
         }
     }

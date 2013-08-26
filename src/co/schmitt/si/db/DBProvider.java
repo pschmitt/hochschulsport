@@ -17,7 +17,7 @@ import java.util.List;
 public class DBProvider {
     private static final String HSQL_JDBC = "org.hsqldb.jdbcDriver";
     private static final String DB_FILE_LEGACY = "jdbc:hsqldb:file:res/database/";
-    private static final String DB_FILE = "jdbc:hsqldb:file:res/database/hochschulsport";
+    private static final String DB_FILE = "jdbc:hsqldb:res:database/hochschulsport";
     private static final String DB_USER = "SA";
     private static final String DB_PASSWORD = "";
     public static boolean LEGACY = false;

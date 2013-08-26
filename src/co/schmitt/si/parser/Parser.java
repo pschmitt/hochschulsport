@@ -1,5 +1,6 @@
 package co.schmitt.si.parser;
 
+import co.schmitt.si.Main;
 import co.schmitt.si.model.Choice;
 import co.schmitt.si.model.Question;
 import org.jdom2.Document;
@@ -9,6 +10,7 @@ import org.jdom2.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +36,14 @@ public class Parser {
         SAXBuilder builder = new SAXBuilder();
 
         try {
-            File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(SCENARIO_FILE).toURI());
-            Document document = builder.build(xmlFile);
+            System.out.println("CP: " + System.getProperty("java.class.path"));
+//            System.out.println("URI: " + Parser.class.getResource(SCENARIO_FILE));
+//            File xmlFile = new File(Parser.class.getResource("res" + File.pathSeparatorChar + SCENARIO_FILE).toURI());
+            InputStream is = Parser.class.getClassLoader().getResourceAsStream(SCENARIO_FILE);
+            Document document = builder.build(is);
             Element rootNode = document.getRootElement();
             questionsList = rootNode.getChildren(TAG_QUESTION);
-        } catch (URISyntaxException | NullPointerException uriexp) {
+        } catch ( NullPointerException uriexp) {
             uriexp.printStackTrace();
         } catch (IOException | JDOMException io) {
             System.out.println(io.getMessage());
